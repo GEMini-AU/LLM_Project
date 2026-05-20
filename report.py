@@ -42,10 +42,13 @@ def build_question_table(results: list) -> str:
             by_q[qid] = entry
         by_q[qid]["strategies"][r["strategy"]] = r
 
+    # 动态检测策略名
+    all_strategies = sorted(set(r["strategy"] for r in results))
+
     rows = ""
     for qid, qdata in by_q.items():
         strat_html = ""
-        for sname in ["Direct", "RaR", "CoT", "RaR+CoT"]:
+        for sname in all_strategies:
             r = qdata["strategies"].get(sname)
             if not r:
                 continue
@@ -81,10 +84,22 @@ def build_question_table(results: list) -> str:
     return rows
 
 
+def _get_strategy_names(meta: dict) -> list:
+    """从 metadata 中动态检测策略名"""
+    strategies = meta.get("strategies", [])
+    if strategies:
+        return strategies
+    # 回退：从 accuracy 字段中检测
+    acc = meta.get("accuracy", {})
+    if acc:
+        return list(acc.keys())
+    return ["Direct", "RaR", "CoT", "RaR+CoT"]
+
+
 def build_accuracy_table(meta: dict) -> str:
     acc = meta.get("accuracy", {})
     rows = ""
-    for sname in ["Direct", "RaR", "CoT", "RaR+CoT"]:
+    for sname in _get_strategy_names(meta):
         if sname in acc:
             a = acc[sname]
             rows += "<tr><td>{}</td><td>{}/{}</td><td class='acc-val'>{}%</td></tr>".format(
@@ -95,10 +110,11 @@ def build_accuracy_table(meta: dict) -> str:
 
 def build_category_table(meta: dict) -> str:
     cat_acc = meta.get("accuracy_by_category", {})
+    strategies = _get_strategy_names(meta)
     lines = ""
     for cat, strats in cat_acc.items():
         cells = "<td class='cat-name'>{}</td>".format(cat)
-        for sname in ["Direct", "RaR", "CoT", "RaR+CoT"]:
+        for sname in strategies:
             val = strats.get(sname, "-")
             if val == 100.0:
                 cls = "acc-perfect"
@@ -184,7 +200,8 @@ def generate_report(json_path: str):
         cat_rows = build_category_table(meta)
         cat_table_html = ""
         if has_category:
-            cat_header = "<tr><th>Category</th><th>Direct</th><th>RaR</th><th>CoT</th><th>RaR+CoT</th></tr>"
+            strats = _get_strategy_names(meta)
+            cat_header = "<tr><th>Category</th>" + "".join("<th>{}</th>".format(s) for s in strats) + "</tr>"
             cat_table_html = '<h2 class="section-title">2. Accuracy by Category</h2><table>{}{}</table>'.format(
                 cat_header, cat_rows
             )

@@ -33,13 +33,22 @@ plt.rcParams.update({
 # 强制重建字体缓存
 fm._load_fontmanager(try_read_cache=False)
 
-STRATEGY_COLORS = {
-    "Direct": "#E74C3C",
-    "RaR": "#2ECC71",
-    "CoT": "#3498DB",
-    "RaR+CoT": "#9B59B6",
-}
-STRATEGY_ORDER = ["Direct", "RaR", "CoT", "RaR+CoT"]
+DEFAULT_COLORS = ["#E74C3C", "#2ECC71", "#3498DB", "#9B59B6", "#F39C12", "#1ABC9C", "#E67E22", "#8E44AD"]
+STRATEGY_COLORS = {}  # 动态填充
+STRATEGY_ORDER = []   # 动态填充
+
+def _init_strategy_info(results: list):
+    """从数据中提取所有策略名并分配颜色"""
+    global STRATEGY_ORDER, STRATEGY_COLORS
+    seen = []
+    for r in results:
+        s = r["strategy"]
+        if s not in seen:
+            seen.append(s)
+    STRATEGY_ORDER = seen
+    STRATEGY_COLORS = {}
+    for i, s in enumerate(seen):
+        STRATEGY_COLORS[s] = DEFAULT_COLORS[i % len(DEFAULT_COLORS)]
 
 
 def load_results(filename: str) -> dict:
@@ -275,6 +284,9 @@ if __name__ == "__main__":
     for f in files:
         print(f"\n处理 {f} ...")
         data = load_results(f)
+
+        # 从数据中动态检测策略名（兼容不同实验）
+        _init_strategy_info(data["results"])
 
         # 为每个结果文件创建图表子目录
         chart_dir = f.replace(".json", "_charts")
