@@ -136,7 +136,7 @@ def plot_latency(data: dict, outdir: str):
     data_groups = [lat_by_strat[s] for s in strat_names]
     colors = [STRATEGY_COLORS[s] for s in strat_names]
 
-    bp = ax.boxplot(data_groups, labels=strat_names, patch_artist=True,
+    bp = ax.boxplot(data_groups, tick_labels=strat_names, patch_artist=True,
                     widths=0.45, showfliers=True, showmeans=True,
                     meanprops=dict(marker="D", markerfacecolor="black", markersize=5))
 

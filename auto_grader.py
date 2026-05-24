@@ -46,6 +46,9 @@ def extract_final_answer(response: str) -> str:
         r'【答案】[：:]?\s*(.+?)(?:\n|$)',
         r'\[答案\][：:]?\s*(.+?)(?:\n|$)',
         r'最终答案[：:]\s*(.+?)(?:\n|$)',
+        r'【回答】[：:]?\s*(.+?)(?:\n|$)',   # Single-RaR 输出格式
+        r'\*\*(?:Answer|Result)[：:]?\*\*\s*(.+?)(?:\n|$)',  # Markdown 加粗答案
+        r'(?:Answer|Result)[：:]\s*(.+?)(?:\n|$)',            # 英文 Answer: 标签
     ]
     for pat in patterns:
         m = re.search(pat, response)

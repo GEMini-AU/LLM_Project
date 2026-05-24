@@ -1,0 +1,1166 @@
+[
+  {
+    "question": "Take the last letters of the words in \"Ingrid William Carmen Boris\" and concatenate them.",
+    "answer": "dmns",
+    "words": [
+      "Ingrid",
+      "William",
+      "Carmen",
+      "Boris"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Albert Valentina Patrick Sonia\" and concatenate them.",
+    "answer": "taka",
+    "words": [
+      "Albert",
+      "Valentina",
+      "Patrick",
+      "Sonia"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"William Leonardo Lorenzo Joaquin\" and concatenate them.",
+    "answer": "moon",
+    "words": [
+      "William",
+      "Leonardo",
+      "Lorenzo",
+      "Joaquin"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Jonathan Yasmin Tatiana Wendy\" and concatenate them.",
+    "answer": "nnay",
+    "words": [
+      "Jonathan",
+      "Yasmin",
+      "Tatiana",
+      "Wendy"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Ernest Ignacio Sonia Daniel\" and concatenate them.",
+    "answer": "toal",
+    "words": [
+      "Ernest",
+      "Ignacio",
+      "Sonia",
+      "Daniel"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Rebecca Christopher Xavier Hannah\" and concatenate them.",
+    "answer": "arrh",
+    "words": [
+      "Rebecca",
+      "Christopher",
+      "Xavier",
+      "Hannah"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Nathaniel Sebastian Florence Valentina\" and concatenate them.",
+    "answer": "lnea",
+    "words": [
+      "Nathaniel",
+      "Sebastian",
+      "Florence",
+      "Valentina"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Daniel Leticia Bianca Benjamin\" and concatenate them.",
+    "answer": "laan",
+    "words": [
+      "Daniel",
+      "Leticia",
+      "Bianca",
+      "Benjamin"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Upton Gregory Isidro Xavier\" and concatenate them.",
+    "answer": "nyor",
+    "words": [
+      "Upton",
+      "Gregory",
+      "Isidro",
+      "Xavier"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Katherine Fatima Gloria Raul\" and concatenate them.",
+    "answer": "eaal",
+    "words": [
+      "Katherine",
+      "Fatima",
+      "Gloria",
+      "Raul"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Dominic Sonia Winston Amanda\" and concatenate them.",
+    "answer": "cana",
+    "words": [
+      "Dominic",
+      "Sonia",
+      "Winston",
+      "Amanda"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Harrison Vicente Albert William\" and concatenate them.",
+    "answer": "netm",
+    "words": [
+      "Harrison",
+      "Vicente",
+      "Albert",
+      "William"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Marisol Isabella Octavio Helena\" and concatenate them.",
+    "answer": "laoa",
+    "words": [
+      "Marisol",
+      "Isabella",
+      "Octavio",
+      "Helena"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Manuel Edward Yolanda Carmen\" and concatenate them.",
+    "answer": "ldan",
+    "words": [
+      "Manuel",
+      "Edward",
+      "Yolanda",
+      "Carmen"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Bernard Quentin Vanessa Roberto\" and concatenate them.",
+    "answer": "dnao",
+    "words": [
+      "Bernard",
+      "Quentin",
+      "Vanessa",
+      "Roberto"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Nathaniel Bianca Olivia Yasmin\" and concatenate them.",
+    "answer": "laan",
+    "words": [
+      "Nathaniel",
+      "Bianca",
+      "Olivia",
+      "Yasmin"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Fernando Sonia Alexander Isabella\" and concatenate them.",
+    "answer": "oara",
+    "words": [
+      "Fernando",
+      "Sonia",
+      "Alexander",
+      "Isabella"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Yolanda Benjamin Tatiana Elizabeth\" and concatenate them.",
+    "answer": "anah",
+    "words": [
+      "Yolanda",
+      "Benjamin",
+      "Tatiana",
+      "Elizabeth"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Albert Karina Oswaldo Wendy\" and concatenate them.",
+    "answer": "taoy",
+    "words": [
+      "Albert",
+      "Karina",
+      "Oswaldo",
+      "Wendy"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "Take the last letters of the words in \"Benjamin Rafael Ignacio Alexander\" and concatenate them.",
+    "answer": "nlor",
+    "words": [
+      "Benjamin",
+      "Rafael",
+      "Ignacio",
+      "Alexander"
+    ],
+    "task_name": "last_letter"
+  },
+  {
+    "question": "A coin is heads up. Finn does not flip the coin. Tina flips the coin. Zara flips the coin. Bob does not flip the coin. Frank flips the coin. Zack flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "Yes",
+    "operations": [
+      [
+        "Finn",
+        "not flip"
+      ],
+      [
+        "Tina",
+        "flip"
+      ],
+      [
+        "Zara",
+        "flip"
+      ],
+      [
+        "Bob",
+        "not flip"
+      ],
+      [
+        "Frank",
+        "flip"
+      ],
+      [
+        "Zack",
+        "flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Steve does not flip the coin. Peter does not flip the coin. David flips the coin. Quincy does not flip the coin. Henry does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Steve",
+        "not flip"
+      ],
+      [
+        "Peter",
+        "not flip"
+      ],
+      [
+        "David",
+        "flip"
+      ],
+      [
+        "Quincy",
+        "not flip"
+      ],
+      [
+        "Henry",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Rose does not flip the coin. Ulysses flips the coin. Liam flips the coin. Will does not flip the coin. Hank flips the coin. Maya does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Rose",
+        "not flip"
+      ],
+      [
+        "Ulysses",
+        "flip"
+      ],
+      [
+        "Liam",
+        "flip"
+      ],
+      [
+        "Will",
+        "not flip"
+      ],
+      [
+        "Hank",
+        "flip"
+      ],
+      [
+        "Maya",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Sam does not flip the coin. Tara does not flip the coin. Frank does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "Yes",
+    "operations": [
+      [
+        "Sam",
+        "not flip"
+      ],
+      [
+        "Tara",
+        "not flip"
+      ],
+      [
+        "Frank",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Chloe does not flip the coin. Peter does not flip the coin. Xander flips the coin. Grace does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Chloe",
+        "not flip"
+      ],
+      [
+        "Peter",
+        "not flip"
+      ],
+      [
+        "Xander",
+        "flip"
+      ],
+      [
+        "Grace",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Grace flips the coin. Hank flips the coin. Jack does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "Yes",
+    "operations": [
+      [
+        "Grace",
+        "flip"
+      ],
+      [
+        "Hank",
+        "flip"
+      ],
+      [
+        "Jack",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Grace does not flip the coin. Maya flips the coin. Charlie flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "Yes",
+    "operations": [
+      [
+        "Grace",
+        "not flip"
+      ],
+      [
+        "Maya",
+        "flip"
+      ],
+      [
+        "Charlie",
+        "flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Kate does not flip the coin. Ulysses flips the coin. Wendy flips the coin. Zara flips the coin. Ivy flips the coin. Yuri flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Kate",
+        "not flip"
+      ],
+      [
+        "Ulysses",
+        "flip"
+      ],
+      [
+        "Wendy",
+        "flip"
+      ],
+      [
+        "Zara",
+        "flip"
+      ],
+      [
+        "Ivy",
+        "flip"
+      ],
+      [
+        "Yuri",
+        "flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Anna does not flip the coin. Jack flips the coin. Steve flips the coin. Noah flips the coin. Gina does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Anna",
+        "not flip"
+      ],
+      [
+        "Jack",
+        "flip"
+      ],
+      [
+        "Steve",
+        "flip"
+      ],
+      [
+        "Noah",
+        "flip"
+      ],
+      [
+        "Gina",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Uma does not flip the coin. Quincy does not flip the coin. Sam does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "Yes",
+    "operations": [
+      [
+        "Uma",
+        "not flip"
+      ],
+      [
+        "Quincy",
+        "not flip"
+      ],
+      [
+        "Sam",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Gina flips the coin. Liam does not flip the coin. Grace does not flip the coin. Chloe flips the coin. Olivia flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Gina",
+        "flip"
+      ],
+      [
+        "Liam",
+        "not flip"
+      ],
+      [
+        "Grace",
+        "not flip"
+      ],
+      [
+        "Chloe",
+        "flip"
+      ],
+      [
+        "Olivia",
+        "flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Noah flips the coin. Nate flips the coin. Sam flips the coin. Steve does not flip the coin. Finn flips the coin. Mia does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "Yes",
+    "operations": [
+      [
+        "Noah",
+        "flip"
+      ],
+      [
+        "Nate",
+        "flip"
+      ],
+      [
+        "Sam",
+        "flip"
+      ],
+      [
+        "Steve",
+        "not flip"
+      ],
+      [
+        "Finn",
+        "flip"
+      ],
+      [
+        "Mia",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Pam does not flip the coin. Iris does not flip the coin. Hank flips the coin. Finn flips the coin. Ivy does not flip the coin. Gina flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Pam",
+        "not flip"
+      ],
+      [
+        "Iris",
+        "not flip"
+      ],
+      [
+        "Hank",
+        "flip"
+      ],
+      [
+        "Finn",
+        "flip"
+      ],
+      [
+        "Ivy",
+        "not flip"
+      ],
+      [
+        "Gina",
+        "flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Noah flips the coin. Tina does not flip the coin. Xena does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Noah",
+        "flip"
+      ],
+      [
+        "Tina",
+        "not flip"
+      ],
+      [
+        "Xena",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Leo does not flip the coin. Finn does not flip the coin. Noah does not flip the coin. Wendy does not flip the coin. Zara flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Leo",
+        "not flip"
+      ],
+      [
+        "Finn",
+        "not flip"
+      ],
+      [
+        "Noah",
+        "not flip"
+      ],
+      [
+        "Wendy",
+        "not flip"
+      ],
+      [
+        "Zara",
+        "flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Grace does not flip the coin. Frank does not flip the coin. Alice flips the coin. Tina flips the coin. Chloe flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Grace",
+        "not flip"
+      ],
+      [
+        "Frank",
+        "not flip"
+      ],
+      [
+        "Alice",
+        "flip"
+      ],
+      [
+        "Tina",
+        "flip"
+      ],
+      [
+        "Chloe",
+        "flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Maya does not flip the coin. Vera flips the coin. Finn does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Maya",
+        "not flip"
+      ],
+      [
+        "Vera",
+        "flip"
+      ],
+      [
+        "Finn",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Yara does not flip the coin. Kim does not flip the coin. Peter does not flip the coin. Finn does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "Yes",
+    "operations": [
+      [
+        "Yara",
+        "not flip"
+      ],
+      [
+        "Kim",
+        "not flip"
+      ],
+      [
+        "Peter",
+        "not flip"
+      ],
+      [
+        "Finn",
+        "not flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Steve does not flip the coin. Chloe does not flip the coin. Wendy does not flip the coin. Charlie flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "No",
+    "operations": [
+      [
+        "Steve",
+        "not flip"
+      ],
+      [
+        "Chloe",
+        "not flip"
+      ],
+      [
+        "Wendy",
+        "not flip"
+      ],
+      [
+        "Charlie",
+        "flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "A coin is heads up. Gina flips the coin. Xander does not flip the coin. Bob does not flip the coin. Yuri flips the coin. Tina flips the coin. Leo flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+    "answer": "Yes",
+    "operations": [
+      [
+        "Gina",
+        "flip"
+      ],
+      [
+        "Xander",
+        "not flip"
+      ],
+      [
+        "Bob",
+        "not flip"
+      ],
+      [
+        "Yuri",
+        "flip"
+      ],
+      [
+        "Tina",
+        "flip"
+      ],
+      [
+        "Leo",
+        "flip"
+      ]
+    ],
+    "task_name": "coin_flip"
+  },
+  {
+    "question": "Was Claude Monet born on an even day?",
+    "answer": "Yes",
+    "person_info": {
+      "name": "Claude Monet",
+      "month": 11,
+      "day": 14
+    },
+    "task_name": "even_day"
+  },
+  {
+    "question": "Was Julius Caesar born on an even day?",
+    "answer": "Yes",
+    "person_info": {
+      "name": "Julius Caesar",
+      "month": 7,
+      "day": 12
+    },
+    "task_name": "even_day"
+  },
+  {
+    "question": "Was Margaret Thatcher born on an even day?",
+    "answer": "No",
+    "person_info": {
+      "name": "Margaret Thatcher",
+      "month": 10,
+      "day": 13
+    },
+    "task_name": "even_day"
+  },
+  {
+    "question": "Was Charles Darwin born on an even day?",
+    "answer": "Yes",
+    "person_info": {
+      "name": "Charles Darwin",
+      "month": 2,
+      "day": 12
+    },
+    "task_name": "even_day"
+  },
+  {
+    "question": "Was Leonardo da Vinci born on an even day?",
+    "answer": "No",
+    "person_info": {
+      "name": "Leonardo da Vinci",
+      "month": 4,
+      "day": 15
+    },
+    "task_name": "even_day"
+  },
+  {
+    "question": "Was John Lennon born on an even day?",
+    "answer": "No",
+    "person_info": {
+      "name": "John Lennon",
+      "month": 10,
+      "day": 9
+    },
+    "task_name": "even_day"
+  },
+  {
+    "question": "Was Rosalind Franklin born on an even day?",
+    "answer": "No",
+    "person_info": {
+      "name": "Rosalind Franklin",
+      "month": 7,
+      "day": 25
+    },
+    "task_name": "even_day"
+  },
+  {
+    "question": "Was Richard Feynman born on an even day?",
+    "answer": "No",
+    "person_info": {
+      "name": "Richard Feynman",
+      "month": 5,
+      "day": 11
+    },
+    "task_name": "even_day"
+  },
+  {
+    "question": "Was Miles Davis born on an even day?",
+    "answer": "Yes",
+    "person_info": {
+      "name": "Miles Davis",
+      "month": 5,
+      "day": 26
+    },
+    "task_name": "even_day"
+  },
+  {
+    "question": "Was Leo Tolstoy born on an even day?",
+    "answer": "No",
+    "person_info": {
+      "name": "Leo Tolstoy",
+      "month": 9,
+      "day": 9
+    },
+    "task_name": "even_day"
+  },
+  {
+    "question": "Was Dmitri Mendeleev born in an even month?",
+    "answer": "Yes",
+    "person_info": {
+      "name": "Dmitri Mendeleev",
+      "month": 2,
+      "day": 8
+    },
+    "task_name": "even_month"
+  },
+  {
+    "question": "Was Aristotle born in an even month?",
+    "answer": "No",
+    "person_info": {
+      "name": "Aristotle",
+      "month": 1,
+      "day": 1
+    },
+    "task_name": "even_month"
+  },
+  {
+    "question": "Was Mark Twain born in an even month?",
+    "answer": "No",
+    "person_info": {
+      "name": "Mark Twain",
+      "month": 11,
+      "day": 30
+    },
+    "task_name": "even_month"
+  },
+  {
+    "question": "Was Frederic Chopin born in an even month?",
+    "answer": "No",
+    "person_info": {
+      "name": "Frederic Chopin",
+      "month": 3,
+      "day": 1
+    },
+    "task_name": "even_month"
+  },
+  {
+    "question": "Was John F. Kennedy born in an even month?",
+    "answer": "No",
+    "person_info": {
+      "name": "John F. Kennedy",
+      "month": 5,
+      "day": 29
+    },
+    "task_name": "even_month"
+  },
+  {
+    "question": "Was Winston Churchill born in an even month?",
+    "answer": "No",
+    "person_info": {
+      "name": "Winston Churchill",
+      "month": 11,
+      "day": 30
+    },
+    "task_name": "even_month"
+  },
+  {
+    "question": "Was Wright Brothers born in an even month?",
+    "answer": "Yes",
+    "person_info": {
+      "name": "Wright Brothers",
+      "month": 4,
+      "day": 16
+    },
+    "task_name": "even_month"
+  },
+  {
+    "question": "Was Salvador Dali born in an even month?",
+    "answer": "No",
+    "person_info": {
+      "name": "Salvador Dali",
+      "month": 5,
+      "day": 11
+    },
+    "task_name": "even_month"
+  },
+  {
+    "question": "Was Richard Feynman born in an even month?",
+    "answer": "No",
+    "person_info": {
+      "name": "Richard Feynman",
+      "month": 5,
+      "day": 11
+    },
+    "task_name": "even_month"
+  },
+  {
+    "question": "Was Jean-Paul Sartre born in an even month?",
+    "answer": "Yes",
+    "person_info": {
+      "name": "Jean-Paul Sartre",
+      "month": 6,
+      "day": 21
+    },
+    "task_name": "even_month"
+  },
+  {
+    "question": "某社区干部每周一参加工作例会，每月10日、20日接访群众。已知8月与9月共有2次接访群众与工作例会在同一天，问当年9月1日是：\nA.周三  B.周二  C.周六  D.周五",
+    "answer": "A",
+    "task_name": "xingce_quantitative",
+    "category_cn": "数量关系"
+  },
+  {
+    "question": "张老师家四代同堂，且从父亲、张老师、儿子到孙子，每两代人的年龄差相同。5年前张老师父亲的年龄是儿子的3倍，8年后张老师的年龄是孙子的5倍。问今年四个人的年龄之和为：\nA.168岁  B.172岁  C.176岁  D.180岁",
+    "answer": "C",
+    "task_name": "xingce_quantitative",
+    "category_cn": "数量关系"
+  },
+  {
+    "question": "2018年父亲年龄是女儿年龄的6倍，是母亲年龄的1.2倍。已知女儿出生当年(按0岁计算)母亲24岁，则哪一年父母年龄之和是女儿的4倍？\nA.2036  B.2039  C.2042  D.2045",
+    "answer": "B",
+    "task_name": "xingce_quantitative",
+    "category_cn": "数量关系"
+  },
+  {
+    "question": "为维护办公环境，某办公室四人在工作日每天轮流打扫卫生，每周一打扫卫生的人给植物浇水。7月5日周五轮到小玲打扫卫生，下一次小玲给植物浇水是哪天？\nA.7月15日  B.7月22日  C.7月29日  D.8月5日",
+    "answer": "C",
+    "task_name": "xingce_quantitative",
+    "category_cn": "数量关系"
+  },
+  {
+    "question": "某人出生于20世纪70年代，某年他发现从当年起连续10年自己的年龄均与当年年份数字之和相等(出生当年算0岁)。问他在以下哪一年时，年龄为9的整数倍？\nA.2006年  B.2007年  C.2008年  D.2009年",
+    "answer": "B",
+    "task_name": "xingce_quantitative",
+    "category_cn": "数量关系"
+  },
+  {
+    "question": "甲、乙两个工程队共同完成A和B两个项目。已知甲队单独完成A项目需13天，单独完成B项目需7天；乙队单独完成A项目需11天，单独完成B项目需9天。如果两队合作用最短的时间完成两个项目，则最后一天两队需要共同工作多长时间就可以完成任务？\nA.1/12天  B.1/9天  C.1/7天  D.1/6天",
+    "answer": "D",
+    "task_name": "xingce_quantitative",
+    "category_cn": "数量关系"
+  },
+  {
+    "question": "某商店花10000元进了一批商品，按期望获得相当于进价25%的利润来定价，结果只销售了商品总量的30%。为尽快完成资金周转，商店决定打折销售，这样卖完全部商品后，亏本1000元。问商店是按定价打几折销售的？\nA.九折  B.七五折  C.六折  D.四八折",
+    "answer": "C",
+    "task_name": "xingce_quantitative",
+    "category_cn": "数量关系"
+  },
+  {
+    "question": "一只装有动力桨的船，其单靠人工划船顺流而下的速度是水速的3倍。现该船靠人工划动从A地顺流到达B地，原路返回时只开足动力桨行驶，用时比来时少2/5。问船在静水中开足动力桨行驶的速度是人工划船速度的多少倍？\nA.2  B.3  C.4  D.5",
+    "answer": "B",
+    "task_name": "xingce_quantitative",
+    "category_cn": "数量关系"
+  },
+  {
+    "question": "某单位组织党员参加党史、党风廉政建设、科学发展观和业务能力四项培训，要求每名党员参加且只参加其中的两项。无论如何安排，都有至少5名党员参加的培训完全相同。问该单位至少有多少名党员？\nA.17  B.21  C.25  D.29",
+    "answer": "C",
+    "task_name": "xingce_quantitative",
+    "category_cn": "数量关系"
+  },
+  {
+    "question": "小王步行的速度比跑步慢50%，跑步的速度比骑车慢50%。如果他骑车从A城去B城，再步行返回A城共需要2小时。问小王跑步从A城到B城需要多少分钟？\nA.45  B.48  C.56  D.60",
+    "answer": "B",
+    "task_name": "xingce_quantitative",
+    "category_cn": "数量关系"
+  },
+  {
+    "question": "将以下6个句子重新排列，语序正确的是： ①这些符号既是早期文字的雏形，也是原始艺术的表现 ②在新石器时代遗址中，经常发现陶器上刻画的符号 ③例如半坡遗址的陶符，数量达27种，多刻于陶钵口沿 ④它们与后来的甲骨文、金文存在一定关联 ⑤考古学家认为，这些符号可能用于记录数量、标识归属 ⑥由此可见，文字起源与原始记事需求密切相关\nA.②③⑤①④⑥  B.②⑤③①⑥④  C.③②⑤④①⑥  D.⑤②③④⑥①",
+    "answer": "A",
+    "task_name": "xingce_verbal",
+    "category_cn": "言语理解与表达"
+  },
+  {
+    "question": "研究发现，人格特质会对一个人能否拥有充足、良好的睡眠产生影响。例如，一个责任心水平较低的人很难自我约束，去按照既定计划完成任务。因此他们很难形成固定、良好的睡眠习惯。内向的人更难以入睡，因为他们更喜欢在独处状态下思考问题。当他们夜晚独自躺在床上，会有意识地思考问题，导致更加难以入睡。同样，研究人员也发现，习惯早起的人更有责任心，晚上不睡的夜猫子型的人更喜欢新鲜的刺激。每个人其实有着不同的适应自身的睡眠偏好，而这些睡眠习惯，\\_\\_\\_\\_\\_\\_。\nA.很难在短时间内发生根本改变  B.最终必然会影响你的身心健康  C.其实也不存在绝对的评价标准  D.实际上也反映着你的人格特质",
+    "answer": "D",
+    "task_name": "xingce_verbal",
+    "category_cn": "言语理解与表达"
+  },
+  {
+    "question": "全球过度使用或滥用抗生素，导致耐药微生物正在成为传统抗生素产业的死敌。寻求这一困境的破解之道，是全球抗生素科学家的研发重点，也将决定未来医药产业发展的重点和方向。信息菌素作为一种新型抗生素，具有全新的杀菌机制，通过在细菌的细胞膜上形成一个致死性离子通道，让细菌内容物泄漏、能量耗竭，从而杀死细菌。凡是具有脂质双分子生物膜的微生物都逃避不了这种杀伤。信息菌素具有安全、杀菌效果强、不易产生耐药性等优点，杀菌效率是目前常规抗生素的数百倍甚至数万倍。根据这段文字，下列说法正确的是：\nA.信息菌素与常规抗生素的杀菌机制类似  B.传统抗生素难以穿透脂质双分子生物膜  C.信息菌素对特定微生物有致命的杀伤力  D.过度使用信息菌素会产生耐药性的问题",
+    "answer": "C",
+    "task_name": "xingce_verbal",
+    "category_cn": "言语理解与表达"
+  },
+  {
+    "question": "自从1958年第一个永久起搏器被植入人体后，可植入医疗设备的制造商就在不断研究为其产品提供电能的各种方法。不可充电的锂电池目前较为普遍，在心脏病和神经源性疾病的移植设备中，不可充电的锂电池一般能够使用7年到10年，已经属于比较\"长寿\"的了。研究者认为，除非在生物电池领域取得突破性的进展，否则植入式设备始终无法真正永久、可靠地工作。这段文字意在说明：\nA.可植入设备目前主要用于医疗领域  B.神经源性疾病的治疗需引入新技术  C.供电能力目前是可植入设备的瓶颈  D.可植入医疗设备的发展前景较广阔",
+    "answer": "C",
+    "task_name": "xingce_verbal",
+    "category_cn": "言语理解与表达"
+  },
+  {
+    "question": "随着全球气候变暖、冰层融化，南北极所蕴含的巨大能源资源、航道优势等被充分发掘出来，其战略意义愈发凸显。据估算，仅北极地区的煤炭、石油、天然气储量就分别占到全世界潜在储量的25%、13%、30%。同时，极地的战略位置也尤为重要。如今，为赢得竞争优势，不仅美国、俄罗斯、加拿大等极地国家纷纷根据各自的国家利益制定极地战略，而且一些非极地国家和集团也积极参与极地事务，使得极地地区形势骤然变化。作为新兴战略热点，围绕极地尤其是北极地区的国际斗争将日趋复杂和激烈。这段文字意在强调：\nA.大国的积极参与使得极地地区形势复杂化  B.各国应从全球战略高度看待极地地区问题  C.围绕北极地区的国际斗争即将拉开帷幕  D.极地成为世界各国战略博弈的热点地区",
+    "answer": "D",
+    "task_name": "xingce_verbal",
+    "category_cn": "言语理解与表达"
+  },
+  {
+    "question": "南京在历史上的名字变化或褒或贬，根本源头在于统治者的好恶。不惟南京，同样原因也引发了其他地名的变迁，宋廷平定方腊起义之后，深恨江南百姓造反，艺术修养最高的皇帝宋徽宗遂在地名上做文章：方腊的两个活动区域，歙州被改成徽州，取的是\"徽\"的本意\"捆绑束缚\"；睦州则被改成严州，意思更是不言自明的。相比之下，朱元璋为避国号讳，取\"海定则波宁\"之义，将明州改成宁波，已是很\"友好\"了。这段文字主要介绍了：\nA.地名变迁背后的政治因素  B.历史事件对地名的影响  C.古代帝王在地名方面的偏好  D.统治者对某些地域的好恶",
+    "answer": "A",
+    "task_name": "xingce_verbal",
+    "category_cn": "言语理解与表达"
+  },
+  {
+    "question": "我国要在21世纪中叶建成世界科技强国，科学文化建设将在这个历史进程中扮演非常重要的角色。在这个方面，我们有必要增强文化自信。文化自信不仅表现在对既往文化贡献与价值的认同上，更表现在融汇各种优质的文化资源、创造新文化的信心和决心上。尽管全面挖掘和传承我国传统文化中的科学因素、充分认识我国历史上对科学发展做出的贡献十分必要，但更需要思考如何在未来的科学发展和科学文化建设上，做出对世界有重要贡献的新成就，这应该是增强文化自信更重要的一个方面。这段文字主要说的是：\nA.文化自信表现在文化资源的整合和创新上  B.科学文化建设是建成科技强国的核心  C.提高我国科学文化水平需要增强文化自信  D.科学文化建设中增强文化自信的途径",
+    "answer": "D",
+    "task_name": "xingce_verbal",
+    "category_cn": "言语理解与表达"
+  },
+  {
+    "question": "①当时的塞纳省省长奥斯曼规划了一座地下之城，将巴黎发展成一座立体化的城市 ②从中世纪延续而来的平面化城市已经难以满足经济社会飞速发展的新需要 ③后来，这个以下水道系统为基础的地下巴黎，随着公共产品种类的增加而不断添入新功能 ④现在，地上的巴黎光彩照人，地下的巴黎默默付出，二者共同承载着这座千年古都的迷人风情 ⑤城市形态由地上向地下延展，拓展了城市的空间 ⑥作为法国的政治、经济和文化中心，19世纪的巴黎面临着一场迫切的现代化转型 将以上6个句子重新排列，语序正确的是：\nA.②⑥④③⑤①  B.④⑥③⑤①②  C.⑥②①⑤③④  D.①⑥④⑤②③",
+    "answer": "C",
+    "task_name": "xingce_verbal",
+    "category_cn": "言语理解与表达"
+  },
+  {
+    "question": "基础数学是一门对天赋要求极高的学科，它的高度抽象性让不具备这种天赋的人望而生畏。在某种意义上可以说，是数学选择了它的追随者，而非相反。加之数学是一门完全依赖人自身最纯粹的大脑机能进行探索的学科，这使得一流的数学研究介乎学问和艺术创造之间，总是在\"灵感乍现\"的时刻产生突破。因此，数学家实际上是一个极其冒险的职业，其成就几乎完全仰仗天赋和灵感的偶然眷顾。另一方面，对具有数学才能的人来说，现代社会充满了机会的诱惑，金融、计算机、互联网，都是比数学研究更赚钱的行业。这段文字意在：\nA.解释数学家可遇不可求的现象  B.说明天赋对于数学研究的意义  C.探讨基础数学研究的本质规律  D.强调基础数学发展面临的困境",
+    "answer": "A",
+    "task_name": "xingce_verbal",
+    "category_cn": "言语理解与表达"
+  },
+  {
+    "question": "①中国企业若想出口稀土产品，只能向行业巨头缴纳高额的专利许可费，否则产品无法出口 ②稀土永磁材料领域的研发重点包括提高材料性能、扩大高端领域应用等；稀土发光材料领域的技术创新点集中在光电材料、反光材料等 ③经历了被人\"扼住咽喉\"的切肤之痛后，我国稀土企业的创新脚步愈加快速 ④然而在很长一段时间内，我国的稀土企业在国际市场处于受制于人的局面 ⑤多年来，在与世界各国的\"稀土大战\"中，我国凭借世界第一的稀土储量，逐步在开采、分离技术领域确立了全球领先的地位 ⑥目前，我国稀土领域的创新主要集中于产业链上游的稀土材料领域，多家企业重点发展具有超高性能的稀土永磁材料、稀土发光材料等 将以上6个句子重新排列，语序正确的是：\nA.⑤⑥②①④③  B.⑥②⑤④①③  C.⑥④①③⑤②  D.⑤④①③⑥②",
+    "answer": "D",
+    "task_name": "xingce_verbal",
+    "category_cn": "言语理解与表达"
+  },
+  {
+    "question": "某校外语教研室新招进五位外语老师，每位老师只教授一门外语。并且满足以下条件： (1)如果小钱教德语，那么小孙不教俄语 (2)或者小李教德语，或者小钱教德语 (3)如果小孙不教俄语，那么小赵不教法语 (4)或者小赵教法语，或者小周不教英语 以下哪项如果为真，可以得出\"小李教德语\"的结论？\nA.小孙不教俄语  B.小钱教德语  C.小周教英语  D.小赵不教法语",
+    "answer": "C",
+    "task_name": "xingce_logic",
+    "category_cn": "逻辑推理"
+  },
+  {
+    "question": "某公司行政部人员手机使用情况如下： ①小王拨打过行政部所有人的电话 ②小李曾经拨打过小赵的电话，但是小赵不曾拨打过其他人的电话 ③不曾接听来自行政部其他人电话的人，也就不曾拨打过其他人的电话 由此可以推出：\nA.小赵不曾接听过来自小李的电话  B.小李曾经接听过来自小王的电话  C.行政部曾有人拨打过小王的电话  D.小王接听过来自行政部所有人的电话",
+    "answer": "C",
+    "task_name": "xingce_logic",
+    "category_cn": "逻辑推理"
+  },
+  {
+    "question": "所有的恐龙都是腿部直立地\"站在\"地面上的，这不同于冷血爬行动物四肢趴伏在地面上；恐龙的骨组织构造与温血哺乳动物的骨组织构造相似；恐龙的肺部结构和温血动物非常相近；在现代的生态系统中(例如非洲草原)，温血的捕食者(例如狮子)与被捕食者(例如羚羊)之间的比值是一个常数，对北美洲恐龙动物群的统计显示其中捕食者和被捕食者之间的比例与这个常数近似。这些都说明恐龙不是呆头呆脑、行动迟缓的冷血动物，而是新陈代谢率高、动作敏捷的温血动物。以下哪项如果为真，最不能反驳上述推理？\nA.有些海龟骨组织构造与哺乳动物类似，却是冷血动物  B.鲸类等海生哺乳动物并不是直立的，却是温血动物  C.关于北美洲恐龙动物群捕食者和被捕食者比例的统计有随意性  D.冷血动物和温血动物生理结构上的主要差别在于心脏结构而非肺部结构",
+    "answer": "B",
+    "task_name": "xingce_logic",
+    "category_cn": "逻辑推理"
+  },
+  {
+    "question": "甲、乙、丙、丁四人的车分别为白色、银色、蓝色和红色。在问到他们各自车的颜色时，甲说：\"乙的车不是白色。\"乙说：\"丙的车是红色的。\"丙说：\"丁的车不是蓝色的。\"丁说：\"甲、乙、丙三人中有一个人的车是红色的，而且只有这个人说的是实话。\"如果丁说的是实话，那么以下说法正确的是：\nA.甲的车是白色的，乙的车是银色的  B.乙的车是蓝色的，丙的车是红色的  C.丙的车是白色的，丁的车是蓝色的  D.丁的车是银色的，甲的车是红色的",
+    "answer": "C",
+    "task_name": "xingce_logic",
+    "category_cn": "逻辑推理"
+  },
+  {
+    "question": "北京市为了缓解交通压力实行机动车辆限行政策，每辆机动车周一到周五都要限行一天，周末不限行。某公司有A、B、C、D、E五辆车，保证每天至少有四辆车可以上路行驶。已知：E车周四限行，B车昨天限行，从今天算起，A、C两车连续四天都能上路行驶，E车明天可以上路。由此可知，下列推测一定正确的是：\nA.今天是周六  B.今天是周四  C.A车周三限行  D.C车周五限行",
+    "answer": "B",
+    "task_name": "xingce_logic",
+    "category_cn": "逻辑推理"
+  },
+  {
+    "question": "某高校外语教研室新招进五位外语老师，每位老师只教授一门外语。并且满足以下条件： (1)如果小钱教德语，那么小孙不教俄语 (2)或者小李教德语，或者小钱教德语 (3)如果小孙不教俄语，那么小赵不教法语 (4)或者小赵教法语，或者小周不教英语 以下哪项如果为真，可以得出\"小李教德语\"的结论？\nA.小孙不教俄语  B.小钱教德语  C.小周教英语  D.小赵不教法语",
+    "answer": "C",
+    "task_name": "xingce_logic",
+    "category_cn": "逻辑推理"
+  },
+  {
+    "question": "研究显示，在115摄氏度下，将甜玉米分别加热10分钟、25分钟和50分钟后发现，其抗自由基的活性分别升高了22%、44%和53%。因此，加热时间越长的玉米，抗衰老的作用越好。以下各项如果为真，无法削弱上述结论的是：\nA.加热65分钟后，玉米抗自由基的活性反而降低了  B.与甜玉米相比，糯玉米在加热相同时间后，其抗自由基的活性增高的幅度很小  C.甜玉米是玉米中比较少见的一种，不具有代表性  D.对于玉米来说，并非是抗自由基的活性越高，其抗衰老的作用越好",
+    "answer": "B",
+    "task_name": "xingce_logic",
+    "category_cn": "逻辑推理"
+  },
+  {
+    "question": "5000多年前某地是大汶口文化，但在距今约4400年的时候，为龙山文化所替代。是什么原因导致这两种文化的更迭？考古人员发现，在距今约4400年的时候，发生了一次严重的\"冷事件\"，环境由原来的温暖湿润转变为寒冷干燥，植被大量减少，藻类、水生植物基本绝迹了，大汶口文化向南迁移，而龙山文化由北迁到此地。他们据此认为，距今4400年左右的极端气候变化，可能是导致这次文化变迁的主要原因。以下哪项如果为真，最能支持上述论证？\nA.大汶口文化有不断向南方迁移的传统  B.龙山文化刚迁来时，人口较多，但之后逐渐减少，在距今约4000年的时候消失了  C.大汶口文化的族群以藻类和水生植物作为食物的主要来源  D.不同生存方式的族群对气候和环境都有相对稳定的需求",
+    "answer": "D",
+    "task_name": "xingce_logic",
+    "category_cn": "逻辑推理"
+  },
+  {
+    "question": "有研究表明，要成为男性至少需要拥有一条Y染色体。3亿年前，男性特有的Y染色体在产生之际含有1438个基因，但现在只剩下45个。按照这种速度，Y染色体将在大约1000万年内消失殆尽。因此，随着Y染色体的消亡，人类也将走向消亡。如果以下各项为真，最不能质疑上述论证的是：\nA.恒河猴Y染色体基因确实经历过早期高速的丧失过程，但在过去的2500万年内则未丢失任何一个基因  B.男性即使失去Y染色体也有可能继续生存下去，因为其他染色体有类似基因可以分担Y染色体的功能  C.人类进化过程中，可以找到单性繁殖或无性繁殖后代的方法，从而避免因基因缺失引发的繁殖风险  D.Y染色体存在独特的回文结构，该结构具有自我修复功能，可以保持丢失基因的信息，实现基因再生",
+    "answer": "A",
+    "task_name": "xingce_logic",
+    "category_cn": "逻辑推理"
+  },
+  {
+    "question": "该不该让小孩玩电脑游戏？这让很多家长困扰，因为有太多的报告指责游戏正摧毁着下一代。不过一项新的研究显示，玩游戏有益于小孩的阅读能力，甚至可帮助他们克服阅读障碍。以下哪项如果为真，最不能支持上述结论？\nA.研究发现，如果让孩子们玩体感游戏，需要肢体运动来控制游戏角色，玩游戏的时间越长，阅读能力提升越快  B.长期玩电脑游戏的儿童在阅读速度和识字量方面明显优于不玩游戏的孩子  C.玩游戏可以训练大脑的快速反应能力，这对阅读有很大帮助  D.阅读障碍主要与神经发育迟缓有关，游戏无法改变神经发育过程",
+    "answer": "D",
+    "task_name": "xingce_logic",
+    "category_cn": "逻辑推理"
+  },
+  {
+    "question": "2023年1-5月，全国平均每天破获电信网络诈骗案件约多少起？\nA.640  B.750  C.860  D.970",
+    "answer": "B",
+    "task_name": "xingce_data",
+    "category_cn": "资料分析"
+  },
+  {
+    "question": "2022年1-5月，全国抓获电信网络诈骗犯罪嫌疑人约多少万名？\nA.6.2  B.7.0  C.7.8  D.8.6",
+    "answer": "B",
+    "task_name": "xingce_data",
+    "category_cn": "资料分析"
+  },
+  {
+    "question": "2023年1-5月，全国紧急止付涉案资金总额约多少亿元？\nA.392  B.420  C.448  D.476",
+    "answer": "B",
+    "task_name": "xingce_data",
+    "category_cn": "资料分析"
+  },
+  {
+    "question": "2020年，全国服装出口额约比纺织品出口额高多少亿美元？\nA.120  B.250  C.380  D.510",
+    "answer": "C",
+    "task_name": "xingce_data",
+    "category_cn": "资料分析"
+  },
+  {
+    "question": "2021年，我国对美国纺织品服装出口额占全国纺织品服装出口总额的比重约为：\nA.15.8%  B.19.0%  C.23.2%  D.27.5%",
+    "answer": "B",
+    "task_name": "xingce_data",
+    "category_cn": "资料分析"
+  },
+  {
+    "question": "2021年，我国对东盟纺织品服装出口额同比增长约多少亿美元？\nA.45  B.56  C.67  D.78",
+    "answer": "B",
+    "task_name": "xingce_data",
+    "category_cn": "资料分析"
+  },
+  {
+    "question": "2019年，H省秋粮稻谷的平均生产成本约为多少元/亩？\nA.439  B.450  C.533  D.548",
+    "answer": "D",
+    "task_name": "xingce_data",
+    "category_cn": "资料分析"
+  },
+  {
+    "question": "2020年，H省秋粮玉米的平均亩产约比上年增长：\nA.2.5%  B.3.4%  C.4.5%  D.5.3%",
+    "answer": "B",
+    "task_name": "xingce_data",
+    "category_cn": "资料分析"
+  },
+  {
+    "question": "2018年末，全国残疾人康复机构约有多少个？\nA.9036  B.9236  C.9436  D.9636",
+    "answer": "A",
+    "task_name": "xingce_data",
+    "category_cn": "资料分析"
+  },
+  {
+    "question": "截至2019年末，全国平均每个已竣工的残疾人综合服务设施的建设规模约是已竣工残疾人康复设施的多少倍？\nA.0.6  B.0.8  C.1.2  D.1.5",
+    "answer": "A",
+    "task_name": "xingce_data",
+    "category_cn": "资料分析"
+  }
+]
