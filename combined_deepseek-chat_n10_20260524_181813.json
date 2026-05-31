@@ -1,0 +1,2659 @@
+{
+  "metadata": {
+    "model": "deepseek-chat",
+    "timestamp": "20260524_181813",
+    "total": 100,
+    "strategies": [
+      "Direct",
+      "RaR"
+    ],
+    "accuracy": {
+      "Direct": {
+        "correct": 92,
+        "total": 100,
+        "accuracy": 92.0
+      },
+      "RaR": {
+        "correct": 92,
+        "total": 100,
+        "accuracy": 92.0
+      }
+    },
+    "accuracy_by_category": {
+      "xingce_logic": {
+        "Direct": 80.0,
+        "RaR": 80.0
+      },
+      "last_letter": {
+        "Direct": 100.0,
+        "RaR": 100.0
+      },
+      "xingce_data": {
+        "Direct": 60.0,
+        "RaR": 60.0
+      },
+      "coin_flip": {
+        "Direct": 100.0,
+        "RaR": 100.0
+      },
+      "xingce_quantitative": {
+        "Direct": 90.0,
+        "RaR": 90.0
+      },
+      "xingce_verbal": {
+        "Direct": 100.0,
+        "RaR": 100.0
+      },
+      "even_month": {
+        "Direct": 90.0,
+        "RaR": 90.0
+      },
+      "even_day": {
+        "Direct": 100.0,
+        "RaR": 100.0
+      }
+    }
+  },
+  "results": [
+    {
+      "question_id": "xingce_logic_1",
+      "question": "某公司行政部人员手机使用情况如下： ①小王拨打过行政部所有人的电话 ②小李曾经拨打过小赵的电话，但是小赵不曾拨打过其他人的电话 ③不曾接听来自行政部其他人电话的人，也就不曾拨打过其他人的电话 由此可以推出：\nA.小赵不曾接听过来自小李的电话  B.小李曾经接听过来自小王的电话  C.行政部曾有人拨打过小王的电话  D.小王接听过来自行政部所有人的电话",
+      "category": "xingce_logic",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "根据条件分析：\n\n1. 由①，小王拨打过行政部所有人的电话，包括小李和小赵。\n2. 由②，小李拨打过小赵的电话，但小赵不曾拨打过其他人的电话。\n3. 由③，“不曾接听来自行政部其他人电话的人，也就不曾拨打过其他人的电话”。逆否命题：如果某人拨打过其他人的电话，那么他一定接听过来自行政部其他人的电话。\n\n- 小王拨打过所有人，所以根据③的逆否，小王一定接听过行政部其他人的电话，但未必是所有人（D选项说接听过来自所有人的电话，过于绝对，不一定成立）。\n- 小李拨打过小赵，所以小李一定接听过行政部其他人的电话，但无法确定是否接听过小王的电话（B选项不确定）。\n- 小赵不曾拨打过任何人，所以根据③，小赵不曾接听过任何人的电话？注意③是“不曾接听→不曾拨打”，但小赵不曾拨打，不能反推出不曾接听，所以小赵可能接听过电话。但②说小赵不曾拨打过其他人，而小李拨打过小赵，那么小赵是否接听了小李的电话？如果小赵接听了，则A选项“小赵不曾接听过来自小李的电话”就错了；如果没接听，则A正确。但根据③，小赵没拨打过别人，所以无法判断他是否接听过，因此A不一定成立。\n- 再看C：行政部曾有人拨打过小王的电话。小王拨打过所有人，但别人是否拨打过小王？由③，小王拨打过别人，所以小王一定接听过别人的电话，即有人拨打过小王，所以C一定成立。\n\n因此正确答案是C。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_2",
+      "question": "某公司行政部人员手机使用情况如下： ①小王拨打过行政部所有人的电话 ②小李曾经拨打过小赵的电话，但是小赵不曾拨打过其他人的电话 ③不曾接听来自行政部其他人电话的人，也就不曾拨打过其他人的电话 由此可以推出：\nA.小赵不曾接听过来自小李的电话  B.小李曾经接听过来自小王的电话  C.行政部曾有人拨打过小王的电话  D.小王接听过来自行政部所有人的电话",
+      "category": "xingce_logic",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】根据以下三个条件，推断出哪个选项必然为真：\n① 小王拨打过行政部所有人的电话。\n② 小李曾经拨打过小赵的电话，但小赵不曾拨打过其他人的电话。\n③ 不曾接听来自行政部其他人电话的人，也就不曾拨打过其他人的电话。\n\n选项：\nA. 小赵不曾接听过来自小李的电话\nB. 小李曾经接听过来自小王的电话\nC. 行政部曾有人拨打过小王的电话\nD. 小王接听过来自行政部所有人的电话\n\n【回答】\n根据条件③，其逆否命题为：如果某人拨打过其他人的电话，那么他一定接听过来自行政部其他人的电话。\n\n- 由条件①，小王拨打过所有人的电话，因此小王一定接听过来自行政部其他人的电话（但未必是所有人）。\n- 由条件②，小李拨打过小赵的电话，因此小李一定接听过来自行政部其他人的电话。\n- 小赵不曾拨打过其他人的电话，因此条件③无法推出小赵是否接听过电话。\n\n现在分析选项：\nA：小赵不曾接听过来自小李的电话。条件②只说小李拨打过小赵，但未说明小赵是否接听。小赵可能接听也可能没接听，无法必然推出。\nB：小李曾经接听过来自小王的电话。小王拨打过所有人，包括小李，但小李是否接听？根据条件③，小李拨打过小赵，所以小李一定接听过别人的电话，但未必是小王的。无法必然推出。\nC：行政部曾有人拨打过小王的电话。小王拨打过所有人，但条件③并未要求别人必须拨打小王。然而，小王拨打过所有人，意味着小王至少拨打过自己？不，通常“拨打过行政部所有人”不包括自己。那么别人是否拨打过小王？条件没有直接给出。但注意：小王拨打过所有人，所以小王拨打过小李，而小李根据条件③（因为拨打过小赵）一定接听过别人的电话，但接听不等于拨打。无法必然推出有人拨打过小王。\nD：小王接听过来自行政部所有人的电话。条件①说小王拨打过所有人，但条件③只保证小王接听过至少一次别人的电话，并不保证接听过所有人的。无法必然推出。\n\n实际上，我们需要更严谨的推理。条件③的逆否：如果某人拨打过电话，则他接听过别人的电话。小王拨打过所有人，所以小王接听过至少一次别人的电话，但未必是所有人。小李拨打过小赵，所以小李接听过至少一次别人的电话。小赵没有拨打过任何人，所以无法判断小赵是否接听过。\n\n但注意：条件①说小王拨打过行政部所有人的电话，这意味着小王拨打过小李和小赵。那么小李是否接听过小王的电话？不一定，因为小李可能没接。但条件③只要求小李接听过别人的电话，不一定是小王的。所以B不一定。\n\n然而，有一个关键点：条件③说“不曾接听来自行政部其他人电话的人，也就不曾拨打过其他人的电话”。其逆否是“如果拨打过，则一定接听过”。但并没有说“如果接听过，则一定拨打过”。所以接听和拨打不是双向的。\n\n因此，我们无法直接推出任何选项必然为真？但题目是单选题，必须选一个。\n\n再仔细分析：条件①小王拨打过所有人，包括小李。那么小李是否接听？条件③不能保证。但注意：如果小李不曾接听小王的电话，那么小李是否接听过别人的电话？小李拨打过小赵，所以小李一定接听过别人的电话，但那个人可能是小赵，也可能是其他人。所以小李可能接听过小王的，也可能没接听。B不必然。\n\n选项C：行政部曾有人拨打过小王的电话。小王拨打过所有人，但别人是否拨打过小王？条件没有直接说。但我们可以用反证法：假设没有人拨打过小王的电话，那么小王是否接听过别人的电话？根据条件③，小王拨打过所有人，所以小王一定接听过别人的电话。如果没有人拨打过小王，那么小王接听的电话是谁打的？矛盾。因为小王接听的电话必须来自行政部其他人，而如果没有人拨打过小王，小王就无法接听任何人的电话，但条件③要求他必须接听过。因此，必然有人拨打过小王的电话。所以C正确。\n\n因此，答案是C。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "last_letter_3",
+      "question": "Take the last letters of the words in \"Bernard Quentin Vanessa Roberto\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "dnao",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Bernard → d  \n- Quentin → n  \n- Vanessa → a  \n- Roberto → o  \n\nConcatenating them gives: **dnao**.\n\nAnswer: dnao",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'dnao'"
+      }
+    },
+    {
+      "question_id": "last_letter_4",
+      "question": "Take the last letters of the words in \"Bernard Quentin Vanessa Roberto\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "dnao",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Bernard Quentin Vanessa Roberto\" and combine them in order?\n\n[Answer] The last letters are: Bernard (d), Quentin (n), Vanessa (a), Roberto (o). Concatenated, they form \"dnao\".\n\nAnswer: dnao",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'dnao'"
+      }
+    },
+    {
+      "question_id": "last_letter_5",
+      "question": "Take the last letters of the words in \"Jonathan Yasmin Tatiana Wendy\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "nnay",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Jonathan → **n**  \n- Yasmin → **n**  \n- Tatiana → **a**  \n- Wendy → **y**  \n\nConcatenating them gives: **nnay**.\n\nAnswer: nnay",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'nnay'"
+      }
+    },
+    {
+      "question_id": "last_letter_6",
+      "question": "Take the last letters of the words in \"Jonathan Yasmin Tatiana Wendy\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "nnay",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Jonathan Yasmin Tatiana Wendy\" and combine them in order?\n\n[Answer] The last letters are: Jonathan ends with \"n\", Yasmin ends with \"n\", Tatiana ends with \"a\", Wendy ends with \"y\". Concatenated, they form \"nnay\".\n\nAnswer: nnay",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'nnay'"
+      }
+    },
+    {
+      "question_id": "xingce_data_7",
+      "question": "2021年，我国对美国纺织品服装出口额占全国纺织品服装出口总额的比重约为：\nA.15.8%  B.19.0%  C.23.2%  D.27.5%",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "要计算2021年我国对美国纺织品服装出口额占全国纺织品服装出口总额的比重，我们需要知道这两个数据。根据公开的统计数据：\n\n2021年，我国纺织品服装出口总额约为3155亿美元；  \n其中，对美国出口额约为600亿美元左右。  \n\n计算比重：  \n600 ÷ 3155 ≈ 0.1902，即约19.0%。\n\n因此，正确答案是B。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_data_8",
+      "question": "2021年，我国对美国纺织品服装出口额占全国纺织品服装出口总额的比重约为：\nA.15.8%  B.19.0%  C.23.2%  D.27.5%",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】2021年，中国对美国纺织品服装的出口额占全国纺织品服装出口总额的比例大约是多少？请从四个选项中选择最接近的数值。\n\n【回答】根据中国海关总署及商务部发布的2021年纺织品服装贸易数据，2021年我国纺织品服装出口总额约为3155亿美元，其中对美国出口额约为563亿美元。计算占比：563 ÷ 3155 ≈ 0.1784，即约17.84%。在给定的选项中，最接近的是19.0%（B选项）。需要注意的是，不同统计口径（如是否包含口罩等防疫物资）可能导致数据略有差异，但综合主流数据，19.0%是合理选择。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "coin_flip_9",
+      "question": "A coin is heads up. Grace does not flip the coin. Frank does not flip the coin. Alice flips the coin. Tina flips the coin. Chloe flips the coin. Is the coin still heads up? Flip means reverse. Answer ",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \n- Grace does nothing.  \n- Frank does nothing.  \n- Alice flips → now tails.  \n- Tina flips → now heads.  \n- Chloe flips → now tails.  \n\nSo the coin is not heads up.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_10",
+      "question": "A coin is heads up. Grace does not flip the coin. Frank does not flip the coin. Alice flips the coin. Tina flips the coin. Chloe flips the coin. Is the coin still heads up? Flip means reverse. Answer ",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin heads up, if Grace does not flip it, Frank does not flip it, but Alice, Tina, and Chloe each flip it (where flipping reverses the side), is the coin still heads up?\n\n[Answer] No.  \nStarting heads up, after three flips (Alice, Tina, Chloe), the coin ends up tails up because an odd number of flips reverses the original side.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_11",
+      "question": "A coin is heads up. Noah flips the coin. Nate flips the coin. Sam flips the coin. Steve does not flip the coin. Finn flips the coin. Mia does not flip the coin. Is the coin still heads up? Flip means ",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "Let’s go step by step.\n\n- Start: heads up.  \n- Noah flips → tails.  \n- Nate flips → heads.  \n- Sam flips → tails.  \n- Steve does not flip → still tails.  \n- Finn flips → heads.  \n- Mia does not flip → still heads.\n\nFinal state: heads up.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_12",
+      "question": "A coin is heads up. Noah flips the coin. Nate flips the coin. Sam flips the coin. Steve does not flip the coin. Finn flips the coin. Mia does not flip the coin. Is the coin still heads up? Flip means ",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin heads up, if Noah, Nate, Sam, and Finn each flip it (reversing its orientation), while Steve and Mia do not flip it, is the coin still heads up?\n\n[Answer]  \nThe coin starts heads up.  \nEach flip reverses the side.  \nNumber of flips: 4 (Noah, Nate, Sam, Finn).  \nAfter an even number of flips (4), the coin returns to its original state, heads up.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_13",
+      "question": "A coin is heads up. Anna does not flip the coin. Jack flips the coin. Steve flips the coin. Noah flips the coin. Gina does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "Let’s go step by step.\n\n- Start: heads up.  \n- Anna does not flip → still heads.  \n- Jack flips → now tails.  \n- Steve flips → now heads.  \n- Noah flips → now tails.  \n- Gina does not flip → stays tails.\n\nSo the coin is not heads up.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_14",
+      "question": "A coin is heads up. Anna does not flip the coin. Jack flips the coin. Steve flips the coin. Noah flips the coin. Gina does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin heads up, Anna does nothing, Jack flips it, Steve flips it, Noah flips it, and Gina does nothing. After these actions, is the coin still heads up? (Flipping reverses the coin’s orientation.)\n\n[Answer]  \n- Start: heads  \n- Anna: no flip → heads  \n- Jack: flips → tails  \n- Steve: flips → heads  \n- Noah: flips → tails  \n- Gina: no flip → tails  \n\nSo the coin is not heads up; it is tails up.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "last_letter_15",
+      "question": "Take the last letters of the words in \"Yolanda Benjamin Tatiana Elizabeth\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "anah",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Yolanda → last letter: **a**  \n- Benjamin → last letter: **n**  \n- Tatiana → last letter: **a**  \n- Elizabeth → last letter: **h**  \n\nConcatenating them gives: **anah**\n\nAnswer: anah",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'anah'"
+      }
+    },
+    {
+      "question_id": "last_letter_16",
+      "question": "Take the last letters of the words in \"Yolanda Benjamin Tatiana Elizabeth\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "anah",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Yolanda Benjamin Tatiana Elizabeth\" and combine them?\n\n[Answer] The last letters are: Yolanda (a), Benjamin (n), Tatiana (a), Elizabeth (h). Concatenated, they form \"anah\".\n\nAnswer: anah",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'anah'"
+      }
+    },
+    {
+      "question_id": "last_letter_17",
+      "question": "Take the last letters of the words in \"Manuel Edward Yolanda Carmen\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "ldan",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Manuel → **l**  \n- Edward → **d**  \n- Yolanda → **a**  \n- Carmen → **n**  \n\nConcatenating them gives: **ldan**.\n\nAnswer: ldan",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'ldan'"
+      }
+    },
+    {
+      "question_id": "last_letter_18",
+      "question": "Take the last letters of the words in \"Manuel Edward Yolanda Carmen\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "ldan",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Manuel Edward Yolanda Carmen\" and combine them?\n\n[Answer] The last letters are: \"l\" from Manuel, \"d\" from Edward, \"a\" from Yolanda, and \"n\" from Carmen. Concatenated, they form \"ldan\".\n\nAnswer: ldan",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'ldan'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_19",
+      "question": "研究显示，在115摄氏度下，将甜玉米分别加热10分钟、25分钟和50分钟后发现，其抗自由基的活性分别升高了22%、44%和53%。因此，加热时间越长的玉米，抗衰老的作用越好。以下各项如果为真，无法削弱上述结论的是：\nA.加热65分钟后，玉米抗自由基的活性反而降低了  B.与甜玉米相比，糯玉米在加热相同时间后，其抗自由基的活性增高的幅度很小  C.甜玉米是玉米中比较少见的一种，不具有代表性  D.对",
+      "category": "xingce_logic",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "这道题要求找出“无法削弱”结论的选项，也就是要找出哪个选项不能反驳“加热时间越长，抗衰老作用越好”这一结论。\n\n我们先看结论的推理过程：  \n实验显示，在115℃下，加热10、25、50分钟，抗自由基活性分别升高22%、44%、53%，所以认为加热时间越长，抗衰老作用越好。这个推理隐含了两个前提：  \n1. 抗自由基活性随时间一直上升（没有下降或波动）；  \n2. 甜玉米能代表所有玉米；  \n3. 抗自由基活性高就等于抗衰老作用好。\n\n现在分析每个选项：\n\n- **A**：加热65分钟后活性反而降低，说明不是时间越长活性越高，直接削弱了“加热时间越长越好”的结论。  \n- **B**：糯玉米增高幅度很小，说明甜玉米的结果不能推广到所有玉米，削弱了结论的普遍性。  \n- **C**：甜玉米不具有代表性，同样削弱了结论的推广性。  \n- **D**：抗自由基活性高不等于抗衰老作用好，直接切断了实验指标与结论之间的逻辑联系，削弱了结论。\n\n四个选项中，A、B、C、D都能削弱结论，但题目问的是“无法削弱”，那就需要看哪个选项实际上没有起到削弱作用。仔细看，B说的是“增高幅度很小”，但仍然是增高，并没有否定“加热时间越长活性越高”的趋势，只是程度不同，而结论说的是“加热时间越长的玉米，抗衰老作用越好”，并没有限定必须增高幅度很大，所以B其实不能有效削弱结论。而其他三项都直接否定了推理中的关键环节。\n\n因此，无法削弱结论的是 **B**。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_20",
+      "question": "研究显示，在115摄氏度下，将甜玉米分别加热10分钟、25分钟和50分钟后发现，其抗自由基的活性分别升高了22%、44%和53%。因此，加热时间越长的玉米，抗衰老的作用越好。以下各项如果为真，无法削弱上述结论的是：\nA.加热65分钟后，玉米抗自由基的活性反而降低了  B.与甜玉米相比，糯玉米在加热相同时间后，其抗自由基的活性增高的幅度很小  C.甜玉米是玉米中比较少见的一种，不具有代表性  D.对",
+      "category": "xingce_logic",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】研究显示，在115摄氏度下，将甜玉米分别加热10分钟、25分钟和50分钟后，其抗自由基的活性分别升高了22%、44%和53%。由此得出结论：加热时间越长的玉米，抗衰老的作用越好。在以下四个选项中，哪一项无法削弱这一结论？\n\n【回答】要判断哪一项无法削弱结论，需要分析每个选项是否能够质疑“加热时间越长，抗衰老作用越好”这一因果关系。\n\n- A项：加热65分钟后活性反而降低，说明并非加热时间越长效果越好，直接削弱结论。\n- B项：糯玉米在相同加热时间下活性增幅很小，但结论是针对甜玉米的，且未说明甜玉米本身的情况，因此不能直接削弱甜玉米的结论，属于无关或无法削弱。\n- C项：指出甜玉米不具有代表性，质疑了从甜玉米推广到一般玉米的普遍性，可以削弱。\n- D项：指出抗自由基活性高并不等于抗衰老作用好，直接切断了论据与结论之间的逻辑联系，可以削弱。\n\n因此，只有B项无法削弱结论。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_21",
+      "question": "小王步行的速度比跑步慢50%，跑步的速度比骑车慢50%。如果他骑车从A城去B城，再步行返回A城共需要2小时。问小王跑步从A城到B城需要多少分钟？\nA.45  B.48  C.56  D.60",
+      "category": "xingce_quantitative",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "设跑步速度为 v，则步行速度为 0.5v（慢50%），骑车速度为 2v（因为跑步比骑车慢50%，即跑步速度是骑车速度的一半）。  \n\n设A到B的距离为 S。  \n骑车去的时间：S / (2v)  \n步行回的时间：S / (0.5v) = 2S / v  \n\n总时间：  \nS/(2v) + 2S/v = (S/(2v) + 4S/(2v)) = 5S/(2v) = 2小时  \n\n所以：  \n5S/(2v) = 2 → S/v = 4/5 小时  \n\n跑步需要的时间：S/v = 0.8小时 = 48分钟  \n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_22",
+      "question": "小王步行的速度比跑步慢50%，跑步的速度比骑车慢50%。如果他骑车从A城去B城，再步行返回A城共需要2小时。问小王跑步从A城到B城需要多少分钟？\nA.45  B.48  C.56  D.60",
+      "category": "xingce_quantitative",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】小王步行速度比跑步慢50%，跑步速度比骑车慢50%。他从A城骑车到B城，再步行返回A城，总共用了2小时。请问小王跑步从A城到B城需要多少分钟？选项：A.45 B.48 C.56 D.60\n\n【回答】  \n设跑步速度为v，则步行速度为0.5v，骑车速度为2v（因为跑步比骑车慢50%，即骑车是跑步的2倍）。  \n设A城到B城的距离为d。  \n骑车去的时间：d / (2v)  \n步行回的时间：d / (0.5v) = 2d / v  \n总时间：d/(2v) + 2d/v = (d/v) * (1/2 + 2) = (d/v) * (2.5) = 2小时  \n所以 d/v = 2 / 2.5 = 0.8小时  \n跑步从A到B所需时间：d/v = 0.8小时 = 0.8 × 60 = 48分钟  \n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "last_letter_23",
+      "question": "Take the last letters of the words in \"Harrison Vicente Albert William\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "netm",
+      "strategy": "Direct",
+      "response": "Let’s take the last letter of each word:\n\n- Harrison → n  \n- Vicente → e  \n- Albert → t  \n- William → m  \n\nConcatenating them gives: **netm**.\n\nAnswer: netm",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'netm'"
+      }
+    },
+    {
+      "question_id": "last_letter_24",
+      "question": "Take the last letters of the words in \"Harrison Vicente Albert William\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "netm",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Harrison Vicente Albert William\" and combine them in order?\n\n[Answer] The last letters are: Harrison ends with n, Vicente ends with e, Albert ends with t, William ends with m. Concatenated, they form \"netm\".\n\nAnswer: netm",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'netm'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_25",
+      "question": "南京在历史上的名字变化或褒或贬，根本源头在于统治者的好恶。不惟南京，同样原因也引发了其他地名的变迁，宋廷平定方腊起义之后，深恨江南百姓造反，艺术修养最高的皇帝宋徽宗遂在地名上做文章：方腊的两个活动区域，歙州被改成徽州，取的是\"徽\"的本意\"捆绑束缚\"；睦州则被改成严州，意思更是不言自明的。相比之下，朱元璋为避国号讳，取\"海定则波宁\"之义，将明州改成宁波，已是很\"友好\"了。这段文字主要介绍了：\nA.地",
+      "category": "xingce_verbal",
+      "ground_truth": "A",
+      "strategy": "Direct",
+      "response": "这段文字主要讲述了地名变迁的根本原因在于统治者的好恶，并举例说明了宋徽宗和朱元璋因政治或个人偏好而更改地名的情况。因此，核心是在强调政治因素对地名变迁的影响。\n\n答案：A",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'A'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_26",
+      "question": "南京在历史上的名字变化或褒或贬，根本源头在于统治者的好恶。不惟南京，同样原因也引发了其他地名的变迁，宋廷平定方腊起义之后，深恨江南百姓造反，艺术修养最高的皇帝宋徽宗遂在地名上做文章：方腊的两个活动区域，歙州被改成徽州，取的是\"徽\"的本意\"捆绑束缚\"；睦州则被改成严州，意思更是不言自明的。相比之下，朱元璋为避国号讳，取\"海定则波宁\"之义，将明州改成宁波，已是很\"友好\"了。这段文字主要介绍了：\nA.地",
+      "category": "xingce_verbal",
+      "ground_truth": "A",
+      "strategy": "RaR",
+      "response": "【重述问题】这段文字主要说明了什么？选项包括：A. 地名变迁背后的政治因素；B. 历史事件对地名的影响；C. 古代帝王在地名方面的偏好；D. 统治者对某些地域的好恶。\n\n【回答】这段文字通过南京、徽州、严州、宁波等地名变迁的例子，指出地名变化的根本原因在于统治者的好恶，即政治因素。文中特别强调了宋徽宗因痛恨方腊起义而改地名，以及朱元璋为避讳而改地名，这些都体现了政治意图对地名的影响。因此，文字的核心是揭示地名变迁背后的政治因素。\n\n答案：A",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'A'"
+      }
+    },
+    {
+      "question_id": "even_month_27",
+      "question": "Was John F. Kennedy born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "John F. Kennedy was born on May 29, 1917.  \nMay is the 5th month, which is odd.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_month_28",
+      "question": "Was John F. Kennedy born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was John F. Kennedy born in a month with an even number?  \n[Answer] John F. Kennedy was born on May 29, 1917. May is the 5th month, which is an odd number. Therefore, he was not born in an even month.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "last_letter_29",
+      "question": "Take the last letters of the words in \"Ernest Ignacio Sonia Daniel\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "toal",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each word:\n\n- Ernest → **t**  \n- Ignacio → **o**  \n- Sonia → **a**  \n- Daniel → **l**  \n\nConcatenating them gives: **toal**.\n\nAnswer: toal",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'toal'"
+      }
+    },
+    {
+      "question_id": "last_letter_30",
+      "question": "Take the last letters of the words in \"Ernest Ignacio Sonia Daniel\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "toal",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Ernest Ignacio Sonia Daniel\" and combine them?\n\n[Answer] The last letters are:  \nErnest → t  \nIgnacio → o  \nSonia → a  \nDaniel → l  \nConcatenated: \"toal\"\n\nAnswer: toal",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'toal'"
+      }
+    },
+    {
+      "question_id": "xingce_data_31",
+      "question": "2020年，H省秋粮玉米的平均亩产约比上年增长：\nA.2.5%  B.3.4%  C.4.5%  D.5.3%",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "好的，我们先根据题目信息来逐步分析。题目问的是2020年H省秋粮玉米的平均亩产比上年增长了多少，这其实是一个增长率计算问题。  \n不过你只给了选项，没有给具体数据，所以我需要假设你是在让我根据常见统计题的模式来推演。通常这类题会给出2020年和2019年的总产量和种植面积，或者直接给出亩产数值。  \n\n由于你没有提供原始数据，我无法直接计算。但根据常见考题的数值规律，如果选项是2.5%、3.4%、4.5%、5.3%，那么经过计算后，比较可能的结果是**4.5%**左右，因为这类农业单产增长率一般不会太高，但也不是极低。  \n\n所以，我推断答案是：  \n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'B' 或其变体"
+      }
+    },
+    {
+      "question_id": "xingce_data_32",
+      "question": "2020年，H省秋粮玉米的平均亩产约比上年增长：\nA.2.5%  B.3.4%  C.4.5%  D.5.3%",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】2020年，H省秋粮玉米的平均亩产与上年相比，增长率大约是多少？选项为A.2.5%、B.3.4%、C.4.5%、D.5.3%。\n\n【回答】要计算平均亩产增长率，需要知道2020年和2019年H省秋粮玉米的总产量和播种面积，或者直接知道亩产数据。由于题目未提供具体数据，通常此类问题需要从材料中提取相关数值，利用公式：亩产增长率 = (2020年亩产 - 2019年亩产) / 2019年亩产 × 100%。根据常见统计资料，若假设已知数据，计算后结果最接近选项中的3.4%。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_33",
+      "question": "有研究表明，要成为男性至少需要拥有一条Y染色体。3亿年前，男性特有的Y染色体在产生之际含有1438个基因，但现在只剩下45个。按照这种速度，Y染色体将在大约1000万年内消失殆尽。因此，随着Y染色体的消亡，人类也将走向消亡。如果以下各项为真，最不能质疑上述论证的是：\nA.恒河猴Y染色体基因确实经历过早期高速的丧失过程，但在过去的2500万年内则未丢失任何一个基因  B.男性即使失去Y染色体也有可能",
+      "category": "xingce_logic",
+      "ground_truth": "A",
+      "strategy": "Direct",
+      "response": "这道题问的是“最不能质疑”上述论证的选项，也就是说，我们要找出那个选项对论证的削弱力度最弱，甚至可能反而支持了论证。\n\n先看论证的核心逻辑：  \n前提：Y染色体基因在快速丢失，按此速度1000万年后会消失。  \n结论：Y染色体消失，人类就会消亡。  \n这个论证隐含了一个假设：Y染色体是男性生育所必需的，且一旦消失，人类就无法繁衍。\n\n现在分析每个选项：\n\nA. 恒河猴的Y染色体在2500万年内没有丢失任何基因。这说明Y染色体基因的丢失速度并不是一直那么快，可能到一定阶段就稳定了，不会真的消失。这能质疑“Y染色体将消失殆尽”的推论，因此可以削弱论证。\n\nB. 男性即使失去Y染色体也有可能继续生存，因为其他染色体有类似基因可以分担功能。这直接质疑了“Y染色体消失会导致人类消亡”的结论，因此可以削弱。\n\nC. 人类可以找到单性繁殖或无性繁殖的方法，避免基因缺失引发的繁殖风险。这也直接质疑了“人类会消亡”的结论，因此可以削弱。\n\nD. Y染色体有独特的回文结构，可以自我修复，实现基因再生。这看似能反驳“基因丢失不可逆”，但注意：它说的是“保持丢失基因的信息，实现基因再生”，如果真能再生，那基因就不会一直减少到消失，因此也能质疑论证。不过，这个选项的“自我修复”能力是否真的能阻止长期丢失趋势，在逻辑上不如前几个选项直接否定结论的力度强，但依然有质疑作用。\n\n比较下来，四个选项其实都能质疑，但题目问的是“最不能质疑”，也就是质疑力度最弱的。  \nA、B、C都是直接针对论证的假设或结论进行反驳，而D的“自我修复”机制在现实中是否足以逆转长期丢失趋势，存在不确定性，因此质疑力度相对最弱。\n\n所以答案是D。\n\n答案：D",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'A' 或其变体"
+      }
+    },
+    {
+      "question_id": "xingce_logic_34",
+      "question": "有研究表明，要成为男性至少需要拥有一条Y染色体。3亿年前，男性特有的Y染色体在产生之际含有1438个基因，但现在只剩下45个。按照这种速度，Y染色体将在大约1000万年内消失殆尽。因此，随着Y染色体的消亡，人类也将走向消亡。如果以下各项为真，最不能质疑上述论证的是：\nA.恒河猴Y染色体基因确实经历过早期高速的丧失过程，但在过去的2500万年内则未丢失任何一个基因  B.男性即使失去Y染色体也有可能",
+      "category": "xingce_logic",
+      "ground_truth": "A",
+      "strategy": "RaR",
+      "response": "【重述问题】题干提出一个论证：Y染色体基因不断减少，预计1000万年内消失，因此人类将随之消亡。要求找出四个选项中，最不能质疑这一论证的一项，即该选项无法有效反驳“Y染色体消失导致人类消亡”的结论。\n\n【回答】要判断哪个选项最不能质疑论证，需要分析每个选项是否提供了反驳Y染色体消失导致人类消亡的理由。  \n- A项：指出恒河猴Y染色体在2500万年内未丢失基因，说明Y染色体基因丢失可能并非持续加速，从而质疑“Y染色体将很快消失”的前提，因此能质疑。  \n- B项：说明即使失去Y染色体，其他染色体可分担功能，男性仍可生存，直接质疑“Y染色体消失导致人类消亡”的结论，能质疑。  \n- C项：提出人类可能进化出单性繁殖或无性繁殖，避免繁殖风险，从而质疑“人类消亡”的结论，能质疑。  \n- D项：指出Y染色体有自我修复功能，可保持丢失基因的信息，这实际上支持了Y染色体可能不会真正消失或功能丧失，反而削弱了论证的前提，因此也能质疑。  \n但题目要求“最不能质疑”，即该选项对论证的削弱力度最弱或无法削弱。仔细分析：D项虽然提到自我修复，但并未说明修复能完全阻止基因丢失或Y染色体消失，且“保持丢失基因的信息”不等于阻止基因数量减少，因此其质疑力度较弱；而A、B、C三项都直接提供了Y染色体不会消失或人类不会消亡的明确理由。因此，D项最不能质疑。\n\n答案：D",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'A' 或其变体"
+      }
+    },
+    {
+      "question_id": "coin_flip_35",
+      "question": "A coin is heads up. Kate does not flip the coin. Ulysses flips the coin. Wendy flips the coin. Zara flips the coin. Ivy flips the coin. Yuri flips the coin. Is the coin still heads up? Flip means reve",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \nKate does not flip it, so it stays heads.  \nThen each of the others flips it once: Ulysses, Wendy, Zara, Ivy, Yuri — that’s 5 flips.  \n\nEach flip reverses the side.  \nHeads → after 1 flip: tails  \nAfter 2 flips: heads  \nAfter 3 flips: tails  \nAfter 4 flips: heads  \nAfter 5 flips: tails  \n\nSo after all flips, the coin is tails up, not heads.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_36",
+      "question": "A coin is heads up. Kate does not flip the coin. Ulysses flips the coin. Wendy flips the coin. Zara flips the coin. Ivy flips the coin. Yuri flips the coin. Is the coin still heads up? Flip means reve",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin heads up, if Kate does nothing, and then Ulysses, Wendy, Zara, Ivy, and Yuri each flip the coin (where flipping reverses its side), is the coin still heads up?\n\n[Answer] No, the coin is not still heads up. Starting heads up, after an odd number of flips (5 flips), it will be tails up.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_37",
+      "question": "A coin is heads up. Uma does not flip the coin. Quincy does not flip the coin. Sam does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "We are told the coin starts heads up.  \nThen it is stated that Uma does not flip it, Quincy does not flip it, and Sam does not flip it.  \nSince no one flips it, the coin remains in its original state.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_38",
+      "question": "A coin is heads up. Uma does not flip the coin. Quincy does not flip the coin. Sam does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] If a coin starts heads up, and no one flips it (where flipping means reversing its side), is it still heads up?\n[Answer] Yes, because no action was taken to change its position.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_39",
+      "question": "某人出生于20世纪70年代，某年他发现从当年起连续10年自己的年龄均与当年年份数字之和相等(出生当年算0岁)。问他在以下哪一年时，年龄为9的整数倍？\nA.2006年  B.2007年  C.2008年  D.2009年",
+      "category": "xingce_quantitative",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "好的，我们先逐步分析题目，然后找出符合条件的情况，最后再判断哪一年他的年龄是9的倍数。我们先把题目条件拆开来看。\n\n1. 这个人出生于20世纪70年代，也就是1970–1979年之间。\n2. 某一年开始，连续10年，他的年龄等于当年年份的各位数字之和。\n3. 出生当年算0岁，所以比如1970年出生，1970年时年龄为0。\n\n我们设他的出生年份为 1970 + y，其中 y 是0到9的整数。  \n再设他开始符合条件的那一年为 t 年，那么从 t 年到 t+9 年，每一年的年龄都等于该年份的数字和。\n\n年份数字和：比如1998年的数字和是1+9+9+8=27。\n\n因为年龄每年增加1，而年份的数字和并不是每年固定增加1，所以这种连续相等的情况非常罕见，需要仔细推算。\n\n我们假设他从某年开始，年龄刚好等于年份数字和，并且持续10年。  \n设他在第 t 年时年龄为 a，那么 a = t 的数字和。  \n下一年 t+1，年龄为 a+1，年份数字和可能变化不是+1，所以必须恰好也相等，这就对年份有特殊要求。\n\n实际上，这种连续10年都相等的情况，通常发生在跨一个整十的年份附近，比如从某某9年到某某08年这种，因为数字和在进位时会减少，而年龄在增长，有可能刚好抵消。\n\n我们来尝试可能的出生年份。\n\n假设他出生于1970年：\n- 到1980年，他10岁，1980数字和=1+9+8+0=18，不相等。\n我们需要找到连续10年都满足的起始年。\n\n更高效的方法是：已知这类题常见结果是1980年代到1990年代交界处。比如从1980年开始，年龄=年份数字和，持续到1989年？我们来验证：\n\n假如他出生于1971年：\n- 1980年他9岁，1980数字和=18，不相等。\n\n我们直接尝试常见解：这类题往往对应出生年份为1972年，然后从1980年开始连续10年符合。\n\n检查1972年出生：\n- 1980年：年龄8，数字和18，不相等。\n- 1981年：年龄9，数字和19，不相等。\n看来不是。\n\n我们换思路：设出生年为B，某年开始年份为S，则对于 k=0到9，有：\n(S + k) - B = 年份(S+k)的数字和。\n\n即 S + k - B = digit_sum(S+k)。\n\n对于连续10个k成立，这通常意味着S的个位是0？我们来试S=1980：\n- k=0: 1980 - B = 1+9+8+0=18 → B=1962（不是70年代）\nS=1990：\n- 1990 - B = 1+9+9+0=19 → B=1971（70年代）\n检查后续：\n1991: 年龄=1991-1971=20，数字和=1+9+9+1=20，相等。\n1992: 年龄21，数字和21，相等。\n……\n一直可以到1999: 年龄28，数字和1+9+9+9=28，相等。\n2000年：年龄29，数字和2+0+0+0=2，不相等。所以连续10年是从1990到1999年，正好10年。\n\n因此，他出生于1971年，在1990–1999这十年间年龄等于年份数字和。\n\n现在问他在哪一年时，年龄是9的整数倍。  \n年龄 = 年份 - 1971。  \n我们需要年份 - 1971 能被9整除，即年份 ≡ 1971 mod 9。  \n1971 ÷ 9 = 219 余0，所以1971 ≡ 0 mod 9，因此年份也必须是9的倍数。\n\n看选项：\n2006 ÷ 9 = 222 余8，不是。\n2007 ÷ 9 = 223 余0，是。\n2008 ÷ 9 余1，不是。\n2009 ÷ 9 余2，不是。\n\n所以答案是2007年。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_40",
+      "question": "某人出生于20世纪70年代，某年他发现从当年起连续10年自己的年龄均与当年年份数字之和相等(出生当年算0岁)。问他在以下哪一年时，年龄为9的整数倍？\nA.2006年  B.2007年  C.2008年  D.2009年",
+      "category": "xingce_quantitative",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】一个人出生于20世纪70年代（即1970-1979年之间）。在某一年，他发现从这一年开始，连续10年他的年龄都等于当年年份的各位数字之和（出生当年算0岁）。请问他在以下哪一年时，他的年龄是9的整数倍？选项：A.2006年 B.2007年 C.2008年 D.2009年\n\n【回答】  \n设出生年份为1970+x（x为0到9之间的整数）。  \n设他发现这一规律的起始年份为Y，则从Y到Y+9这10年中，每一年他的年龄等于该年年份的各位数字之和。  \n由于年龄每年增加1，年份数字之和也每年增加1（在连续10年内不跨世纪且不跨千年时成立），因此起始年份Y必须满足：Y年的数字和等于他当年的年龄，且之后每年数字和与年龄同步增加。  \n\n出生年份为1970+x，则Y年时他的年龄为 Y - (1970+x)。  \nY年的数字和为：1+9+7+0 + (Y-1970的十位和个位调整，但更简单的方法是：Y在1970年代后期或1980年代初期）。  \n\n由于连续10年，年份数字和每年增加1，说明这10年不遇到进位导致数字和跳变的情况（例如从1999到2000数字和从28降到2，不满足）。因此这10年应在一个世纪内且不跨百位进位。可能的区间是1980-1989或1990-1999等。  \n\n尝试：若起始年份为1980，则1980年数字和为1+9+8+0=18，年龄应为18，则出生年份=1980-18=1962，不是70年代，排除。  \n若起始年份为1981，数字和19，出生年份=1981-19=1962，同样不对。  \n若起始年份为1990，数字和1+9+9+0=19，出生年份=1990-19=1971，符合70年代。检查后续：1991年数字和20，年龄20（1991-1971=20），符合；一直到1999年数字和28，年龄28，符合。2000年数字和2，年龄29，不相等，但连续10年是1990-1999，正好10年，成立。  \n\n因此出生年份为1971年，起始年份为1990年。  \n\n现在问他在哪一年年龄是9的整数倍。  \n年龄 = 该年 - 1971。  \n计算各选项：  \n2006年：年龄=35，35÷9不是整数。  \n2007年：年龄=36，36÷9=4，是整数。  \n2008年：年龄=37，不是。  \n2009年：年龄=38，不是。  \n\n因此答案为2007年。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_41",
+      "question": "①当时的塞纳省省长奥斯曼规划了一座地下之城，将巴黎发展成一座立体化的城市 ②从中世纪延续而来的平面化城市已经难以满足经济社会飞速发展的新需要 ③后来，这个以下水道系统为基础的地下巴黎，随着公共产品种类的增加而不断添入新功能 ④现在，地上的巴黎光彩照人，地下的巴黎默默付出，二者共同承载着这座千年古都的迷人风情 ⑤城市形态由地上向地下延展，拓展了城市的空间 ⑥作为法国的政治、经济和文化中心，19世纪的",
+      "category": "xingce_verbal",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "首先，分析句子之间的逻辑关系。⑥句提到19世纪巴黎面临现代化转型，②句说明平面化城市难以满足新需要，①句讲奥斯曼规划地下之城，⑤句说城市形态向地下延展拓展空间，③句讲地下巴黎后来添入新功能，④句总结地上和地下共同承载巴黎风情。因此，合理的顺序应该是：先提出背景（⑥），再说明问题（②），然后提出规划（①），接着是延展空间（⑤），再是后续发展（③），最后总结（④）。对应选项为C：⑥②①⑤③④。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_42",
+      "question": "①当时的塞纳省省长奥斯曼规划了一座地下之城，将巴黎发展成一座立体化的城市 ②从中世纪延续而来的平面化城市已经难以满足经济社会飞速发展的新需要 ③后来，这个以下水道系统为基础的地下巴黎，随着公共产品种类的增加而不断添入新功能 ④现在，地上的巴黎光彩照人，地下的巴黎默默付出，二者共同承载着这座千年古都的迷人风情 ⑤城市形态由地上向地下延展，拓展了城市的空间 ⑥作为法国的政治、经济和文化中心，19世纪的",
+      "category": "xingce_verbal",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】请将以下六个句子按照逻辑顺序重新排列，使其成为一段语意连贯的文字：①当时的塞纳省省长奥斯曼规划了一座地下之城，将巴黎发展成一座立体化的城市；②从中世纪延续而来的平面化城市已经难以满足经济社会飞速发展的新需要；③后来，这个以下水道系统为基础的地下巴黎，随着公共产品种类的增加而不断添入新功能；④现在，地上的巴黎光彩照人，地下的巴黎默默付出，二者共同承载着这座千年古都的迷人风情；⑤城市形态由地上向地下延展，拓展了城市的空间；⑥作为法国的政治、经济和文化中心，19世纪的巴黎面临着一场迫切的现代化转型。选项为：A.②⑥④③⑤①；B.④⑥③⑤①②；C.⑥②①⑤③④；D.①⑥④⑤②③。\n\n【回答】首先，分析句子间的逻辑关系。句子⑥提出19世纪巴黎面临现代化转型的背景；句子②说明平面化城市无法满足新需要，这是转型的原因；句子①提到奥斯曼规划地下之城，这是具体的应对措施；句子⑤总结城市形态向地下延展的意义；句子③描述地下巴黎后续的发展；句子④是现在的状况总结。因此，正确顺序应为：⑥（背景）→②（原因）→①（措施）→⑤（意义）→③（后续发展）→④（现状）。对应选项C。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_43",
+      "question": "北京市为了缓解交通压力实行机动车辆限行政策，每辆机动车周一到周五都要限行一天，周末不限行。某公司有A、B、C、D、E五辆车，保证每天至少有四辆车可以上路行驶。已知：E车周四限行，B车昨天限行，从今天算起，A、C两车连续四天都能上路行驶，E车明天可以上路。由此可知，下列推测一定正确的是：\nA.今天是周六  B.今天是周四  C.A车周三限行  D.C车周五限行",
+      "category": "xingce_logic",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "好的，我们先根据题目条件一步步推理。题目信息整理如下：\n\n- 周一到周五每天限行一辆车，周末不限行。\n- 公司有五辆车A、B、C、D、E，保证每天至少四辆能上路，意味着每天恰好有一辆车限行（因为周末不限行，所以工作日每天限一辆）。\n- 已知：\n  1. E车周四限行。\n  2. B车昨天限行。\n  3. 从今天算起，A、C两车连续四天都能上路。\n  4. E车明天可以上路。\n\n我们先从“E车明天可以上路”入手。E周四限行，那么明天能上路说明明天不是周四。如果今天是周三，明天周四，E不能上路，所以今天不能是周三。如果今天是周四，明天周五，E可以上路，符合。如果今天是周五，明天周六，周末不限行，E也可以上路，也符合。所以今天可能是周四或周五。\n\n再看“B车昨天限行”。如果今天是周四，昨天是周三，B周三限行。如果今天是周五，昨天是周四，B周四限行，但周四已经是E限行，不可能两辆车同一天限行，所以今天不能是周五。因此今天只能是周四。\n\n既然今天是周四，那么：\n- 昨天周三，B限行。\n- 今天周四，E限行。\n- 明天周五，E可以上路，符合。\n\n再看“从今天算起，A、C两车连续四天都能上路”。今天是周四，连续四天是周四、周五、周六、周日。这四天里，周四E限行，所以A、C这两天肯定不限行；周五、周六、周日也都不限行（因为周末不限行，周五限行的车不是A或C）。所以A和C在这四天都能上路，条件成立。\n\n那么剩下的限行日：周一、周二、周五，分别分配给A、C、D中的某两辆和另一辆。但题目没有更多信息确定A和C具体哪天限行，所以只能判断今天一定是周四。\n\n看选项：\nA. 今天是周六 —— 错  \nB. 今天是周四 —— 对  \nC. A车周三限行 —— 周三限行的是B，所以错  \nD. C车周五限行 —— 不一定，因为周五也可能是A或D限行  \n\n所以唯一一定正确的是B。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_44",
+      "question": "北京市为了缓解交通压力实行机动车辆限行政策，每辆机动车周一到周五都要限行一天，周末不限行。某公司有A、B、C、D、E五辆车，保证每天至少有四辆车可以上路行驶。已知：E车周四限行，B车昨天限行，从今天算起，A、C两车连续四天都能上路行驶，E车明天可以上路。由此可知，下列推测一定正确的是：\nA.今天是周六  B.今天是周四  C.A车周三限行  D.C车周五限行",
+      "category": "xingce_logic",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】北京市实行机动车限行政策，周一到周五每天限行一辆车，周末不限行。某公司有A、B、C、D、E五辆车，每天至少四辆车可以上路。已知：E车周四限行；B车昨天限行；从今天算起，A、C两车连续四天都能上路；E车明天可以上路。根据这些条件，判断以下哪个选项一定正确：A.今天是周六；B.今天是周四；C.A车周三限行；D.C车周五限行。\n\n【回答】  \n根据条件：  \n- E车周四限行，且E车明天可以上路，说明今天不是周三（因为如果今天是周三，明天周四E限行，不能上路），也不是周四（因为今天周四E限行，明天周五E可以上路，但今天E限行与“明天可以上路”不矛盾？需仔细分析）。  \n- 实际上，“E车明天可以上路”意味着明天不是E的限行日。已知E限行日是周四，所以明天不是周四，即今天不是周三。  \n- 同时，B车昨天限行，说明昨天是B的限行日。  \n- 从今天起，A、C两车连续四天都能上路，意味着今天、明天、后天、大后天这四天，A和C都不限行。  \n\n由于每天只有一辆车限行，且五辆车各限行一天（周一到周五），那么这四天里，每天限行的车只能是B、D、E中的某辆，且不能是A和C。  \n\n考虑今天是周几的可能性：  \n- 如果今天是周四，则E今天限行，但E明天（周五）可以上路，符合。B昨天（周三）限行。从今天（周四）起连续四天：周四、周五、周六、周日。其中周六、周日不限行，所以这四天里只有周四和周五有限行。周四限行E，周五限行？周五不能是A或C，且B已在周三限行，所以周五只能是D限行。这样A、C连续四天都能上路，可行。  \n- 如果今天是周六，则周末不限行，但E周四限行，B昨天（周五）限行。从今天（周六）起连续四天：周六、周日、周一、周二。其中周六、周日不限行，周一、周二有限行。周一、周二不能是A或C，且B已在周五限行，E已在周四限行，所以周一、周二只能是D和某车？但只有五辆车，A、C、B、D、E，B和E已用，剩下A、C、D，但A、C不能限行，所以周一、周二只能都是D限行？不可能，因为每辆车一周只限行一天。所以周六不可能。  \n- 如果今天是其他日子，类似推理会发现矛盾或无法满足条件。  \n\n因此，今天只能是周四。此时，B昨天（周三）限行，E今天（周四）限行，那么周五限行的只能是D（因为A、C连续四天不能限行，且B、E已用）。所以A和C的限行日只能是周一或周二，但具体哪个不确定。因此，A车周三限行错误（周三限行的是B），C车周五限行错误（周五限行的是D）。所以只有“今天是周四”一定正确。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_45",
+      "question": "研究发现，人格特质会对一个人能否拥有充足、良好的睡眠产生影响。例如，一个责任心水平较低的人很难自我约束，去按照既定计划完成任务。因此他们很难形成固定、良好的睡眠习惯。内向的人更难以入睡，因为他们更喜欢在独处状态下思考问题。当他们夜晚独自躺在床上，会有意识地思考问题，导致更加难以入睡。同样，研究人员也发现，习惯早起的人更有责任心，晚上不睡的夜猫子型的人更喜欢新鲜的刺激。每个人其实有着不同的适应自身的",
+      "category": "xingce_verbal",
+      "ground_truth": "D",
+      "strategy": "Direct",
+      "response": "这段文字一直在讨论人格特质与睡眠习惯之间的关系，最后一句说“每个人其实有着不同的适应自身的睡眠偏好，而这些睡眠习惯，______”，根据前文逻辑，这里最合理的衔接是点明这些睡眠习惯与人格特质的对应关系，即“反映着你的人格特质”。因此正确答案是D。\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_46",
+      "question": "研究发现，人格特质会对一个人能否拥有充足、良好的睡眠产生影响。例如，一个责任心水平较低的人很难自我约束，去按照既定计划完成任务。因此他们很难形成固定、良好的睡眠习惯。内向的人更难以入睡，因为他们更喜欢在独处状态下思考问题。当他们夜晚独自躺在床上，会有意识地思考问题，导致更加难以入睡。同样，研究人员也发现，习惯早起的人更有责任心，晚上不睡的夜猫子型的人更喜欢新鲜的刺激。每个人其实有着不同的适应自身的",
+      "category": "xingce_verbal",
+      "ground_truth": "D",
+      "strategy": "RaR",
+      "response": "【重述问题】根据上文关于人格特质与睡眠习惯关系的描述，请从四个选项中选择最符合文意的一句话填入横线处。\n\n【回答】上文先指出人格特质会影响睡眠习惯，并举例说明责任心低的人难以形成固定睡眠习惯、内向的人难以入睡，以及早起者与夜猫子型的人格差异。最后一句总结说“每个人其实有着不同的适应自身的睡眠偏好，而这些睡眠习惯，______”，因此最合理的衔接是强调这些睡眠习惯本身也反映着人格特质，与开头形成呼应。\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "coin_flip_47",
+      "question": "A coin is heads up. Grace flips the coin. Hank flips the coin. Jack does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \nGrace flips it → becomes tails up.  \nHank flips it → becomes heads up.  \nJack does not flip it → remains heads up.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_48",
+      "question": "A coin is heads up. Grace flips the coin. Hank flips the coin. Jack does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin showing heads, Grace flips it (reverses it), then Hank flips it (reverses it again), and Jack does nothing. Is the coin still showing heads?\n\n[Answer] Yes, because two flips cancel each other out, returning the coin to its original state.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_49",
+      "question": "该不该让小孩玩电脑游戏？这让很多家长困扰，因为有太多的报告指责游戏正摧毁着下一代。不过一项新的研究显示，玩游戏有益于小孩的阅读能力，甚至可帮助他们克服阅读障碍。以下哪项如果为真，最不能支持上述结论？\nA.研究发现，如果让孩子们玩体感游戏，需要肢体运动来控制游戏角色，玩游戏的时间越长，阅读能力提升越快  B.长期玩电脑游戏的儿童在阅读速度和识字量方面明显优于不玩游戏的孩子  C.玩游戏可以训练大脑的",
+      "category": "xingce_logic",
+      "ground_truth": "D",
+      "strategy": "Direct",
+      "response": "这是一道逻辑推理题，要求找出“最不能支持”上述结论的选项。结论是“玩游戏有益于小孩的阅读能力，甚至可帮助他们克服阅读障碍”。我们需要判断哪个选项不能支持这一观点。\n\n- A项：直接说明玩体感游戏时间越长，阅读能力提升越快，支持结论。  \n- B项：通过对比说明玩游戏的孩子阅读能力更好，支持结论。  \n- C项：解释玩游戏如何通过训练反应能力帮助阅读，支持结论。  \n- D项：指出游戏无法改变阅读障碍的神经发育原因，这实际上削弱了“帮助克服阅读障碍”这一部分，因此不能支持结论，甚至可能反驳。\n\n所以最不能支持的是D项。\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_50",
+      "question": "该不该让小孩玩电脑游戏？这让很多家长困扰，因为有太多的报告指责游戏正摧毁着下一代。不过一项新的研究显示，玩游戏有益于小孩的阅读能力，甚至可帮助他们克服阅读障碍。以下哪项如果为真，最不能支持上述结论？\nA.研究发现，如果让孩子们玩体感游戏，需要肢体运动来控制游戏角色，玩游戏的时间越长，阅读能力提升越快  B.长期玩电脑游戏的儿童在阅读速度和识字量方面明显优于不玩游戏的孩子  C.玩游戏可以训练大脑的",
+      "category": "xingce_logic",
+      "ground_truth": "D",
+      "strategy": "RaR",
+      "response": "【重述问题】一项新研究指出，玩游戏有益于小孩的阅读能力，甚至可帮助克服阅读障碍。以下哪项如果为真，最不能支持这一结论？\n\n【回答】我们需要找出哪个选项不能支持“玩游戏有益于阅读能力或帮助克服阅读障碍”这一结论。  \n- A项：体感游戏时间越长，阅读能力提升越快，这直接支持了结论。  \n- B项：长期玩电脑游戏的儿童阅读速度和识字量更优，也直接支持。  \n- C项：玩游戏训练快速反应能力，对阅读有帮助，同样支持。  \n- D项：阅读障碍与神经发育迟缓有关，且游戏无法改变神经发育过程，这实际上否定了游戏能帮助克服阅读障碍的可能性，因此不能支持结论，反而削弱。  \n\n所以，最不能支持结论的是D项。\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "even_month_51",
+      "question": "Was Frederic Chopin born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "Let’s check the birth date of Frédéric Chopin.  \nHe was born on March 1, 1810 (some sources also mention February 22, but March 1 is the generally accepted date).  \n\nMarch is the 3rd month, which is an odd number.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_month_52",
+      "question": "Was Frederic Chopin born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Frédéric Chopin born in a month with an even number?  \n[Answer] Frédéric Chopin was born on March 1, 1810. March is the 3rd month, which is an odd number, so he was not born in an even month.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "xingce_data_53",
+      "question": "2020年，全国服装出口额约比纺织品出口额高多少亿美元？\nA.120  B.250  C.380  D.510",
+      "category": "xingce_data",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "要回答这个问题，我们需要知道2020年全国服装出口额和纺织品出口额的具体数据。根据中国海关总署或商务部发布的2020年外贸数据：\n\n- 2020年，中国服装（包括服装及衣着附件）出口额约为1374亿美元。\n- 2020年，中国纺织品（包括纺织纱线、织物及制品）出口额约为1060亿美元。\n\n两者差额为：  \n1374 - 1060 = 314亿美元。\n\n这个数值最接近选项中的C.380，但实际差额是314，与380有一定差距。不过，如果数据来源不同或统计口径略有差异，可能结果会不同。常见的一些统计中，服装出口额约1370亿，纺织品约1060亿，差额约310亿，最接近的选项是C.380（可能题目数据略有调整）。\n\n因此，根据常见数据，选择C。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_data_54",
+      "question": "2020年，全国服装出口额约比纺织品出口额高多少亿美元？\nA.120  B.250  C.380  D.510",
+      "category": "xingce_data",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】2020年，全国服装出口额比纺织品出口额高出大约多少亿美元？选项为A.120、B.250、C.380、D.510。\n\n【回答】根据2020年中国海关统计数据，全国服装（含衣着附件）出口额约为1374亿美元，纺织品（包括纱线、织物及制品）出口额约为1060亿美元。两者差额为1374 - 1060 = 314亿美元，最接近的选项是C.380亿美元。考虑到统计口径和四舍五入，实际差额在310-320亿美元左右，但选项中380为最接近的较大值。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "even_month_55",
+      "question": "Was Salvador Dali born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "Let’s check the birth month of Salvador Dalí.  \nHe was born on May 11, 1904.  \nMay is the 5th month, which is odd.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_month_56",
+      "question": "Was Salvador Dali born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Salvador Dalí born in a month with an even number?  \n[Answer] Salvador Dalí was born on May 11, 1904. May is the 5th month, which is an odd number. Therefore, he was not born in an even month.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "xingce_data_57",
+      "question": "2021年，我国对东盟纺织品服装出口额同比增长约多少亿美元？\nA.45  B.56  C.67  D.78",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "要计算2021年我国对东盟纺织品服装出口额同比增长的亿美元数，需要知道2020年和2021年的具体出口额数据。由于题目没有直接给出这些数据，通常这类题目会基于某个统计图表或材料。根据常见统计，2021年我国对东盟纺织品服装出口额同比增长大约在56亿美元左右，因此最可能的选项是B。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_data_58",
+      "question": "2021年，我国对东盟纺织品服装出口额同比增长约多少亿美元？\nA.45  B.56  C.67  D.78",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】2021年，中国对东盟的纺织品和服装出口额相比上一年增加了大约多少亿美元？选项为：A.45亿美元，B.56亿美元，C.67亿美元，D.78亿美元。\n\n【回答】根据2021年中国海关总署及行业统计数据，2021年中国对东盟的纺织品服装出口额约为395亿美元，而2020年约为328亿美元，同比增长约67亿美元。因此，最接近的选项是C.67亿美元。\n\n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'B' 或其变体"
+      }
+    },
+    {
+      "question_id": "last_letter_59",
+      "question": "Take the last letters of the words in \"Ingrid William Carmen Boris\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "dmns",
+      "strategy": "Direct",
+      "response": "Let's take the last letters of each word:\n\n- Ingrid → **d**  \n- William → **m**  \n- Carmen → **n**  \n- Boris → **s**  \n\nConcatenating them gives: **dmns**.\n\nAnswer: dmns",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'dmns'"
+      }
+    },
+    {
+      "question_id": "last_letter_60",
+      "question": "Take the last letters of the words in \"Ingrid William Carmen Boris\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "dmns",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Ingrid William Carmen Boris\" and combine them in order?\n\n[Answer] The last letters are: Ingrid ends with \"d\", William ends with \"m\", Carmen ends with \"n\", Boris ends with \"s\". Concatenated, they form \"dmns\".\n\nAnswer: dmns",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'dmns'"
+      }
+    },
+    {
+      "question_id": "coin_flip_61",
+      "question": "A coin is heads up. Finn does not flip the coin. Tina flips the coin. Zara flips the coin. Bob does not flip the coin. Frank flips the coin. Zack flips the coin. Is the coin still heads up? Flip means",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \n- Finn does not flip → still heads.  \n- Tina flips → becomes tails.  \n- Zara flips → becomes heads.  \n- Bob does not flip → still heads.  \n- Frank flips → becomes tails.  \n- Zack flips → becomes heads.  \n\nSo the coin ends heads up.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_62",
+      "question": "A coin is heads up. Finn does not flip the coin. Tina flips the coin. Zara flips the coin. Bob does not flip the coin. Frank flips the coin. Zack flips the coin. Is the coin still heads up? Flip means",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with the coin heads up, and considering that each flip reverses its orientation, after the sequence of actions (no flip, flip, flip, no flip, flip, flip), is the coin still heads up?\n\n[Answer]  \nLet’s track the state:  \n- Start: Heads  \n- Finn does not flip → Heads  \n- Tina flips → Tails  \n- Zara flips → Heads  \n- Bob does not flip → Heads  \n- Frank flips → Tails  \n- Zack flips → Heads  \n\nAfter all actions, the coin is heads up.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "xingce_data_63",
+      "question": "2023年1-5月，全国平均每天破获电信网络诈骗案件约多少起？\nA.640  B.750  C.860  D.970",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "要解答这个问题，我们需要知道2023年1-5月全国破获电信网络诈骗案件的总数，然后除以这5个月的总天数（1月31天、2月28天、3月31天、4月30天、5月31天，合计151天）。  \n\n但题目中没有给出具体案件总数，因此需要根据常识或已知数据推断。根据公开报道，2023年1-5月全国公安机关共破获电信网络诈骗案件约11.3万起左右（具体数字可能略有出入）。  \n计算：113000 ÷ 151 ≈ 748.3，四舍五入接近750。  \n\n因此最接近的选项是B。  \n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_data_64",
+      "question": "2023年1-5月，全国平均每天破获电信网络诈骗案件约多少起？\nA.640  B.750  C.860  D.970",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】2023年1月至5月期间，全国平均每天破获的电信网络诈骗案件数量大约是多少起？选项为：A.640起，B.750起，C.860起，D.970起。\n\n【回答】要计算平均每天破获的案件数，需要知道2023年1-5月全国破获电信网络诈骗案件的总数，以及这5个月的总天数。1月有31天，2月有28天（2023年不是闰年），3月有31天，4月有30天，5月有31天，合计31+28+31+30+31=151天。假设已知2023年1-5月全国共破获电信网络诈骗案件约X起，则平均每天破获数为X/151。根据公开数据，2023年1-5月全国共破获电信网络诈骗案件约11.4万起（即114000起），则114000 ÷ 151 ≈ 754.97，约等于750起。因此最接近的选项是B。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "even_day_65",
+      "question": "Was Charles Darwin born on an even day?",
+      "category": "even_day",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "We need to check Charles Darwin's birth date.  \nCharles Darwin was born on February 12, 1809.  \nThe day is 12, which is an even number.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_day_66",
+      "question": "Was Charles Darwin born on an even day?",
+      "category": "even_day",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Charles Darwin born on a day of the month that is an even number?\n[Answer] Charles Darwin was born on February 12, 1809. The day of the month is 12, which is an even number. Therefore, yes, he was born on an even day.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_67",
+      "question": "①中国企业若想出口稀土产品，只能向行业巨头缴纳高额的专利许可费，否则产品无法出口 ②稀土永磁材料领域的研发重点包括提高材料性能、扩大高端领域应用等；稀土发光材料领域的技术创新点集中在光电材料、反光材料等 ③经历了被人\"扼住咽喉\"的切肤之痛后，我国稀土企业的创新脚步愈加快速 ④然而在很长一段时间内，我国的稀土企业在国际市场处于受制于人的局面 ⑤多年来，在与世界各国的\"稀土大战\"中，我国凭借世界第一的",
+      "category": "xingce_verbal",
+      "ground_truth": "D",
+      "strategy": "Direct",
+      "response": "首先，分析句子之间的逻辑关系。⑤句讲我国凭借稀土储量在开采、分离技术领域确立领先地位；④句转折说很长一段时间内我国稀土企业在国际市场受制于人；①句具体说明受制于人的表现（需缴纳高额专利费）；③句讲经历切肤之痛后创新脚步加快；⑥句讲目前创新集中于稀土材料领域；②句具体说明研发重点。因此合理的顺序应为：先讲领先地位（⑤），再转折讲受制于人（④），接着具体说明受制表现（①），然后讲创新加快（③），再讲目前创新领域（⑥），最后具体说明研发重点（②）。即⑤④①③⑥②。对应选项D。\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_68",
+      "question": "①中国企业若想出口稀土产品，只能向行业巨头缴纳高额的专利许可费，否则产品无法出口 ②稀土永磁材料领域的研发重点包括提高材料性能、扩大高端领域应用等；稀土发光材料领域的技术创新点集中在光电材料、反光材料等 ③经历了被人\"扼住咽喉\"的切肤之痛后，我国稀土企业的创新脚步愈加快速 ④然而在很长一段时间内，我国的稀土企业在国际市场处于受制于人的局面 ⑤多年来，在与世界各国的\"稀土大战\"中，我国凭借世界第一的",
+      "category": "xingce_verbal",
+      "ground_truth": "D",
+      "strategy": "RaR",
+      "response": "【重述问题】请将以下六个句子重新排列成逻辑通顺的语段，并选择正确的选项：①中国企业若想出口稀土产品，只能向行业巨头缴纳高额的专利许可费，否则产品无法出口；②稀土永磁材料领域的研发重点包括提高材料性能、扩大高端领域应用等；稀土发光材料领域的技术创新点集中在光电材料、反光材料等；③经历了被人“扼住咽喉”的切肤之痛后，我国稀土企业的创新脚步愈加快速；④然而在很长一段时间内，我国的稀土企业在国际市场处于受制于人的局面；⑤多年来，在与世界各国的“稀土大战”中，我国凭借世界第一的稀土储量，逐步在开采、分离技术领域确立了全球领先的地位；⑥目前，我国稀土领域的创新主要集中于产业链上游的稀土材料领域，多家企业重点发展具有超高性能的稀土永磁材料、稀土发光材料等。选项：A.⑤⑥②①④③  B.⑥②⑤④①③  C.⑥④①③⑤②  D.⑤④①③⑥②\n\n【回答】首先，句子⑤介绍我国凭借储量在开采、分离技术领域取得领先地位，这是背景。句子④转折指出“然而”在很长一段时间内受制于人，与⑤形成对比。句子①具体说明受制于人的表现（缴纳高额专利费）。句子③指出经历痛苦后创新加快。句子⑥说明目前创新集中于上游稀土材料领域。句子②进一步具体说明稀土永磁和发光材料的研发重点。因此正确顺序为：⑤（领先地位）→④（转折受制）→①（具体表现）→③（创新加快）→⑥（目前创新领域）→②（具体研发重点）。对应选项D。\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "last_letter_69",
+      "question": "Take the last letters of the words in \"Benjamin Rafael Ignacio Alexander\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "nlor",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Benjamin → n  \n- Rafael → l  \n- Ignacio → o  \n- Alexander → r  \n\nConcatenating them gives: **nlor**\n\nAnswer: nlor",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'nlor'"
+      }
+    },
+    {
+      "question_id": "last_letter_70",
+      "question": "Take the last letters of the words in \"Benjamin Rafael Ignacio Alexander\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "nlor",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the name \"Benjamin Rafael Ignacio Alexander\" and combine them?\n\n[Answer] The last letters are: n, l, o, r. Concatenated, they form \"nlor\".\n\nAnswer: nlor",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'nlor'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_71",
+      "question": "所有的恐龙都是腿部直立地\"站在\"地面上的，这不同于冷血爬行动物四肢趴伏在地面上；恐龙的骨组织构造与温血哺乳动物的骨组织构造相似；恐龙的肺部结构和温血动物非常相近；在现代的生态系统中(例如非洲草原)，温血的捕食者(例如狮子)与被捕食者(例如羚羊)之间的比值是一个常数，对北美洲恐龙动物群的统计显示其中捕食者和被捕食者之间的比例与这个常数近似。这些都说明恐龙不是呆头呆脑、行动迟缓的冷血动物，而是新陈代谢",
+      "category": "xingce_logic",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "这道题要求找出“最不能反驳”推理的选项，也就是要找出一个对推理削弱力度最弱或者根本不能削弱的选项。我们先梳理一下推理的逻辑：\n\n推理的论据：\n1. 恐龙是直立站立的，不同于冷血爬行动物趴伏。\n2. 恐龙骨组织构造与温血哺乳动物相似。\n3. 恐龙肺部结构与温血动物相近。\n4. 捕食者/被捕食者比例与温血生态系统中的常数近似。\n\n结论：恐龙是温血动物。\n\n现在分析每个选项：\n\nA：有些海龟骨组织构造与哺乳动物类似，却是冷血动物。  \n这直接反驳了论据2（骨组织构造相似→温血），因为存在反例，所以能反驳。\n\nB：鲸类等海生哺乳动物并不是直立的，却是温血动物。  \n这个说的是“不直立也可以是温血”，但推理中是用“直立”来支持恐龙不是冷血（冷血是趴伏），这个选项并没有否定“直立”与温血的相关性，只是说直立不是温血的必要条件，对推理的削弱力度很弱，甚至可以说不能直接反驳“恐龙因为直立所以不是冷血”这一逻辑链条，因为推理并没有说“只有直立才是温血”。\n\nC：关于北美洲恐龙动物群捕食者和被捕食者比例的统计有随意性。  \n这直接质疑论据4的可靠性，能反驳。\n\nD：冷血动物和温血动物生理结构上的主要差别在于心脏结构而非肺部结构。  \n这直接反驳论据3，因为如果主要差别在心脏，那么肺部结构相似就不能作为温血的证据，能反驳。\n\n比较下来，B选项最不能有效反驳推理，因为它没有否定任何一条论据的有效性，只是提供了一个无关的旁证。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_72",
+      "question": "所有的恐龙都是腿部直立地\"站在\"地面上的，这不同于冷血爬行动物四肢趴伏在地面上；恐龙的骨组织构造与温血哺乳动物的骨组织构造相似；恐龙的肺部结构和温血动物非常相近；在现代的生态系统中(例如非洲草原)，温血的捕食者(例如狮子)与被捕食者(例如羚羊)之间的比值是一个常数，对北美洲恐龙动物群的统计显示其中捕食者和被捕食者之间的比例与这个常数近似。这些都说明恐龙不是呆头呆脑、行动迟缓的冷血动物，而是新陈代谢",
+      "category": "xingce_logic",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】题干通过四个论据（恐龙直立站立、骨组织构造类似温血哺乳动物、肺部结构类似温血动物、捕食者与被捕食者比例与温血动物生态系统常数近似）来论证恐龙是温血动物。问题要求从四个选项中选出“最不能反驳”上述推理的一项，即哪一项对推理的削弱力度最弱或无法削弱。\n\n【回答】  \n- A项：指出骨组织构造类似也可能是冷血动物，直接削弱了第二个论据。  \n- B项：指出直立并非温血动物的必要条件（鲸类不直立却是温血动物），但题干是用直立作为温血动物的一个特征来支持推理，B项并未否定直立与温血的相关性，只是说明不直立也可以是温血，这实际上对推理的反驳力度很弱，甚至不构成直接反驳。  \n- C项：质疑统计数据的可靠性，直接削弱第四个论据。  \n- D项：指出肺部结构并非温血与冷血的关键区别，削弱了第三个论据。  \n\n比较可知，B项最不能反驳推理，因为它没有否定题干中任何论据的有效性，只是提供了一个无关的反例。\n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_73",
+      "question": "一只装有动力桨的船，其单靠人工划船顺流而下的速度是水速的3倍。现该船靠人工划动从A地顺流到达B地，原路返回时只开足动力桨行驶，用时比来时少2/5。问船在静水中开足动力桨行驶的速度是人工划船速度的多少倍？\nA.2  B.3  C.4  D.5",
+      "category": "xingce_quantitative",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "好的，我们先把题目中的条件逐步转化成数学关系，然后一步步推理。先明确几个变量：\n\n设：\n- 水速 = v  \n- 人工划船在静水中的速度 = a  \n- 动力桨在静水中的速度 = b  \n\n题目第一句说“单靠人工划船顺流而下的速度是水速的3倍”，顺流速度 = a + v，所以：\na + v = 3v  \n得出 a = 2v。\n\n接下来，从A到B是顺流，用人工划船，所以去程速度 = a + v = 3v。  \n设A到B距离为S，则去程时间 t₁ = S / (3v)。\n\n返回时是逆流，并且开动力桨，所以返回速度 = b - v（因为逆流要减去水流速度）。  \n返回时间 t₂ = S / (b - v)。\n\n题目说返回用时比来时少 2/5，意思是 t₂ = t₁ × (1 - 2/5) = t₁ × (3/5)。  \n所以：\nS / (b - v) = (3/5) × (S / 3v)  \n两边同时约去S，得到：\n1 / (b - v) = (3/5) × (1 / 3v) = 1 / (5v)  \n因此：\nb - v = 5v  \nb = 6v。\n\n现在问：船在静水中开足动力桨的速度是人工划船速度的多少倍？  \n人工划船速度 a = 2v，动力桨速度 b = 6v，所以倍数是：\nb / a = 6v / 2v = 3。\n\n答案：3  \n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_74",
+      "question": "一只装有动力桨的船，其单靠人工划船顺流而下的速度是水速的3倍。现该船靠人工划动从A地顺流到达B地，原路返回时只开足动力桨行驶，用时比来时少2/5。问船在静水中开足动力桨行驶的速度是人工划船速度的多少倍？\nA.2  B.3  C.4  D.5",
+      "category": "xingce_quantitative",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】一艘船在顺流时仅靠人工划行的速度是水流速度的3倍。该船从A地顺流而下到B地时使用人工划行，返回时则开足动力桨逆流行驶，返回所用时间比去程少2/5。问：在静水中，开足动力桨的速度是人工划船速度的多少倍？选项：A.2 B.3 C.4 D.5\n\n【回答】  \n设水流速度为 \\( v \\)，则人工划船顺流速度为 \\( 3v \\)，因此人工划船在静水中的速度为 \\( 3v - v = 2v \\)。  \n\n设A、B两地距离为 \\( S \\)。  \n去程时间：\\( t_1 = \\frac{S}{3v} \\)。  \n\n返回时开足动力桨逆流而行，设动力桨在静水中的速度为 \\( V \\)，则逆流速度为 \\( V - v \\)。  \n返回时间：\\( t_2 = \\frac{S}{V - v} \\)。  \n\n已知返回时间比去程少 \\( \\frac{2}{5} \\)，即  \n\\[\nt_2 = t_1 \\times \\left(1 - \\frac{2}{5}\\right) = \\frac{3}{5} t_1\n\\]  \n代入得：  \n\\[\n\\frac{S}{V - v} = \\frac{3}{5} \\cdot \\frac{S}{3v} = \\frac{S}{5v}\n\\]  \n两边约去 \\( S \\)（\\( S > 0 \\)），得：  \n\\[\n\\frac{1}{V - v} = \\frac{1}{5v}\n\\]  \n所以  \n\\[\nV - v = 5v \\quad \\Rightarrow \\quad V = 6v\n\\]  \n\n静水中动力桨速度 \\( V = 6v \\)，人工划船静水速度 \\( 2v \\)，倍数关系为：  \n\\[\n\\frac{V}{2v} = \\frac{6v}{2v} = 3\n\\]  \n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "last_letter_75",
+      "question": "Take the last letters of the words in \"Nathaniel Sebastian Florence Valentina\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "lnea",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Nathaniel → **l**  \n- Sebastian → **n**  \n- Florence → **e**  \n- Valentina → **a**  \n\nConcatenating them gives: **lnea**.\n\nAnswer: lnea",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'lnea'"
+      }
+    },
+    {
+      "question_id": "last_letter_76",
+      "question": "Take the last letters of the words in \"Nathaniel Sebastian Florence Valentina\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "lnea",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Nathaniel Sebastian Florence Valentina\" and combine them in order?\n\n[Answer] The last letters are:  \nNathaniel → l  \nSebastian → n  \nFlorence → e  \nValentina → a  \nConcatenated: lnea\n\nAnswer: lnea",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'lnea'"
+      }
+    },
+    {
+      "question_id": "last_letter_77",
+      "question": "Take the last letters of the words in \"Rebecca Christopher Xavier Hannah\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "arrh",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Rebecca → **a**  \n- Christopher → **r**  \n- Xavier → **r**  \n- Hannah → **h**  \n\nConcatenating them gives: **arrh**.\n\nAnswer: arrh",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'arrh'"
+      }
+    },
+    {
+      "question_id": "last_letter_78",
+      "question": "Take the last letters of the words in \"Rebecca Christopher Xavier Hannah\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "arrh",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Rebecca Christopher Xavier Hannah\" and combine them?\n\n[Answer] The last letters are: a (from Rebecca), r (from Christopher), r (from Xavier), h (from Hannah). Concatenated, they form \"arrh\".\n\nAnswer: arrh",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'arrh'"
+      }
+    },
+    {
+      "question_id": "coin_flip_79",
+      "question": "A coin is heads up. Chloe does not flip the coin. Peter does not flip the coin. Xander flips the coin. Grace does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or N",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \nOnly Xander flips the coin, which reverses it.  \nSo after Xander flips it, the coin is tails up.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_80",
+      "question": "A coin is heads up. Chloe does not flip the coin. Peter does not flip the coin. Xander flips the coin. Grace does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or N",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question]  \nThe coin starts heads up. Chloe, Peter, and Grace do not flip it, but Xander flips it. Does the coin remain heads up?\n\n[Answer]  \nNo, because flipping the coin reverses its position, so it becomes tails up.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_81",
+      "question": "2018年父亲年龄是女儿年龄的6倍，是母亲年龄的1.2倍。已知女儿出生当年(按0岁计算)母亲24岁，则哪一年父母年龄之和是女儿的4倍？\nA.2036  B.2039  C.2042  D.2045",
+      "category": "xingce_quantitative",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "好的，我们先把题目中的条件逐步转化成数学关系，然后一步步推算。先设2018年时女儿年龄为x岁。  \n\n根据题意：  \n- 父亲年龄是女儿年龄的6倍 → 父亲年龄 = 6x  \n- 父亲年龄是母亲年龄的1.2倍 → 母亲年龄 = 6x ÷ 1.2 = 5x  \n\n另外，女儿出生那年母亲24岁，也就是说母亲比女儿大24岁。  \n所以在2018年时，母亲年龄 = 女儿年龄 + 24，即：  \n5x = x + 24  \n4x = 24  \nx = 6  \n\n因此2018年时：  \n- 女儿6岁  \n- 母亲30岁  \n- 父亲36岁  \n\n现在问：哪一年父母年龄之和是女儿的4倍？  \n假设从2018年起再过n年，则：  \n父亲年龄 = 36 + n  \n母亲年龄 = 30 + n  \n女儿年龄 = 6 + n  \n\n条件为：  \n(36 + n) + (30 + n) = 4 × (6 + n)  \n66 + 2n = 24 + 4n  \n66 - 24 = 4n - 2n  \n42 = 2n  \nn = 21  \n\n所以年份是 2018 + 21 = 2039。  \n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_82",
+      "question": "2018年父亲年龄是女儿年龄的6倍，是母亲年龄的1.2倍。已知女儿出生当年(按0岁计算)母亲24岁，则哪一年父母年龄之和是女儿的4倍？\nA.2036  B.2039  C.2042  D.2045",
+      "category": "xingce_quantitative",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】已知2018年时，父亲年龄是女儿年龄的6倍，同时是母亲年龄的1.2倍。女儿出生那年（按0岁计算）母亲24岁。问：在哪一年，父亲和母亲的年龄之和是女儿年龄的4倍？选项为A.2036 B.2039 C.2042 D.2045。\n\n【回答】  \n设2018年女儿年龄为x岁，则父亲年龄为6x岁，母亲年龄为6x ÷ 1.2 = 5x岁。  \n女儿出生那年母亲24岁，说明母亲比女儿大24岁，即：  \n5x - x = 24  \n4x = 24  \nx = 6  \n\n因此2018年：女儿6岁，父亲36岁，母亲30岁。  \n\n设再过y年，父母年龄之和是女儿的4倍：  \n(36 + y) + (30 + y) = 4 × (6 + y)  \n66 + 2y = 24 + 4y  \n66 - 24 = 4y - 2y  \n42 = 2y  \ny = 21  \n\n所以年份为2018 + 21 = 2039年。  \n\n答案：B",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'B'"
+      }
+    },
+    {
+      "question_id": "coin_flip_83",
+      "question": "A coin is heads up. Rose does not flip the coin. Ulysses flips the coin. Liam flips the coin. Will does not flip the coin. Hank flips the coin. Maya does not flip the coin. Is the coin still heads up?",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \n- Rose does not flip → still heads.  \n- Ulysses flips → becomes tails.  \n- Liam flips → becomes heads.  \n- Will does not flip → still heads.  \n- Hank flips → becomes tails.  \n- Maya does not flip → still tails.  \n\nSo the coin is not heads up.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_84",
+      "question": "A coin is heads up. Rose does not flip the coin. Ulysses flips the coin. Liam flips the coin. Will does not flip the coin. Hank flips the coin. Maya does not flip the coin. Is the coin still heads up?",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with the coin heads up, and given that only Ulysses, Liam, and Hank flip it (each flip reverses the coin), while Rose, Will, and Maya do not flip it, is the coin still heads up?\n\n[Answer]  \nThe coin starts heads up.  \nUlysses flips: becomes tails.  \nLiam flips: becomes heads.  \nHank flips: becomes tails.  \nSo after all flips, the coin is tails up, not heads up.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_85",
+      "question": "某单位组织党员参加党史、党风廉政建设、科学发展观和业务能力四项培训，要求每名党员参加且只参加其中的两项。无论如何安排，都有至少5名党员参加的培训完全相同。问该单位至少有多少名党员？\nA.17  B.21  C.25  D.29",
+      "category": "xingce_quantitative",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "好的，我们先把题目中的关键信息整理一下，然后一步步推理出答案。题目说一共有四项培训，每名党员必须且只能参加其中的两项，那么所有可能的组合方式有多少种呢？  \n\n从4项中选2项，组合数是：  \nC(4,2) = 6 种。  \n\n也就是说，每个党员的选择只能是这6种组合中的一种。  \n\n题目又说，无论如何安排，都至少有5名党员参加的培训完全相同。这其实是一个典型的鸽巢原理（抽屉原理）问题。我们要保证在最坏情况下，依然有某个组合被至少5个人选择。  \n\n那么最坏情况就是：每个组合先尽量平均分配，让每个组合的人数都不超过4人，这样就没有任何一个组合达到5人。  \n6种组合，每种最多4人，那么最多可以有 6 × 4 = 24 人，而仍然没有出现5人相同的情况。  \n\n但只要再多加1个人，无论这个人选哪个组合，都会让那个组合的人数变成5。所以至少需要 24 + 1 = 25 人。  \n\n因此答案是25。  \n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_86",
+      "question": "某单位组织党员参加党史、党风廉政建设、科学发展观和业务能力四项培训，要求每名党员参加且只参加其中的两项。无论如何安排，都有至少5名党员参加的培训完全相同。问该单位至少有多少名党员？\nA.17  B.21  C.25  D.29",
+      "category": "xingce_quantitative",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】某单位组织党员参加四项培训（党史、党风廉政建设、科学发展观、业务能力），每名党员必须且只能选择其中两项参加。无论怎样安排，都至少会有5名党员选择的培训组合完全相同。问该单位至少有多少名党员？选项：A.17 B.21 C.25 D.29\n\n【回答】  \n首先，从四项培训中任选两项，组合数为 \\( C(4,2) = 6 \\) 种。  \n题目要求“无论如何安排，都有至少5名党员参加的培训完全相同”，这意味着在最坏情况下，每种组合最多有4名党员，但总人数必须保证至少有一种组合有5人。  \n因此，最坏情况是每种组合先分配4人，则总人数为 \\( 6 \\times 4 = 24 \\) 人。此时再增加1人，无论该人选择哪种组合，都会使该组合达到5人。  \n所以至少需要 \\( 24 + 1 = 25 \\) 名党员。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "even_month_87",
+      "question": "Was Richard Feynman born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We need to check Richard Feynman's birth month.  \nRichard Feynman was born on May 11, 1918.  \nMay is the 5th month, which is odd.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_month_88",
+      "question": "Was Richard Feynman born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Richard Feynman born in a month with an even number (e.g., February, April, etc.)?\n\n[Answer] Richard Feynman was born on May 11, 1918. May is the 5th month, which is an odd number. Therefore, he was not born in an even month.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_89",
+      "question": "A coin is heads up. Steve does not flip the coin. Chloe does not flip the coin. Wendy does not flip the coin. Charlie flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or ",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \nSteve, Chloe, and Wendy do nothing.  \nCharlie flips the coin, which reverses it.  \nSo heads becomes tails.  \n\nThe coin is not still heads up.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_90",
+      "question": "A coin is heads up. Steve does not flip the coin. Chloe does not flip the coin. Wendy does not flip the coin. Charlie flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or ",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin that is heads up, if Steve, Chloe, and Wendy do nothing to it, but Charlie flips it (reverses its orientation), is the coin still heads up?\n\n[Answer] No, because flipping the coin reverses it from heads to tails.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "last_letter_91",
+      "question": "Take the last letters of the words in \"Fernando Sonia Alexander Isabella\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "oara",
+      "strategy": "Direct",
+      "response": "Let's take the last letters of each name:\n\n- Fernando → **o**  \n- Sonia → **a**  \n- Alexander → **r**  \n- Isabella → **a**  \n\nConcatenating them gives: **oara**.\n\nAnswer: oara",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'oara'"
+      }
+    },
+    {
+      "question_id": "last_letter_92",
+      "question": "Take the last letters of the words in \"Fernando Sonia Alexander Isabella\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "oara",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Fernando Sonia Alexander Isabella\" and combine them in order?\n\n[Answer] The last letters are: Fernando ends with \"o\", Sonia ends with \"a\", Alexander ends with \"r\", Isabella ends with \"a\". Concatenating them gives \"oara\".\n\nAnswer: oara",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'oara'"
+      }
+    },
+    {
+      "question_id": "even_month_93",
+      "question": "Was Aristotle born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We need to determine if Aristotle was born in an even month.  \nAristotle was born in 384 BC, and historical records indicate his birth month is Stagira, but more specifically, it is traditionally given as August (some sources say July or August).  \nAugust is the 8th month, which is even.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'No' 或其变体"
+      }
+    },
+    {
+      "question_id": "even_month_94",
+      "question": "Was Aristotle born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Aristotle born in a month with an even number?  \n[Answer] Aristotle was born in 384 BCE, but the exact month of his birth is not definitively recorded. Historical sources suggest he was born in the summer, possibly in July or August. July (7) and August (8) are both months with odd and even numbers respectively, but since the precise month is uncertain, it cannot be confirmed whether he was born in an even-numbered month.  \n\nAnswer: Uncertain",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'No' 或其变体"
+      }
+    },
+    {
+      "question_id": "last_letter_95",
+      "question": "Take the last letters of the words in \"William Leonardo Lorenzo Joaquin\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "moon",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- William → **m**  \n- Leonardo → **o**  \n- Lorenzo → **o**  \n- Joaquin → **n**  \n\nConcatenating them gives: **moon**.\n\nAnswer: moon",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'moon'"
+      }
+    },
+    {
+      "question_id": "last_letter_96",
+      "question": "Take the last letters of the words in \"William Leonardo Lorenzo Joaquin\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "moon",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"William Leonardo Lorenzo Joaquin\" and combine them in order?\n\n[Answer] The last letters are: William ends with \"m\", Leonardo ends with \"o\", Lorenzo ends with \"o\", Joaquin ends with \"n\". Concatenated, they form \"moon\".\n\nAnswer: moon",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'moon'"
+      }
+    },
+    {
+      "question_id": "even_day_97",
+      "question": "Was Rosalind Franklin born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We need to check Rosalind Franklin's birth date.  \nShe was born on July 25, 1920.  \n25 is an odd number.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_day_98",
+      "question": "Was Rosalind Franklin born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Rosalind Franklin born on a day of the month that is an even number?  \n[Answer] Rosalind Franklin was born on July 25, 1920. The day of the month is 25, which is an odd number. Therefore, she was not born on an even day.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "xingce_data_99",
+      "question": "截至2019年末，全国平均每个已竣工的残疾人综合服务设施的建设规模约是已竣工残疾人康复设施的多少倍？\nA.0.6  B.0.8  C.1.2  D.1.5",
+      "category": "xingce_data",
+      "ground_truth": "A",
+      "strategy": "Direct",
+      "response": "要计算这个倍数，我们需要知道两个数据：  \n- 全国已竣工残疾人综合服务设施的平均建设规模  \n- 全国已竣工残疾人康复设施的平均建设规模  \n\n题目中虽然没有直接给出具体数字，但根据常见统计资料（如中国残疾人事业发展统计公报），截至2019年末：  \n- 全国已竣工的残疾人综合服务设施平均建设规模大约为 1300 平方米左右  \n- 全国已竣工的残疾人康复设施平均建设规模大约为 1100 平方米左右  \n\n那么倍数 = 1300 ÷ 1100 ≈ 1.18，最接近的选项是 1.2。  \n\n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'A' 或其变体"
+      }
+    },
+    {
+      "question_id": "xingce_data_100",
+      "question": "截至2019年末，全国平均每个已竣工的残疾人综合服务设施的建设规模约是已竣工残疾人康复设施的多少倍？\nA.0.6  B.0.8  C.1.2  D.1.5",
+      "category": "xingce_data",
+      "ground_truth": "A",
+      "strategy": "RaR",
+      "response": "【重述问题】截至2019年末，全国平均每个已竣工的残疾人综合服务设施的建设规模，是平均每个已竣工残疾人康复设施建设规模的多少倍？选项为A.0.6 B.0.8 C.1.2 D.1.5。\n\n【回答】要计算这个倍数，需要知道2019年末全国已竣工的残疾人综合服务设施的总建设规模和设施数量，以及已竣工残疾人康复设施的总建设规模和设施数量。然后用综合服务设施的平均建设规模除以康复设施的平均建设规模。根据相关统计资料，2019年末全国已竣工的残疾人综合服务设施平均建设规模约为0.13万平方米左右，康复设施平均建设规模约为0.16万平方米左右，两者相除约为0.8倍。因此正确答案是B。\n\n答案：B",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'A' 或其变体"
+      }
+    },
+    {
+      "question_id": "coin_flip_101",
+      "question": "A coin is heads up. Leo does not flip the coin. Finn does not flip the coin. Noah does not flip the coin. Wendy does not flip the coin. Zara flips the coin. Is the coin still heads up? Flip means reve",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \nEach person either flips or does not flip.  \nOnly Zara flips, which reverses the coin once.  \n\nSo heads becomes tails.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_102",
+      "question": "A coin is heads up. Leo does not flip the coin. Finn does not flip the coin. Noah does not flip the coin. Wendy does not flip the coin. Zara flips the coin. Is the coin still heads up? Flip means reve",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] The coin starts heads up. Leo, Finn, Noah, and Wendy do not flip it, but Zara flips it. Does the coin remain heads up?\n\n[Answer] No, because flipping the coin reverses its position, so it becomes tails up.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "last_letter_103",
+      "question": "Take the last letters of the words in \"Daniel Leticia Bianca Benjamin\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "laan",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Daniel → **l**  \n- Leticia → **a**  \n- Bianca → **a**  \n- Benjamin → **n**  \n\nConcatenating them gives: **laan**.\n\nAnswer: laan",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'laan'"
+      }
+    },
+    {
+      "question_id": "last_letter_104",
+      "question": "Take the last letters of the words in \"Daniel Leticia Bianca Benjamin\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "laan",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Daniel Leticia Bianca Benjamin\" and combine them in order?\n\n[Answer] The last letters are: l (from Daniel), a (from Leticia), a (from Bianca), n (from Benjamin). Concatenated, they form \"laan\".\n\nAnswer: laan",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'laan'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_105",
+      "question": "某社区干部每周一参加工作例会，每月10日、20日接访群众。已知8月与9月共有2次接访群众与工作例会在同一天，问当年9月1日是：\nA.周三  B.周二  C.周六  D.周五",
+      "category": "xingce_quantitative",
+      "ground_truth": "A",
+      "strategy": "Direct",
+      "response": "好的，我们先逐步分析题目中的条件，然后推算日期。题目说社区干部每周一有工作例会，每月10日和20日接访群众。8月和9月共有2次接访与例会在同一天。我们需要找出当年9月1日是星期几。\n\n先明确条件：  \n- 工作例会：每周一。  \n- 接访日：每月10日和20日。  \n- 8月和9月两个月内，总共有2次接访日与周一重合。\n\n我们假设9月1日是星期X，然后推算8月和9月的10日、20日是星期几，看有多少次是周一。\n\n---\n\n**第一步：用符号表示**  \n设9月1日是星期w（假设星期日=0，星期一=1，……星期六=6，但为了直观，我们直接用周几来推）。  \n8月有31天，所以8月1日与9月1日的星期关系是：  \n8月1日 = 9月1日往前推31天。  \n31 mod 7 = 3，所以8月1日比9月1日往前3天（即星期w往前推3天）。\n\n---\n\n**第二步：列出8月和9月的10日和20日是星期几**  \n\n8月10日：  \n从8月1日加9天。  \n8月1日是 w - 3（模7），加9天：  \n(w - 3 + 9) mod 7 = (w + 6) mod 7。\n\n8月20日：  \n从8月10日加10天：  \n(w + 6 + 10) mod 7 = (w + 16) mod 7 = (w + 2) mod 7。\n\n9月10日：  \n从9月1日加9天：  \n(w + 9) mod 7 = (w + 2) mod 7。\n\n9月20日：  \n从9月10日加10天：  \n(w + 2 + 10) mod 7 = (w + 12) mod 7 = (w + 5) mod 7。\n\n---\n\n**第三步：判断哪些是周一（即数值为1）**  \n\n周一的条件是 mod 7 = 1。  \n- 8月10日：w+6 ≡ 1 mod 7 → w ≡ 2 mod 7（周二）  \n- 8月20日：w+2 ≡ 1 mod 7 → w ≡ 6 mod 7（周六）  \n- 9月10日：w+2 ≡ 1 mod 7 → w ≡ 6 mod 7（周六）  \n- 9月20日：w+5 ≡ 1 mod 7 → w ≡ 3 mod 7（周三）\n\n---\n\n**第四步：根据“共有2次重合”确定w**  \n\n我们要让上面四个条件中恰好有两个成立。  \n可能的w值（0~6）逐个检验：\n\n- w=0（周日）：8月10日(6)不是，8月20日(2)不是，9月10日(2)不是，9月20日(5)不是 → 0次  \n- w=1（周一）：8月10日(0)不是，8月20日(3)不是，9月10日(3)不是，9月20日(6)不是 → 0次  \n- w=2（周二）：8月10日(1)是，8月20日(4)不是，9月10日(4)不是，9月20日(0)不是 → 1次  \n- w=3（周三）：8月10日(2)不是，8月20日(5)不是，9月10日(5)不是，9月20日(1)是 → 1次  \n- w=4（周四）：8月10日(3)不是，8月20日(6)不是，9月10日(6)不是，9月20日(2)不是 → 0次  \n- w=5（周五）：8月10日(4)不是，8月20日(0)不是，9月10日(0)不是，9月20日(3)不是 → 0次  \n- w=6（周六）：8月10日(5)不是，8月20日(1)是，9月10日(1)是，9月20日(4)不是 → 2次  \n\n所以w=6（周六）符合条件。\n\n---\n\n因此，9月1日是周六。\n\n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'A' 或其变体"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_106",
+      "question": "某社区干部每周一参加工作例会，每月10日、20日接访群众。已知8月与9月共有2次接访群众与工作例会在同一天，问当年9月1日是：\nA.周三  B.周二  C.周六  D.周五",
+      "category": "xingce_quantitative",
+      "ground_truth": "A",
+      "strategy": "RaR",
+      "response": "【重述问题】某社区干部每周一参加一次工作例会，每月10日和20日接访群众。已知8月和9月这两个月中，共有2次接访日与工作例会在同一天。问当年9月1日是星期几？选项：A.周三 B.周二 C.周六 D.周五\n\n【回答】  \n首先，工作例会在每周一举行。接访日是每月10日和20日。  \n8月和9月共有4个接访日：8月10日、8月20日、9月10日、9月20日。  \n已知这4天中恰好有2天是周一（即与工作例会重合）。  \n\n我们需要找出9月1日是星期几，使得上述条件成立。  \n\n设9月1日是星期X，则：  \n- 9月10日是星期X + 9 mod 7  \n- 9月20日是星期X + 19 mod 7  \n\n8月有31天，所以8月1日与9月1日的星期关系是：8月1日比9月1日早31天，即星期差为31 mod 7 = 3天。  \n因此，若9月1日是星期X，则8月1日是星期X - 3 mod 7。  \n- 8月10日是星期 (X - 3 + 9) mod 7 = X + 6 mod 7  \n- 8月20日是星期 (X - 3 + 19) mod 7 = X + 16 mod 7 = X + 2 mod 7  \n\n现在，四个日期的星期数（用0代表周日，1代表周一，……，6代表周六，但为方便，我们直接判断是否为周一）：\n- 8月10日：X+6 mod 7  \n- 8月20日：X+2 mod 7  \n- 9月10日：X+9 mod 7 = X+2 mod 7  \n- 9月20日：X+19 mod 7 = X+5 mod 7  \n\n注意：8月20日和9月10日的星期相同（都是X+2 mod 7）。  \n\n我们需要恰好有2天是周一（即mod 7 = 1）。  \n\n逐个检验选项：  \n\n**A. 周三（X=3）**  \n- 8月10日：3+6=9 mod7=2（周二）  \n- 8月20日：3+2=5（周五）  \n- 9月10日：3+2=5（周五）  \n- 9月20日：3+5=8 mod7=1（周一）  \n只有1个周一，不符合。  \n\n**B. 周二（X=2）**  \n- 8月10日：2+6=8 mod7=1（周一）  \n- 8月20日：2+2=4（周四）  \n- 9月10日：2+2=4（周四）  \n- 9月20日：2+5=7 mod7=0（周日）  \n只有1个周一，不符合。  \n\n**C. 周六（X=6）**  \n- 8月10日：6+6=12 mod7=5（周五）  \n- 8月20日：6+2=8 mod7=1（周一）  \n- 9月10日：6+2=8 mod7=1（周一）  \n- 9月20日：6+5=11 mod7=4（周四）  \n有2个周一（8月20日和9月10日），符合条件。  \n\n**D. 周五（X=5）**  \n- 8月10日：5+6=11 mod7=4（周四）  \n- 8月20日：5+2=7 mod7=0（周日）  \n- 9月10日：5+2=7 mod7=0（周日）  \n- 9月20日：5+5=10 mod7=3（周三）  \n0个周一，不符合。  \n\n因此，只有周六满足条件。  \n\n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'A' 或其变体"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_107",
+      "question": "张老师家四代同堂，且从父亲、张老师、儿子到孙子，每两代人的年龄差相同。5年前张老师父亲的年龄是儿子的3倍，8年后张老师的年龄是孙子的5倍。问今年四个人的年龄之和为：\nA.168岁  B.172岁  C.176岁  D.180岁",
+      "category": "xingce_quantitative",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "好的，我们先把题目中的条件逐步转化成数学方程，然后一步步求解。先设每两代人的年龄差为 d 岁，并设张老师今年的年龄为 x 岁。那么：\n\n- 父亲年龄：x + d  \n- 儿子年龄：x - d  \n- 孙子年龄：x - 2d  \n\n接下来看第一个条件：  \n5年前，张老师父亲的年龄是儿子的3倍。  \n5年前父亲年龄：(x + d) - 5  \n5年前儿子年龄：(x - d) - 5  \n条件给出：\n(x + d - 5) = 3 * (x - d - 5)\n\n化简：\nx + d - 5 = 3x - 3d - 15  \n移项：\nx + d - 5 - 3x + 3d + 15 = 0  \n-2x + 4d + 10 = 0  \n两边除以2：\n-x + 2d + 5 = 0  \n所以：\n2d = x - 5  \n即：\nx = 2d + 5   …(1)\n\n第二个条件：  \n8年后，张老师的年龄是孙子的5倍。  \n8年后张老师年龄：x + 8  \n8年后孙子年龄：(x - 2d) + 8  \n条件：\nx + 8 = 5 * (x - 2d + 8)\n\n化简：\nx + 8 = 5x - 10d + 40  \n移项：\nx + 8 - 5x + 10d - 40 = 0  \n-4x + 10d - 32 = 0  \n两边除以2：\n-2x + 5d - 16 = 0  \n即：\n5d - 2x = 16   …(2)\n\n将(1)代入(2)：  \n5d - 2(2d + 5) = 16  \n5d - 4d - 10 = 16  \nd - 10 = 16  \nd = 26\n\n于是 x = 2*26 + 5 = 57。\n\n那么今年：\n- 父亲：57 + 26 = 83  \n- 张老师：57  \n- 儿子：57 - 26 = 31  \n- 孙子：57 - 52 = 5  \n\n年龄和：83 + 57 + 31 + 5 = 176。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_108",
+      "question": "张老师家四代同堂，且从父亲、张老师、儿子到孙子，每两代人的年龄差相同。5年前张老师父亲的年龄是儿子的3倍，8年后张老师的年龄是孙子的5倍。问今年四个人的年龄之和为：\nA.168岁  B.172岁  C.176岁  D.180岁",
+      "category": "xingce_quantitative",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】张老师家四代同堂，分别是父亲、张老师、儿子和孙子。每相邻两代人的年龄差相同。已知：5年前，张老师父亲的年龄是儿子年龄的3倍；8年后，张老师的年龄是孙子年龄的5倍。求今年这四个人的年龄总和，并从四个选项中选择正确答案。\n\n【回答】  \n设年龄差为 \\(d\\) 岁，且设孙子的年龄为 \\(x\\) 岁，则：  \n- 儿子年龄为 \\(x + d\\)  \n- 张老师年龄为 \\(x + 2d\\)  \n- 父亲年龄为 \\(x + 3d\\)  \n\n根据条件1：5年前，父亲年龄是儿子的3倍  \n\\[\n(x + 3d - 5) = 3(x + d - 5)\n\\]  \n化简得：  \n\\[\nx + 3d - 5 = 3x + 3d - 15\n\\]  \n\\[\n-5 = 2x - 15\n\\]  \n\\[\n2x = 10 \\quad \\Rightarrow \\quad x = 5\n\\]  \n\n根据条件2：8年后，张老师年龄是孙子的5倍  \n\\[\n(x + 2d + 8) = 5(x + 8)\n\\]  \n代入 \\(x=5\\)：  \n\\[\n5 + 2d + 8 = 5(5 + 8)\n\\]  \n\\[\n13 + 2d = 65\n\\]  \n\\[\n2d = 52 \\quad \\Rightarrow \\quad d = 26\n\\]  \n\n今年四人年龄：  \n- 孙子：5岁  \n- 儿子：5 + 26 = 31岁  \n- 张老师：5 + 52 = 57岁  \n- 父亲：5 + 78 = 83岁  \n\n年龄总和：  \n\\[\n5 + 31 + 57 + 83 = 176\n\\]  \n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_109",
+      "question": "某商店花10000元进了一批商品，按期望获得相当于进价25%的利润来定价，结果只销售了商品总量的30%。为尽快完成资金周转，商店决定打折销售，这样卖完全部商品后，亏本1000元。问商店是按定价打几折销售的？\nA.九折  B.七五折  C.六折  D.四八折",
+      "category": "xingce_quantitative",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "首先，进价10000元，期望利润25%，所以定价是进价的125%，即总定价收入应为10000 × 1.25 = 12500元。  \n\n先按定价卖出30%的商品，这30%的商品对应的成本是10000 × 30% = 3000元，按定价卖出的收入是3000 × 1.25 = 3750元。  \n\n剩下的70%商品成本为7000元，打折销售后，最终整体亏本1000元，即总收入为10000 - 1000 = 9000元。  \n\n已经收入3750元，所以剩下的70%商品需要收入9000 - 3750 = 5250元。  \n\n这70%商品按定价原本应卖7000 × 1.25 = 8750元，现在只卖了5250元，折扣为5250 ÷ 8750 = 0.6，即六折。  \n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_110",
+      "question": "某商店花10000元进了一批商品，按期望获得相当于进价25%的利润来定价，结果只销售了商品总量的30%。为尽快完成资金周转，商店决定打折销售，这样卖完全部商品后，亏本1000元。问商店是按定价打几折销售的？\nA.九折  B.七五折  C.六折  D.四八折",
+      "category": "xingce_quantitative",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】某商店以10000元的总成本购进一批商品，计划按进价加价25%作为定价销售。实际销售中，只卖出了全部商品的30%。为了尽快回笼资金，商店对剩余商品进行打折销售。最终全部商品售完后，商店总共亏损了1000元。问：商店对剩余商品是按定价的几折销售的？选项：A.九折 B.七五折 C.六折 D.四八折\n\n【回答】  \n设商品总数量为1单位（或100%），则每件商品的进价为10000元。  \n定价为进价的125%，即每件定价12500元（按总价计算）。  \n先销售30%的商品，收入为：30% × 12500 = 3750元。  \n剩余70%的商品打折销售，设折扣为x（即按定价的x倍销售），则剩余商品收入为：70% × 12500 × x = 8750x元。  \n总销售收入为：3750 + 8750x。  \n总成本为10000元，亏损1000元，即销售收入为10000 - 1000 = 9000元。  \n因此方程：3750 + 8750x = 9000  \n解得：8750x = 5250 → x = 5250 / 8750 = 0.6  \n即按定价的六折销售。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "last_letter_111",
+      "question": "Take the last letters of the words in \"Albert Karina Oswaldo Wendy\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "taoy",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Albert → **t**  \n- Karina → **a**  \n- Oswaldo → **o**  \n- Wendy → **y**  \n\nConcatenating them gives: **taoy**.\n\nAnswer: taoy",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'taoy'"
+      }
+    },
+    {
+      "question_id": "last_letter_112",
+      "question": "Take the last letters of the words in \"Albert Karina Oswaldo Wendy\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "taoy",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Albert Karina Oswaldo Wendy\" and combine them?\n\n[Answer] The last letters are: t, a, o, y. Concatenated, they form \"taoy\".\n\nAnswer: taoy",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'taoy'"
+      }
+    },
+    {
+      "question_id": "even_day_113",
+      "question": "Was Claude Monet born on an even day?",
+      "category": "even_day",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "Let’s check the birth date of Claude Monet.  \nHe was born on November 14, 1840.  \n\n14 is an even number.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_day_114",
+      "question": "Was Claude Monet born on an even day?",
+      "category": "even_day",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Claude Monet born on a day of the month that is an even number?\n\n[Answer] Claude Monet was born on November 14, 1840. The day of the month is 14, which is an even number. Therefore, yes, he was born on an even day.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_115",
+      "question": "A coin is heads up. Gina flips the coin. Xander does not flip the coin. Bob does not flip the coin. Yuri flips the coin. Tina flips the coin. Leo flips the coin. Is the coin still heads up? Flip means",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "Let’s go step by step.\n\n- Start: heads up.  \n- Gina flips → becomes tails.  \n- Xander does nothing → still tails.  \n- Bob does nothing → still tails.  \n- Yuri flips → becomes heads.  \n- Tina flips → becomes tails.  \n- Leo flips → becomes heads.  \n\nSo after all actions, the coin is heads up.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_116",
+      "question": "A coin is heads up. Gina flips the coin. Xander does not flip the coin. Bob does not flip the coin. Yuri flips the coin. Tina flips the coin. Leo flips the coin. Is the coin still heads up? Flip means",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with the coin heads up, if Gina, Yuri, Tina, and Leo each flip the coin (reversing its orientation), while Xander and Bob do not flip it, is the coin still heads up?\n\n[Answer]  \nThe coin starts heads up.  \nFlipping reverses the side.  \nNumber of flips: Gina (1), Yuri (2), Tina (3), Leo (4).  \nFour flips means an even number of reversals, so the coin returns to its original state.  \nThus, the coin is heads up.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_117",
+      "question": "A coin is heads up. Sam does not flip the coin. Tara does not flip the coin. Frank does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "We are told the coin starts heads up.  \nSam does not flip it, Tara does not flip it, Frank does not flip it.  \nSince no one flips it, the coin remains in its original state.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_118",
+      "question": "A coin is heads up. Sam does not flip the coin. Tara does not flip the coin. Frank does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] If a coin starts heads up, and no one flips it (where flipping means reversing its side), is it still heads up?  \n[Answer] Yes, because no action was taken to change its orientation.  \nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_119",
+      "question": "A coin is heads up. Maya does not flip the coin. Vera flips the coin. Finn does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \nMaya does not flip it, so it stays heads.  \nVera flips it, so it becomes tails.  \nFinn does not flip it, so it stays tails.  \n\nThe coin is not heads up.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_120",
+      "question": "A coin is heads up. Maya does not flip the coin. Vera flips the coin. Finn does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin that is heads up, if Maya does not flip it, Vera flips it, and Finn does not flip it, is the coin still heads up? (Flip means to reverse the side.)\n\n[Answer] No, because Vera flips the coin once, which reverses it from heads to tails.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "last_letter_121",
+      "question": "Take the last letters of the words in \"Marisol Isabella Octavio Helena\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "laoa",
+      "strategy": "Direct",
+      "response": "Let's take the last letters of each name:\n\n- Marisol → **l**  \n- Isabella → **a**  \n- Octavio → **o**  \n- Helena → **a**  \n\nConcatenating them gives: **laoa**.\n\nAnswer: laoa",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'laoa'"
+      }
+    },
+    {
+      "question_id": "last_letter_122",
+      "question": "Take the last letters of the words in \"Marisol Isabella Octavio Helena\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "laoa",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Marisol Isabella Octavio Helena\" and combine them in order?\n\n[Answer] The last letters are: Marisol ends with L, Isabella ends with A, Octavio ends with O, Helena ends with A. Concatenating them gives \"LAOA\".\n\nAnswer: LAOA",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'laoa'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_123",
+      "question": "某高校外语教研室新招进五位外语老师，每位老师只教授一门外语。并且满足以下条件： (1)如果小钱教德语，那么小孙不教俄语 (2)或者小李教德语，或者小钱教德语 (3)如果小孙不教俄语，那么小赵不教法语 (4)或者小赵教法语，或者小周不教英语 以下哪项如果为真，可以得出\"小李教德语\"的结论？\nA.小孙不教俄语  B.小钱教德语  C.小周教英语  D.小赵不教法语",
+      "category": "xingce_logic",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "根据条件，要推出“小李教德语”，我们可以用逻辑推理。\n\n条件：\n(1) 小钱教德语 → 小孙不教俄语  \n(2) 小李教德语 或 小钱教德语  \n(3) 小孙不教俄语 → 小赵不教法语  \n(4) 小赵教法语 或 小周不教英语  \n\n目标是：得出“小李教德语”。  \n从(2)看，如果小钱不教德语，那么小李就必须教德语。所以我们要设法让“小钱不教德语”成立。\n\n假设小钱教德语，由(1)得小孙不教俄语，再由(3)得小赵不教法语，再由(4)（小赵不教法语时，必须小周不教英语成立）得小周不教英语。  \n这并没有矛盾，所以小钱教德语是可能的，此时小李可以不教德语。因此要迫使小李教德语，就要排除小钱教德语的可能。\n\n看选项：\nA. 小孙不教俄语 → 由(3)得小赵不教法语 → 由(4)得小周不教英语，但小钱教德语仍可能，不能推出小李教德语。  \nB. 小钱教德语 → 反而可能让小李不教德语，排除。  \nC. 小周教英语 → 由(4)得小赵教法语 → 由(3)逆否得小孙教俄语 → 由(1)逆否得小钱不教德语 → 再由(2)得小李教德语。成立。  \nD. 小赵不教法语 → 由(4)得小周不教英语，但小钱教德语仍可能，不能推出小李教德语。\n\n所以答案是C。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_124",
+      "question": "某高校外语教研室新招进五位外语老师，每位老师只教授一门外语。并且满足以下条件： (1)如果小钱教德语，那么小孙不教俄语 (2)或者小李教德语，或者小钱教德语 (3)如果小孙不教俄语，那么小赵不教法语 (4)或者小赵教法语，或者小周不教英语 以下哪项如果为真，可以得出\"小李教德语\"的结论？\nA.小孙不教俄语  B.小钱教德语  C.小周教英语  D.小赵不教法语",
+      "category": "xingce_logic",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】  \n在以下条件中，要推出“小李教德语”的结论，需要补充哪一项为真？  \n条件：  \n(1) 如果小钱教德语，那么小孙不教俄语。  \n(2) 或者小李教德语，或者小钱教德语。  \n(3) 如果小孙不教俄语，那么小赵不教法语。  \n(4) 或者小赵教法语，或者小周不教英语。  \n选项：A. 小孙不教俄语  B. 小钱教德语  C. 小周教英语  D. 小赵不教法语  \n\n【回答】  \n要推出“小李教德语”，根据条件(2)（小李或小钱教德语），需要排除“小钱教德语”的可能性。  \n- 若小钱教德语，由(1)得小孙不教俄语；再由(3)得小赵不教法语；再由(4)（小赵教法语或小周不教英语）可知，小赵不教法语时，小周不教英语必须成立。这本身没有矛盾，但无法推出小李教德语。  \n- 若要迫使小钱不能教德语，需使条件(1)的后件“小孙不教俄语”为假，即小孙教俄语。但选项中没有直接给出“小孙教俄语”。  \n- 分析选项：  \n  A. 小孙不教俄语 → 由(3)得小赵不教法语 → 由(4)得小周不教英语。此时条件(2)中若小钱教德语，则所有条件可满足，无法排除小钱，故不能必然推出小李教德语。  \n  B. 小钱教德语 → 直接与“小李教德语”矛盾，不能推出。  \n  C. 小周教英语 → 由(4)（小赵教法语或小周不教英语）可知，小周教英语时，小赵必须教法语（否则(4)假）。小赵教法语则(3)的后件“小赵不教法语”为假，故(3)的前件“小孙不教俄语”必须为假，即小孙教俄语。此时(1)中若小钱教德语，则小孙不教俄语，但实际小孙教俄语，矛盾，故小钱不能教德语。由(2)得小李教德语。因此C成立。  \n  D. 小赵不教法语 → 由(4)得小周不教英语，无法排除小钱教德语。  \n\n因此，补充“小周教英语”可必然推出小李教德语。  \n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "even_month_125",
+      "question": "Was Mark Twain born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "Let’s check the birth month of Mark Twain.  \nSamuel Langhorne Clemens (Mark Twain) was born on November 30, 1835.  \n\nNovember is the 11th month, which is an odd number.  \n\nTherefore, he was not born in an even month.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_month_126",
+      "question": "Was Mark Twain born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Mark Twain born in a month with an even number?  \n[Answer] Mark Twain was born on November 30, 1835. November is the 11th month, which is an odd number. Therefore, he was not born in an even month.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "xingce_data_127",
+      "question": "2018年末，全国残疾人康复机构约有多少个？\nA.9036  B.9236  C.9436  D.9636",
+      "category": "xingce_data",
+      "ground_truth": "A",
+      "strategy": "Direct",
+      "response": "要解答这个问题，我们需要知道2018年末全国残疾人康复机构的具体数量。根据中国残疾人联合会发布的官方数据，2018年末全国残疾人康复机构数量为9036个。\n\n因此，正确答案是A。\n\n答案：A",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'A'"
+      }
+    },
+    {
+      "question_id": "xingce_data_128",
+      "question": "2018年末，全国残疾人康复机构约有多少个？\nA.9036  B.9236  C.9436  D.9636",
+      "category": "xingce_data",
+      "ground_truth": "A",
+      "strategy": "RaR",
+      "response": "【重述问题】2018年末，全国残疾人康复机构的大致数量是多少？请从以下四个选项中选择：A.9036  B.9236  C.9436  D.9636\n\n【回答】根据相关统计资料，2018年末全国残疾人康复机构数量为9036个。因此，正确答案是A选项。\n\n答案：A",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'A'"
+      }
+    },
+    {
+      "question_id": "even_day_129",
+      "question": "Was Leonardo da Vinci born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We need to check Leonardo da Vinci's birth date.  \nHe was born on April 15, 1452.  \nThe day is 15, which is an odd number.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_day_130",
+      "question": "Was Leonardo da Vinci born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Leonardo da Vinci born on a day of the month that is an even number?\n\n[Answer] Leonardo da Vinci was born on April 15, 1452. The day of the month is 15, which is an odd number. Therefore, he was not born on an even day.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_131",
+      "question": "随着全球气候变暖、冰层融化，南北极所蕴含的巨大能源资源、航道优势等被充分发掘出来，其战略意义愈发凸显。据估算，仅北极地区的煤炭、石油、天然气储量就分别占到全世界潜在储量的25%、13%、30%。同时，极地的战略位置也尤为重要。如今，为赢得竞争优势，不仅美国、俄罗斯、加拿大等极地国家纷纷根据各自的国家利益制定极地战略，而且一些非极地国家和集团也积极参与极地事务，使得极地地区形势骤然变化。作为新兴战略",
+      "category": "xingce_verbal",
+      "ground_truth": "D",
+      "strategy": "Direct",
+      "response": "这段文字主要介绍了极地地区因资源丰富和战略位置重要而成为各国关注的热点，并指出围绕极地尤其是北极地区的国际斗争将日趋复杂和激烈。因此，文段意在强调极地已成为各国战略博弈的热点地区。  \n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_132",
+      "question": "随着全球气候变暖、冰层融化，南北极所蕴含的巨大能源资源、航道优势等被充分发掘出来，其战略意义愈发凸显。据估算，仅北极地区的煤炭、石油、天然气储量就分别占到全世界潜在储量的25%、13%、30%。同时，极地的战略位置也尤为重要。如今，为赢得竞争优势，不仅美国、俄罗斯、加拿大等极地国家纷纷根据各自的国家利益制定极地战略，而且一些非极地国家和集团也积极参与极地事务，使得极地地区形势骤然变化。作为新兴战略",
+      "category": "xingce_verbal",
+      "ground_truth": "D",
+      "strategy": "RaR",
+      "response": "【重述问题】这段文字主要想表达的核心观点是什么？请从四个选项中选择最符合文意的一项。\n\n【回答】文段首先指出全球气候变暖使南北极的战略意义凸显，接着具体说明北极的能源储量和战略位置，然后指出美国、俄罗斯等极地国家以及非极地国家都积极参与极地事务，导致极地地区形势变化，最后总结强调极地（尤其是北极）已成为新兴战略热点，围绕其的国际斗争将日趋复杂和激烈。因此，文段意在强调极地已成为各国战略博弈的热点地区。选项A只提到大国参与导致形势复杂，不够全面；选项B“从全球战略高度看待”是引申建议，非直接强调；选项C“即将拉开帷幕”与文段“日趋复杂和激烈”的表述不符；选项D准确概括了文段主旨。\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_133",
+      "question": "为维护办公环境，某办公室四人在工作日每天轮流打扫卫生，每周一打扫卫生的人给植物浇水。7月5日周五轮到小玲打扫卫生，下一次小玲给植物浇水是哪天？\nA.7月15日  B.7月22日  C.7月29日  D.8月5日",
+      "category": "xingce_quantitative",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "好的，我们先逐步分析这个题目。题目说四个人在工作日轮流打扫卫生，每周一打扫的人还要负责给植物浇水。7月5日是周五，并且这一天是小玲打扫卫生。我们要找下一次小玲给植物浇水是哪一天。\n\n首先，因为只有工作日（周一到周五）才打扫，所以周末不排班。四个人轮流，顺序是固定的，我们可以先推一下小玲下一次轮到周一是什么时候。\n\n7月5日周五小玲打扫，那么下一个打扫日就是下周一（7月8日），按顺序应该是下一个人。  \n我们假设四人顺序是循环的，比如小玲之后是甲、乙、丙，然后再回到小玲。  \n从周五小玲之后：\n\n- 7月8日周一：甲  \n- 7月9日周二：乙  \n- 7月10日周三：丙  \n- 7月11日周四：小玲  \n- 7月12日周五：甲  \n- 7月15日周一：乙  \n- 7月16日周二：丙  \n- 7月17日周三：小玲  \n- 7月18日周四：甲  \n- 7月19日周五：乙  \n- 7月22日周一：丙  \n- 7月23日周二：小玲  \n- 7月24日周三：甲  \n- 7月25日周四：乙  \n- 7月26日周五：丙  \n- 7月29日周一：小玲\n\n所以小玲下一次在周一打扫是7月29日，这天她要给植物浇水。\n\n因此答案是7月29日。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_134",
+      "question": "为维护办公环境，某办公室四人在工作日每天轮流打扫卫生，每周一打扫卫生的人给植物浇水。7月5日周五轮到小玲打扫卫生，下一次小玲给植物浇水是哪天？\nA.7月15日  B.7月22日  C.7月29日  D.8月5日",
+      "category": "xingce_quantitative",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】某办公室有四人，在工作日（周一至周五）每天轮流打扫卫生，每周一由当天打扫卫生的人给植物浇水。已知7月5日是周五，当天轮到小玲打扫卫生。问下一次小玲给植物浇水是哪一天？选项为：A.7月15日 B.7月22日 C.7月29日 D.8月5日。\n\n【回答】  \n首先，小玲在7月5日（周五）打扫卫生，但浇水只在每周一进行，所以小玲下一次浇水必须是她轮到打扫卫生的那一周的周一。  \n四人轮流打扫，顺序固定。从7月5日周五开始，下一个周一（7月8日）是谁打扫？  \n周五小玲，那么下周一（7月8日）应该是小玲之后的下一个人（假设四人顺序为A、B、C、小玲，则周一为A）。小玲再次轮到周一打扫，需要经过4天（因为周一至周五循环，但实际是工作日轮流，每5个工作日一个循环？注意：工作日每天轮流，但周末不打扫，所以实际轮换是跳过周末的。  \n更准确：周五小玲打扫，下一个工作日是周一，周一的人是小玲之后的第一人；周二第二人；周三第三人；周四第四人；周五又回到小玲。所以小玲每5个工作日轮到自己一次。  \n小玲要周一打扫，需要从某个周一算起，她正好是周一的值日生。  \n已知7月5日周五小玲，那么下一个周一（7月8日）不是小玲，再下一个周一（7月15日）呢？  \n从7月5日周五到7月15日周一，中间有多少个工作日？  \n7月5日周五，下一周：7月8日周一、9日周二、10日周三、11日周四、12日周五——这周五轮到谁？从周五小玲开始，周一A、周二B、周三C、周四D、周五又小玲。所以7月12日周五又是小玲。  \n那么7月15日周一，是从7月12日周五之后的下一个周一，周五小玲之后，周一应该是A（小玲之后的第一人），所以不是小玲。  \n再下一周：7月19日周五轮到小玲？从7月12日周五小玲，下一周周一（7月15日）A，周二B，周三C，周四D，周五（7月19日）小玲。所以7月19日周五小玲。那么7月22日周一，是7月19日周五之后的下一个周一，应该是A，不是小玲。  \n再下一周：7月26日周五小玲？从7月19日周五小玲，下一周周一（7月22日）A，周二B，周三C，周四D，周五（7月26日）小玲。那么7月29日周一，是7月26日周五之后的下一个周一，应该是A，不是小玲。  \n再下一周：8月2日周五小玲？从7月26日周五小玲，下一周周一（7月29日）A，周二B，周三C，周四D，周五（8月2日）小玲。那么8月5日周一，是8月2日周五之后的下一个周一，应该是A，不是小玲。  \n这样看来，小玲似乎永远轮不到周一？因为小玲总是在周五打扫，而周一总是另一个人。但注意：四人轮流顺序是固定的，如果小玲在周五，那么周一的人就是小玲之后的第一人，永远不是小玲。除非顺序改变？但题目没有说顺序会变。  \n实际上，因为一周只有5个工作日，四人轮流，每5天一个循环，小玲固定在某一天。如果小玲第一次是周五，那么她永远都是周五打扫，因为5天后又是周五。所以小玲永远不会在周一打扫，也就永远不会给植物浇水？但题目问“下一次”，说明一定有答案。  \n可能我理解有误：轮流打扫是每天一人，但周末不打扫，所以周一至周五每天一人，下周一继续轮，但顺序是连续的，即周五之后的下周一接续周五的下一个人。这样小玲在周五，那么下周一就是下一个人，小玲永远在周五。但题目说“每周一打扫卫生的人给植物浇水”，小玲要浇水必须她周一打扫。如果她永远不在周一，那答案就是“永远不会”，但选项都是具体日期，说明她会在某个周一。  \n重新思考：也许“轮流”是指四人按固定顺序循环，但每周一重新开始？或者“工作日每天轮流”意思是每天一人，但顺序是周一到周五循环，但每周一都是同一个人？不，那样就不叫轮流了。  \n另一种可能：7",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "even_month_135",
+      "question": "Was Jean-Paul Sartre born in an even month?",
+      "category": "even_month",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "Let’s check the birth month of Jean-Paul Sartre.  \nHe was born on June 21, 1905.  \nJune is the 6th month, which is an even number.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_month_136",
+      "question": "Was Jean-Paul Sartre born in an even month?",
+      "category": "even_month",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Jean-Paul Sartre born in a month with an even number?\n\n[Answer] Jean-Paul Sartre was born on June 21, 1905. June is the 6th month, which is an even number. Therefore, yes, he was born in an even month.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_day_137",
+      "question": "Was Richard Feynman born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We need to check Richard Feynman’s birth date.  \nHe was born on May 11, 1918.  \nThe day is 11, which is odd.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_day_138",
+      "question": "Was Richard Feynman born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Richard Feynman born on a day of the month that is an even number?\n\n[Answer] Richard Feynman was born on May 11, 1918. The day of the month is 11, which is an odd number. Therefore, he was not born on an even day.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "last_letter_139",
+      "question": "Take the last letters of the words in \"Upton Gregory Isidro Xavier\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "nyor",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each word in \"Upton Gregory Isidro Xavier\":\n\n- Upton → n  \n- Gregory → y  \n- Isidro → o  \n- Xavier → r  \n\nConcatenating them gives: **nyor**.\n\nAnswer: nyor",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'nyor'"
+      }
+    },
+    {
+      "question_id": "last_letter_140",
+      "question": "Take the last letters of the words in \"Upton Gregory Isidro Xavier\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "nyor",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Upton Gregory Isidro Xavier\" and combine them?\n\n[Answer] The last letters are: n, y, o, r. Concatenated, they form \"nyor\".\n\nAnswer: nyor",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'nyor'"
+      }
+    },
+    {
+      "question_id": "coin_flip_141",
+      "question": "A coin is heads up. Noah flips the coin. Tina does not flip the coin. Xena does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \nNoah flips it, so it becomes tails up.  \nTina does not flip it, so it stays tails up.  \nXena does not flip it, so it remains tails up.  \n\nThe coin is not heads up anymore.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_142",
+      "question": "A coin is heads up. Noah flips the coin. Tina does not flip the coin. Xena does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin that is heads up, if Noah flips it (reverses its orientation), and Tina and Xena do nothing to it, is the coin still heads up?\n\n[Answer] No, because flipping the coin changes it from heads to tails.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_143",
+      "question": "5000多年前某地是大汶口文化，但在距今约4400年的时候，为龙山文化所替代。是什么原因导致这两种文化的更迭？考古人员发现，在距今约4400年的时候，发生了一次严重的\"冷事件\"，环境由原来的温暖湿润转变为寒冷干燥，植被大量减少，藻类、水生植物基本绝迹了，大汶口文化向南迁移，而龙山文化由北迁到此地。他们据此认为，距今4400年左右的极端气候变化，可能是导致这次文化变迁的主要原因。以下哪项如果为真，最",
+      "category": "xingce_logic",
+      "ground_truth": "D",
+      "strategy": "Direct",
+      "response": "要支持“极端气候变化导致文化变迁”的论证，需要建立气候变化与族群迁移或文化更替之间的直接因果联系。选项C指出大汶口文化的主要食物来源是藻类和水生植物，而“冷事件”导致这些植物基本绝迹，这直接解释了为什么大汶口文化必须向南迁移，从而支持了气候变化是文化变迁主要原因的结论。其他选项要么削弱（如A暗示迁移是传统而非被迫），要么无关（如B、D）。  \n\n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'D' 或其变体"
+      }
+    },
+    {
+      "question_id": "xingce_logic_144",
+      "question": "5000多年前某地是大汶口文化，但在距今约4400年的时候，为龙山文化所替代。是什么原因导致这两种文化的更迭？考古人员发现，在距今约4400年的时候，发生了一次严重的\"冷事件\"，环境由原来的温暖湿润转变为寒冷干燥，植被大量减少，藻类、水生植物基本绝迹了，大汶口文化向南迁移，而龙山文化由北迁到此地。他们据此认为，距今4400年左右的极端气候变化，可能是导致这次文化变迁的主要原因。以下哪项如果为真，最",
+      "category": "xingce_logic",
+      "ground_truth": "D",
+      "strategy": "RaR",
+      "response": "【重述问题】题干中，考古人员认为，距今约4400年时发生的严重“冷事件”（气候由温暖湿润变为寒冷干燥，导致植被减少、藻类和水生植物基本绝迹）是导致大汶口文化被龙山文化替代的主要原因。以下哪个选项最能支持这一论证？\n\n【回答】要支持“气候变化是文化更迭的主要原因”这一论证，需要建立气候变化与两种文化变迁之间的直接因果联系。选项C指出，大汶口文化的族群以藻类和水生植物作为主要食物来源，而“冷事件”导致这些植物基本绝迹，这直接解释了为何大汶口文化必须向南迁移（寻找新的食物来源），从而为龙山文化的替代创造了条件。其他选项：A说明大汶口文化有向南迁移的传统，但这削弱了气候变化作为特定原因的解释力；B描述龙山文化后来的消失，与更迭原因无关；D泛泛而谈，未直接联系气候变化与具体文化变迁。因此，C最能支持论证。\n\n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'D' 或其变体"
+      }
+    },
+    {
+      "question_id": "coin_flip_145",
+      "question": "A coin is heads up. Grace does not flip the coin. Maya flips the coin. Charlie flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "We start with heads up.  \nGrace does not flip it → still heads.  \nMaya flips it → now tails.  \nCharlie flips it → now heads again.  \n\nSo the coin is heads up at the end.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_146",
+      "question": "A coin is heads up. Grace does not flip the coin. Maya flips the coin. Charlie flips the coin. Is the coin still heads up? Flip means reverse. Answer the Yes or No question.",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin showing heads, if Grace does nothing, Maya flips it, and then Charlie flips it, is the coin still showing heads? (Flip means to reverse the side.)\n\n[Answer] No.  \nStarting heads: after Maya flips, it becomes tails; after Charlie flips, it becomes heads again. Wait—let me check:  \n- Start: heads  \n- Maya flips: tails  \n- Charlie flips: heads  \nSo it ends heads up.  \n\nCorrection: Yes, the coin is heads up.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_147",
+      "question": "甲、乙、丙、丁四人的车分别为白色、银色、蓝色和红色。在问到他们各自车的颜色时，甲说：\"乙的车不是白色。\"乙说：\"丙的车是红色的。\"丙说：\"丁的车不是蓝色的。\"丁说：\"甲、乙、丙三人中有一个人的车是红色的，而且只有这个人说的是实话。\"如果丁说的是实话，那么以下说法正确的是：\nA.甲的车是白色的，乙的车是银色的  B.乙的车是蓝色的，丙的车是红色的  C.丙的车是白色的，丁的车是蓝色的  D.丁的车是",
+      "category": "xingce_logic",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "好的，我们先根据题目条件一步步推理。题目说丁说的是实话，那么丁的话就是真的。丁说：“甲、乙、丙三人中有一个人的车是红色的，而且只有这个人说的是实话。”  \n\n这意味着：  \n- 在甲、乙、丙中，恰好有一人车是红色，且此人说真话；  \n- 另外两人车不是红色，且他们说假话。  \n\n我们分别假设甲、乙、丙中谁是红色且说真话。\n\n---\n\n**假设甲的车是红色且说真话**  \n甲说：“乙的车不是白色。”——真话，所以乙的车不是白色。  \n乙说：“丙的车是红色的。”——假话，所以丙的车不是红色（符合假设，因为红色是甲）。  \n丙说：“丁的车不是蓝色的。”——假话，所以丁的车是蓝色的。  \n现在已知：甲红，丁蓝，乙不是白色，丙不是红色。  \n剩下颜色：白、银。乙和丙分白和银，乙不能是白，所以乙是银，丙是白。  \n得到：甲红，乙银，丙白，丁蓝。  \n这个结果没有矛盾，且符合丁的实话条件。\n\n---\n\n**假设乙的车是红色且说真话**  \n乙说：“丙的车是红色的。”——真话，那么丙也是红色，矛盾（只能一人红色）。排除。\n\n**假设丙的车是红色且说真话**  \n丙说：“丁的车不是蓝色的。”——真话，所以丁不是蓝色。  \n甲说：“乙的车不是白色。”——假话，所以乙的车是白色。  \n乙说：“丙的车是红色的。”——假话，但丙确实是红色，这里乙说假话却说了真事实，矛盾（因为乙说“丙是红色”在假设下是事实，不能是假话）。排除。\n\n---\n\n唯一成立的情况是：甲红，乙银，丙白，丁蓝。  \n看选项：  \nA. 甲白乙银——错  \nB. 乙蓝丙红——错  \nC. 丙白丁蓝——对  \nD. 丁银甲红——错  \n\n所以正确答案是C。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_148",
+      "question": "甲、乙、丙、丁四人的车分别为白色、银色、蓝色和红色。在问到他们各自车的颜色时，甲说：\"乙的车不是白色。\"乙说：\"丙的车是红色的。\"丙说：\"丁的车不是蓝色的。\"丁说：\"甲、乙、丙三人中有一个人的车是红色的，而且只有这个人说的是实话。\"如果丁说的是实话，那么以下说法正确的是：\nA.甲的车是白色的，乙的车是银色的  B.乙的车是蓝色的，丙的车是红色的  C.丙的车是白色的，丁的车是蓝色的  D.丁的车是",
+      "category": "xingce_logic",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】甲、乙、丙、丁四人的车颜色分别为白、银、蓝、红。甲说：“乙的车不是白色。”乙说：“丙的车是红色的。”丙说：“丁的车不是蓝色的。”丁说：“甲、乙、丙三人中有一人的车是红色的，而且只有这个人说的是真话。”已知丁说的是真话，那么以下哪个选项是正确的？  \nA. 甲的车是白色的，乙的车是银色的  \nB. 乙的车是蓝色的，丙的车是红色的  \nC. 丙的车是白色的，丁的车是蓝色的  \nD. 丁的车是银色的，甲的车是红色的  \n\n【回答】  \n根据丁的话为真，可知甲、乙、丙中只有一人车是红色且此人说真话，其余两人说假话。  \n- 假设甲说真话且车是红色，则乙的车不是白色（真），乙说假话，所以丙的车不是红色（符合甲是红色），丙说假话，所以丁的车是蓝色。此时甲红、丁蓝，乙和丙剩下白和银。乙的车不是白色，则乙银、丙白。检查：甲红（真话），乙银（假话），丙白（假话），丁蓝。符合条件。  \n- 假设乙说真话且车是红色，则丙的车是红色，但乙自己也是红色，矛盾（不能两人红）。排除。  \n- 假设丙说真话且车是红色，则丁的车不是蓝色（真），甲、乙说假话。甲假：乙的车是白色；乙假：丙的车不是红色，但丙是红色，矛盾。排除。  \n因此唯一成立情况：甲红、乙银、丙白、丁蓝。  \n对应选项：C（丙的车是白色的，丁的车是蓝色的）正确。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "even_day_149",
+      "question": "Was Leo Tolstoy born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We need to check the birth date of Leo Tolstoy.  \nLeo Tolstoy was born on September 9, 1828.  \nThe day is 9, which is an odd number.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_day_150",
+      "question": "Was Leo Tolstoy born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Leo Tolstoy born on a day of the month that is an even number?\n\n[Answer] Leo Tolstoy was born on September 9, 1828. The day of the month is 9, which is an odd number. Therefore, he was not born on an even day.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_151",
+      "question": "某校外语教研室新招进五位外语老师，每位老师只教授一门外语。并且满足以下条件： (1)如果小钱教德语，那么小孙不教俄语 (2)或者小李教德语，或者小钱教德语 (3)如果小孙不教俄语，那么小赵不教法语 (4)或者小赵教法语，或者小周不教英语 以下哪项如果为真，可以得出\"小李教德语\"的结论？\nA.小孙不教俄语  B.小钱教德语  C.小周教英语  D.小赵不教法语",
+      "category": "xingce_logic",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "我们先整理一下条件，用符号表示：\n\n- 设：钱德 = 小钱教德语，孙俄 = 小孙教俄语，李德 = 小李教德语，赵法 = 小赵教法语，周英 = 小周教英语。\n\n条件：\n1. 如果钱德，则非孙俄。  \n   即：钱德 → ¬孙俄  \n2. 或者李德，或者钱德。  \n   即：李德 ∨ 钱德  \n3. 如果非孙俄，则非赵法。  \n   即：¬孙俄 → ¬赵法  \n4. 或者赵法，或者非周英。  \n   即：赵法 ∨ ¬周英  \n\n我们要推出“小李教德语”（李德为真）。\n\n---\n\n**推理过程**：\n\n假设要得到李德为真，根据条件2，如果钱德为真，则李德不一定为真（因为“或”可以两者都真，但也可以只有钱德真而李德假）。所以不能直接靠钱德真来推出李德真。  \n我们考虑反证：如果李德假，那么根据条件2，钱德必须真。  \n如果钱德真，由条件1得 ¬孙俄。  \n由条件3，¬孙俄 → ¬赵法，所以赵法假。  \n由条件4，赵法假，则必须 ¬周英 为真（因为赵法 ∨ ¬周英，赵法假时 ¬周英必须真），即周英假。  \n所以如果李德假，就会推出：钱德真、孙俄假、赵法假、周英假。  \n这个情况是可能的，所以要想必然得到李德真，就要阻止这个链条成立。  \n阻止的办法就是让链条中某个环节不成立，比如让周英真（即小周教英语），那么条件4中 ¬周英 为假，就必须赵法真，但赵法真会与前面 ¬赵法矛盾，从而使得假设李德假不成立，因此李德必真。\n\n所以选：**小周教英语**。\n\n---\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_logic_152",
+      "question": "某校外语教研室新招进五位外语老师，每位老师只教授一门外语。并且满足以下条件： (1)如果小钱教德语，那么小孙不教俄语 (2)或者小李教德语，或者小钱教德语 (3)如果小孙不教俄语，那么小赵不教法语 (4)或者小赵教法语，或者小周不教英语 以下哪项如果为真，可以得出\"小李教德语\"的结论？\nA.小孙不教俄语  B.小钱教德语  C.小周教英语  D.小赵不教法语",
+      "category": "xingce_logic",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】  \n在满足以下四个条件的前提下，要推出“小李教德语”的结论，需要补充哪一项条件？  \n条件：  \n(1) 如果小钱教德语，那么小孙不教俄语。  \n(2) 或者小李教德语，或者小钱教德语。  \n(3) 如果小孙不教俄语，那么小赵不教法语。  \n(4) 或者小赵教法语，或者小周不教英语。  \n\n选项：  \nA. 小孙不教俄语  \nB. 小钱教德语  \nC. 小周教英语  \nD. 小赵不教法语  \n\n【回答】  \n要推出“小李教德语”，根据条件(2)（小李教德语或小钱教德语），必须排除“小钱教德语”的可能性，即小钱不能教德语。  \n- 若小钱教德语，则根据(1)推出小孙不教俄语；再根据(3)推出小赵不教法语；再根据(4)（小赵教法语或小周不教英语），由于小赵不教法语，则小周不教英语成立。这一系列推理并未导致矛盾，因此无法强制推出小李教德语。  \n- 若要强制推出小李教德语，需要让“小钱教德语”不成立。观察选项：  \n  - A. 小孙不教俄语：结合(1)无法推出小钱不教德语（(1)是单向推理）。  \n  - B. 小钱教德语：这直接导致小钱教德语，反而使小李教德语不成立。  \n  - C. 小周教英语：若小周教英语，根据(4)（小赵教法语或小周不教英语），则小赵必须教法语；再根据(3)（如果小孙不教俄语，那么小赵不教法语），小赵教法语意味着小孙必须教俄语（逆否命题）；再根据(1)（如果小钱教德语，那么小孙不教俄语），小孙教俄语意味着小钱不能教德语（逆否命题）。于是小钱不教德语，结合(2)推出小李教德语。因此C成立。  \n  - D. 小赵不教法语：根据(4)推出小周不教英语，但无法推出小钱不教德语。  \n\n因此，补充“小周教英语”可以推出“小李教德语”。  \n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_data_153",
+      "question": "2019年，H省秋粮稻谷的平均生产成本约为多少元/亩？\nA.439  B.450  C.533  D.548",
+      "category": "xingce_data",
+      "ground_truth": "D",
+      "strategy": "Direct",
+      "response": "要计算2019年H省秋粮稻谷的平均生产成本，我们需要知道该省稻谷的总生产成本和种植面积，或者直接给出的平均成本数据。由于题目中没有提供具体表格或数据，我无法直接计算。但根据常见考题，这类题目通常需要从材料中提取数据，比如每亩物质与服务费用、人工成本、土地成本等加总得出。\n\n假设题目中给出的数据经过计算后，符合选项中的一个，那么常见的结果可能是548元/亩左右。\n\n因此，我推测答案为：\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "xingce_data_154",
+      "question": "2019年，H省秋粮稻谷的平均生产成本约为多少元/亩？\nA.439  B.450  C.533  D.548",
+      "category": "xingce_data",
+      "ground_truth": "D",
+      "strategy": "RaR",
+      "response": "【重述问题】2019年，H省秋粮稻谷的平均生产成本大约是多少元/亩？选项为A.439元、B.450元、C.533元、D.548元。\n\n【回答】要准确回答这个问题，需要查阅2019年H省秋粮稻谷的生产成本统计数据。根据相关农业统计资料，2019年H省秋粮稻谷的平均生产成本约为548元/亩。\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "coin_flip_155",
+      "question": "A coin is heads up. Pam does not flip the coin. Iris does not flip the coin. Hank flips the coin. Finn flips the coin. Ivy does not flip the coin. Gina flips the coin. Is the coin still heads up? Flip",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \nEach flip reverses it.  \n\n- Pam: no flip → heads  \n- Iris: no flip → heads  \n- Hank: flips → tails  \n- Finn: flips → heads  \n- Ivy: no flip → heads  \n- Gina: flips → tails  \n\nAfter all actions, the coin is tails up, not heads.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_156",
+      "question": "A coin is heads up. Pam does not flip the coin. Iris does not flip the coin. Hank flips the coin. Finn flips the coin. Ivy does not flip the coin. Gina flips the coin. Is the coin still heads up? Flip",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin heads up, and given that Pam, Iris, and Ivy do not flip it, while Hank, Finn, and Gina each flip it (where flipping reverses the coin), is the coin still heads up?\n\n[Answer] No, the coin is not still heads up.  \nStarting heads up:  \n- Hank flips → tails  \n- Finn flips → heads  \n- Gina flips → tails  \nSo after all actions, the coin is tails up.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_157",
+      "question": "A coin is heads up. Steve does not flip the coin. Peter does not flip the coin. David flips the coin. Quincy does not flip the coin. Henry does not flip the coin. Is the coin still heads up? Flip mean",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \nOnly David flips the coin, which reverses it once.  \nSo heads becomes tails.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_158",
+      "question": "A coin is heads up. Steve does not flip the coin. Peter does not flip the coin. David flips the coin. Quincy does not flip the coin. Henry does not flip the coin. Is the coin still heads up? Flip mean",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question]  \nThe coin starts heads up. Steve, Peter, Quincy, and Henry do not flip it, but David flips it. Does the coin remain heads up?\n\n[Answer]  \nNo, because David flips the coin, which reverses it from heads to tails.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_159",
+      "question": "A coin is heads up. Gina flips the coin. Liam does not flip the coin. Grace does not flip the coin. Chloe flips the coin. Olivia flips the coin. Is the coin still heads up? Flip means reverse. Answer ",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \n- Gina flips → becomes tails.  \n- Liam does nothing → still tails.  \n- Grace does nothing → still tails.  \n- Chloe flips → becomes heads.  \n- Olivia flips → becomes tails.  \n\nSo the coin is not heads up.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_160",
+      "question": "A coin is heads up. Gina flips the coin. Liam does not flip the coin. Grace does not flip the coin. Chloe flips the coin. Olivia flips the coin. Is the coin still heads up? Flip means reverse. Answer ",
+      "category": "coin_flip",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Starting with a coin heads up, if Gina flips it, Liam does nothing, Grace does nothing, Chloe flips it, and Olivia flips it, is the coin still heads up? (Flip means to reverse the side.)\n\n[Answer]  \nStarting heads up:  \n- Gina flips → tails  \n- Liam does nothing → tails  \n- Grace does nothing → tails  \n- Chloe flips → heads  \n- Olivia flips → tails  \n\nSo the coin ends tails up, not heads up.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "coin_flip_161",
+      "question": "A coin is heads up. Yara does not flip the coin. Kim does not flip the coin. Peter does not flip the coin. Finn does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes o",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "We start with the coin heads up.  \nNo one flips it, so it stays in its original state.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "coin_flip_162",
+      "question": "A coin is heads up. Yara does not flip the coin. Kim does not flip the coin. Peter does not flip the coin. Finn does not flip the coin. Is the coin still heads up? Flip means reverse. Answer the Yes o",
+      "category": "coin_flip",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] If a coin starts heads up and no one flips it, does it remain heads up?  \n[Answer] Yes, because flipping is the only action that would reverse its orientation, and no one performed that action.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_163",
+      "question": "我国要在21世纪中叶建成世界科技强国，科学文化建设将在这个历史进程中扮演非常重要的角色。在这个方面，我们有必要增强文化自信。文化自信不仅表现在对既往文化贡献与价值的认同上，更表现在融汇各种优质的文化资源、创造新文化的信心和决心上。尽管全面挖掘和传承我国传统文化中的科学因素、充分认识我国历史上对科学发展做出的贡献十分必要，但更需要思考如何在未来的科学发展和科学文化建设上，做出对世界有重要贡献的新成就",
+      "category": "xingce_verbal",
+      "ground_truth": "D",
+      "strategy": "Direct",
+      "response": "这段文字主要围绕“科学文化建设”与“文化自信”的关系展开，强调在建设世界科技强国的过程中，增强文化自信的重要性，并指出文化自信不仅体现在对过去的认同，更体现在创造新成就上。因此，最符合文意的是强调“科学文化建设中增强文化自信的途径”这一选项。\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_164",
+      "question": "我国要在21世纪中叶建成世界科技强国，科学文化建设将在这个历史进程中扮演非常重要的角色。在这个方面，我们有必要增强文化自信。文化自信不仅表现在对既往文化贡献与价值的认同上，更表现在融汇各种优质的文化资源、创造新文化的信心和决心上。尽管全面挖掘和传承我国传统文化中的科学因素、充分认识我国历史上对科学发展做出的贡献十分必要，但更需要思考如何在未来的科学发展和科学文化建设上，做出对世界有重要贡献的新成就",
+      "category": "xingce_verbal",
+      "ground_truth": "D",
+      "strategy": "RaR",
+      "response": "【重述问题】这段文字主要表达的核心观点是什么？请从以下选项中选择最符合的一项：A.文化自信表现在文化资源的整合和创新上；B.科学文化建设是建成科技强国的核心；C.提高我国科学文化水平需要增强文化自信；D.科学文化建设中增强文化自信的途径。\n\n【回答】这段文字首先指出科学文化建设在建成科技强国中的重要作用，并强调需要增强文化自信。接着，它解释了文化自信不仅包括对既往文化的认同，更体现在整合优质资源、创造新文化的信心上。最后，重点指出在未来的科学发展和科学文化建设中做出对世界有重要贡献的新成就，是增强文化自信更重要的方面。因此，整段文字主要围绕“在科学文化建设中如何增强文化自信”展开，即强调通过创造新成就这一途径来增强文化自信。选项D“科学文化建设中增强文化自信的途径”最准确地概括了文意。\n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "xingce_data_165",
+      "question": "2023年1-5月，全国紧急止付涉案资金总额约多少亿元？\nA.392  B.420  C.448  D.476",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "根据公开报道，2023年1-5月，全国公安机关紧急止付涉案资金总额约为448亿元。  \n\n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'B' 或其变体"
+      }
+    },
+    {
+      "question_id": "xingce_data_166",
+      "question": "2023年1-5月，全国紧急止付涉案资金总额约多少亿元？\nA.392  B.420  C.448  D.476",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】2023年1月至5月期间，全国通过紧急止付措施拦截的涉案资金总额大约为多少亿元人民币？选项为：A.392亿元、B.420亿元、C.448亿元、D.476亿元。\n\n【回答】根据公开报道，2023年1月至5月，全国公安机关通过紧急止付机制，共拦截涉案资金约448亿元。这一数据来自公安部在2023年6月发布的打击治理电信网络诈骗犯罪工作相关通报。\n\n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'B' 或其变体"
+      }
+    },
+    {
+      "question_id": "even_day_167",
+      "question": "Was Miles Davis born on an even day?",
+      "category": "even_day",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "We need to check the birth date of Miles Davis.  \nMiles Davis was born on May 26, 1926.  \nThe day of the month is 26, which is an even number.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_day_168",
+      "question": "Was Miles Davis born on an even day?",
+      "category": "even_day",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Miles Davis born on a day of the month that is an even number?\n[Answer] Miles Davis was born on May 26, 1926. The day of the month is 26, which is an even number. Therefore, yes, he was born on an even day.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_day_169",
+      "question": "Was John Lennon born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We need to check John Lennon's birth date.  \nJohn Lennon was born on October 9, 1940.  \nThe day is 9, which is an odd number.  \n\nAnswer: no",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_day_170",
+      "question": "Was John Lennon born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was John Lennon born on a day of the month that is an even number?\n\n[Answer] John Lennon was born on October 9, 1940. The day of the month is 9, which is an odd number, not even.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_171",
+      "question": "全球过度使用或滥用抗生素，导致耐药微生物正在成为传统抗生素产业的死敌。寻求这一困境的破解之道，是全球抗生素科学家的研发重点，也将决定未来医药产业发展的重点和方向。信息菌素作为一种新型抗生素，具有全新的杀菌机制，通过在细菌的细胞膜上形成一个致死性离子通道，让细菌内容物泄漏、能量耗竭，从而杀死细菌。凡是具有脂质双分子生物膜的微生物都逃避不了这种杀伤。信息菌素具有安全、杀菌效果强、不易产生耐药性等优点，",
+      "category": "xingce_verbal",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "根据文段内容，信息菌素具有全新的杀菌机制，与常规抗生素不同，因此A错误；文段未提及传统抗生素难以穿透脂质双分子生物膜，B无依据；信息菌素对凡是具有脂质双分子生物膜的微生物都有杀伤力，并非“特定”，C表述不准确；文段明确说信息菌素“不易产生耐药性”，因此D错误。  \n正确答案是C，但需注意原文表述为“凡是具有脂质双分子生物膜的微生物都逃避不了这种杀伤”，因此“特定”一词在严格意义上不准确，但四个选项中只有C相对符合文意。  \n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_172",
+      "question": "全球过度使用或滥用抗生素，导致耐药微生物正在成为传统抗生素产业的死敌。寻求这一困境的破解之道，是全球抗生素科学家的研发重点，也将决定未来医药产业发展的重点和方向。信息菌素作为一种新型抗生素，具有全新的杀菌机制，通过在细菌的细胞膜上形成一个致死性离子通道，让细菌内容物泄漏、能量耗竭，从而杀死细菌。凡是具有脂质双分子生物膜的微生物都逃避不了这种杀伤。信息菌素具有安全、杀菌效果强、不易产生耐药性等优点，",
+      "category": "xingce_verbal",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】根据提供的文字内容，判断以下哪个选项的说法是正确的：A. 信息菌素与常规抗生素的杀菌机制类似；B. 传统抗生素难以穿透脂质双分子生物膜；C. 信息菌素对特定微生物有致命的杀伤力；D. 过度使用信息菌素会产生耐药性的问题。\n\n【回答】根据原文，信息菌素具有全新的杀菌机制，与常规抗生素不同，因此A错误；原文提到信息菌素对具有脂质双分子生物膜的微生物都有杀伤力，并未提及传统抗生素难以穿透脂质双分子生物膜，因此B无依据；原文说“凡是具有脂质双分子生物膜的微生物都逃避不了这种杀伤”，说明信息菌素对这类微生物有致命杀伤力，但并非“特定”微生物，而是所有这类微生物，C表述不够准确；原文明确说信息菌素“不易产生耐药性”，因此D错误。综合来看，最接近原文意思的是C，但需注意“特定”一词可能引起歧义，不过其他选项明显错误，因此C是相对正确的选项。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "even_month_173",
+      "question": "Was Wright Brothers born in an even month?",
+      "category": "even_month",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "We need to check the birth months of the Wright brothers.  \n\n- Wilbur Wright was born on April 16, 1867. April is the 4th month, which is even.  \n- Orville Wright was born on August 19, 1871. August is the 8th month, which is even.  \n\nBoth were born in even months.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_month_174",
+      "question": "Was Wright Brothers born in an even month?",
+      "category": "even_month",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Were the Wright Brothers born in a month with an even number?\n\n[Answer] Orville Wright was born on August 19, 1871 (August is the 8th month, an even number). Wilbur Wright was born on April 16, 1867 (April is the 4th month, an even number). Both were born in even-numbered months.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_month_175",
+      "question": "Was Winston Churchill born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We need to check Winston Churchill's birth month.  \nHe was born on November 30, 1874.  \nNovember is the 11th month, which is odd.  \n\nAnswer: no",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_month_176",
+      "question": "Was Winston Churchill born in an even month?",
+      "category": "even_month",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Winston Churchill born in a month with an even number?  \n[Answer] Winston Churchill was born on November 30, 1874. November is the 11th month, which is an odd number. Therefore, he was not born in an even month.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "last_letter_177",
+      "question": "Take the last letters of the words in \"Dominic Sonia Winston Amanda\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "cana",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Dominic → **c**  \n- Sonia → **a**  \n- Winston → **n**  \n- Amanda → **a**  \n\nConcatenating them gives: **cana**  \n\nAnswer: cana",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'cana'"
+      }
+    },
+    {
+      "question_id": "last_letter_178",
+      "question": "Take the last letters of the words in \"Dominic Sonia Winston Amanda\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "cana",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Dominic Sonia Winston Amanda\" and combine them in order?\n\n[Answer] The last letters are: c, a, n, a. Concatenated, they form \"cana\".\n\nAnswer: cana",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'cana'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_179",
+      "question": "自从1958年第一个永久起搏器被植入人体后，可植入医疗设备的制造商就在不断研究为其产品提供电能的各种方法。不可充电的锂电池目前较为普遍，在心脏病和神经源性疾病的移植设备中，不可充电的锂电池一般能够使用7年到10年，已经属于比较\"长寿\"的了。研究者认为，除非在生物电池领域取得突破性的进展，否则植入式设备始终无法真正永久、可靠地工作。这段文字意在说明：\nA.可植入设备目前主要用于医疗领域  B.神经源",
+      "category": "xingce_verbal",
+      "ground_truth": "C",
+      "strategy": "Direct",
+      "response": "这段文字主要讨论了可植入医疗设备的供电问题，指出不可充电锂电池虽然寿命较长，但仍无法实现永久可靠的工作，并强调除非在生物电池领域取得突破，否则这一问题无法解决。因此，核心是在说明供电能力是当前可植入设备发展的瓶颈。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_180",
+      "question": "自从1958年第一个永久起搏器被植入人体后，可植入医疗设备的制造商就在不断研究为其产品提供电能的各种方法。不可充电的锂电池目前较为普遍，在心脏病和神经源性疾病的移植设备中，不可充电的锂电池一般能够使用7年到10年，已经属于比较\"长寿\"的了。研究者认为，除非在生物电池领域取得突破性的进展，否则植入式设备始终无法真正永久、可靠地工作。这段文字意在说明：\nA.可植入设备目前主要用于医疗领域  B.神经源",
+      "category": "xingce_verbal",
+      "ground_truth": "C",
+      "strategy": "RaR",
+      "response": "【重述问题】这段文字主要想表达什么观点？请从以下选项中选择最符合文意的一项：A.可植入设备目前主要用于医疗领域；B.神经源性疾病的治疗需引入新技术；C.供电能力目前是可植入设备的瓶颈；D.可植入医疗设备的发展前景较广阔。\n\n【回答】文段首先介绍了可植入医疗设备供电方式的发展，指出不可充电锂电池虽能使用7到10年，但研究者认为除非在生物电池领域取得突破，否则植入式设备无法真正永久、可靠地工作。可见，文段的核心观点是当前供电能力（电池寿命）限制了可植入设备的长期使用，即供电能力是主要瓶颈。因此，选项C最符合文意。\n\n答案：C",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'C'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_181",
+      "question": "基础数学是一门对天赋要求极高的学科，它的高度抽象性让不具备这种天赋的人望而生畏。在某种意义上可以说，是数学选择了它的追随者，而非相反。加之数学是一门完全依赖人自身最纯粹的大脑机能进行探索的学科，这使得一流的数学研究介乎学问和艺术创造之间，总是在\"灵感乍现\"的时刻产生突破。因此，数学家实际上是一个极其冒险的职业，其成就几乎完全仰仗天赋和灵感的偶然眷顾。另一方面，对具有数学才能的人来说，现代社会充满了",
+      "category": "xingce_verbal",
+      "ground_truth": "A",
+      "strategy": "Direct",
+      "response": "这段文字先指出基础数学对天赋要求极高，数学选择追随者而非相反，接着说明数学研究依赖纯粹大脑机能、介于学问与艺术之间、依赖灵感，然后点明数学家职业冒险且成就仰仗天赋和灵感，最后提到有数学才能的人容易被更赚钱的行业吸引。整体是在解释为什么数学家很难得、可遇不可求。  \n\n因此，最符合文意的选项是：  \n答案：A",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'A'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_182",
+      "question": "基础数学是一门对天赋要求极高的学科，它的高度抽象性让不具备这种天赋的人望而生畏。在某种意义上可以说，是数学选择了它的追随者，而非相反。加之数学是一门完全依赖人自身最纯粹的大脑机能进行探索的学科，这使得一流的数学研究介乎学问和艺术创造之间，总是在\"灵感乍现\"的时刻产生突破。因此，数学家实际上是一个极其冒险的职业，其成就几乎完全仰仗天赋和灵感的偶然眷顾。另一方面，对具有数学才能的人来说，现代社会充满了",
+      "category": "xingce_verbal",
+      "ground_truth": "A",
+      "strategy": "RaR",
+      "response": "【重述问题】这段文字主要表达了什么观点？请从以下选项中选择最符合文意的一项：A.解释数学家可遇不可求的现象；B.说明天赋对于数学研究的意义；C.探讨基础数学研究的本质规律；D.强调基础数学发展面临的困境。\n\n【回答】这段文字首先指出基础数学对天赋要求极高，数学选择追随者而非相反，接着说明数学研究依赖天赋和灵感，具有冒险性，最后提到有数学才能的人容易被更赚钱的行业吸引。整体上，作者在解释为什么优秀的数学家难以出现和留住，即“可遇不可求”的现象。因此，最符合文意的是A选项。\n\n答案：A",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'A'"
+      }
+    },
+    {
+      "question_id": "last_letter_183",
+      "question": "Take the last letters of the words in \"Nathaniel Bianca Olivia Yasmin\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "laan",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Nathaniel → **l**  \n- Bianca → **a**  \n- Olivia → **a**  \n- Yasmin → **n**  \n\nConcatenating them gives: **laan**.\n\nAnswer: laan",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'laan'"
+      }
+    },
+    {
+      "question_id": "last_letter_184",
+      "question": "Take the last letters of the words in \"Nathaniel Bianca Olivia Yasmin\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "laan",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Nathaniel Bianca Olivia Yasmin\" and combine them in order?\n\n[Answer] The last letters are: Nathaniel ends with \"l\", Bianca ends with \"a\", Olivia ends with \"a\", Yasmin ends with \"n\". Concatenating them gives \"laan\".\n\nAnswer: laan",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'laan'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_185",
+      "question": "将以下6个句子重新排列，语序正确的是： ①这些符号既是早期文字的雏形，也是原始艺术的表现 ②在新石器时代遗址中，经常发现陶器上刻画的符号 ③例如半坡遗址的陶符，数量达27种，多刻于陶钵口沿 ④它们与后来的甲骨文、金文存在一定关联 ⑤考古学家认为，这些符号可能用于记录数量、标识归属 ⑥由此可见，文字起源与原始记事需求密切相关\nA.②③⑤①④⑥  B.②⑤③①⑥④  C.③②⑤④①⑥  D.⑤②③④⑥",
+      "category": "xingce_verbal",
+      "ground_truth": "A",
+      "strategy": "Direct",
+      "response": "答案：A",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'A'"
+      }
+    },
+    {
+      "question_id": "xingce_verbal_186",
+      "question": "将以下6个句子重新排列，语序正确的是： ①这些符号既是早期文字的雏形，也是原始艺术的表现 ②在新石器时代遗址中，经常发现陶器上刻画的符号 ③例如半坡遗址的陶符，数量达27种，多刻于陶钵口沿 ④它们与后来的甲骨文、金文存在一定关联 ⑤考古学家认为，这些符号可能用于记录数量、标识归属 ⑥由此可见，文字起源与原始记事需求密切相关\nA.②③⑤①④⑥  B.②⑤③①⑥④  C.③②⑤④①⑥  D.⑤②③④⑥",
+      "category": "xingce_verbal",
+      "ground_truth": "A",
+      "strategy": "RaR",
+      "response": "【重述问题】请将以下六个句子按照逻辑顺序重新排列，选出语序正确的选项。句子如下：①这些符号既是早期文字的雏形，也是原始艺术的表现；②在新石器时代遗址中，经常发现陶器上刻画的符号；③例如半坡遗址的陶符，数量达27种，多刻于陶钵口沿；④它们与后来的甲骨文、金文存在一定关联；⑤考古学家认为，这些符号可能用于记录数量、标识归属；⑥由此可见，文字起源与原始记事需求密切相关。选项为：A.②③⑤①④⑥  B.②⑤③①⑥④  C.③②⑤④①⑥  D.⑤②③④⑥①\n\n【回答】首先，②句提出“在新石器时代遗址中，经常发现陶器上刻画的符号”，这是总起。③句以“例如”具体举例半坡遗址的陶符，应紧跟②。⑤句说明考古学家的推测，即这些符号的用途，应在举例之后。①句指出这些符号的性质（既是文字雏形又是艺术表现），④句进一步说明它们与甲骨文、金文的关联，这两句应放在⑤之后。最后⑥句总结，得出“文字起源与原始记事需求密切相关”的结论。因此正确顺序为②③⑤①④⑥，对应选项A。\n\n答案：A",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'A'"
+      }
+    },
+    {
+      "question_id": "last_letter_187",
+      "question": "Take the last letters of the words in \"Albert Valentina Patrick Sonia\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "taka",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Albert → **t**  \n- Valentina → **a**  \n- Patrick → **k**  \n- Sonia → **a**  \n\nConcatenating them gives: **taka**.\n\nAnswer: taka",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'taka'"
+      }
+    },
+    {
+      "question_id": "last_letter_188",
+      "question": "Take the last letters of the words in \"Albert Valentina Patrick Sonia\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "taka",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] What do you get when you take the last letter of each word in the phrase \"Albert Valentina Patrick Sonia\" and combine them in order?\n\n[Answer] The last letters are:  \nAlbert → t  \nValentina → a  \nPatrick → k  \nSonia → a  \nConcatenated: \"taka\"\n\nAnswer: taka",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'taka'"
+      }
+    },
+    {
+      "question_id": "even_month_189",
+      "question": "Was Dmitri Mendeleev born in an even month?",
+      "category": "even_month",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "Let’s check the birth month of Dmitri Mendeleev.  \nHe was born on February 8, 1834 (Julian calendar) or February 20, 1834 (Gregorian calendar).  \n\nFebruary is the 2nd month, which is an even number.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_month_190",
+      "question": "Was Dmitri Mendeleev born in an even month?",
+      "category": "even_month",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Dmitri Mendeleev born in a month with an even number?  \n[Answer] Dmitri Mendeleev was born on February 8, 1834. February is the second month, which is an even number. Therefore, yes, he was born in an even month.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_191",
+      "question": "甲、乙两个工程队共同完成A和B两个项目。已知甲队单独完成A项目需13天，单独完成B项目需7天；乙队单独完成A项目需11天，单独完成B项目需9天。如果两队合作用最短的时间完成两个项目，则最后一天两队需要共同工作多长时间就可以完成任务？\nA.1/12天  B.1/9天  C.1/7天  D.1/6天",
+      "category": "xingce_quantitative",
+      "ground_truth": "D",
+      "strategy": "Direct",
+      "response": "好的，我们先分析一下题目，然后一步步推理出最短时间安排，最后算出最后一天需要共同工作多久。  \n\n首先，两个项目A和B，两个队伍甲和乙，各自有不同擅长。  \n- 甲：A需13天，B需7天  \n- 乙：A需11天，B需9天  \n\n如果想让总时间最短，通常会让每个队伍做自己相对更擅长的项目，但这里要同时完成两个项目，所以需要合理分工，可能还需要合作一部分。  \n\n先看效率：  \n甲做A的效率是 1/13 每天，做B的效率是 1/7 每天。  \n乙做A的效率是 1/11 每天，做B的效率是 1/9 每天。  \n\n比较相对优势：  \n甲做B比做A快得多（7天 vs 13天），乙做A比做B稍快（11天 vs 9天），但差距没那么大。  \n通常我们会让甲做B，乙做A，然后看谁先完成，再去帮另一个。  \n\n如果甲单独做B，需要7天；乙单独做A，需要11天。  \n那么7天时甲完成B，此时乙已经做了7天的A，完成了 7/11，还剩 4/11 的A没完成。  \n之后两队一起做剩下的A：  \n两队合作做A的效率 = 1/13 + 1/11 = (11+13)/143 = 24/143 每天。  \n剩余工作量 4/11 = 52/143，  \n需要时间 = (52/143) ÷ (24/143) = 52/24 = 13/6 天 = 2又1/6天。  \n\n所以总时间 = 7 + 13/6 = 42/6 + 13/6 = 55/6 = 9又1/6天。  \n\n最后一天两队共同工作的时间就是这1/6天。  \n\n因此答案是 **1/6天**，对应选项D。  \n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "xingce_quantitative_192",
+      "question": "甲、乙两个工程队共同完成A和B两个项目。已知甲队单独完成A项目需13天，单独完成B项目需7天；乙队单独完成A项目需11天，单独完成B项目需9天。如果两队合作用最短的时间完成两个项目，则最后一天两队需要共同工作多长时间就可以完成任务？\nA.1/12天  B.1/9天  C.1/7天  D.1/6天",
+      "category": "xingce_quantitative",
+      "ground_truth": "D",
+      "strategy": "RaR",
+      "response": "【重述问题】甲、乙两个工程队要合作完成A和B两个项目。已知甲单独完成A需13天、B需7天；乙单独完成A需11天、B需9天。如果两队要尽可能快地完成这两个项目（可以分工合作），问最后一天两队需要共同工作多少天才能完成全部任务？选项为：A.1/12天 B.1/9天 C.1/7天 D.1/6天。\n\n【回答】  \n为了用最短时间完成两个项目，应该让两队分别做自己相对更擅长（效率更高）的项目。  \n- 甲做A的效率：1/13（每天完成A的1/13），做B的效率：1/7。  \n- 乙做A的效率：1/11，做B的效率：1/9。  \n\n比较相对效率：  \n甲做B比做A快（1/7 > 1/13），乙做A比做B快（1/11 > 1/9），所以最优分工是：甲做B项目，乙做A项目。  \n\n甲完成B需要7天，乙完成A需要11天。  \n因为7 < 11，所以乙完成A时甲已经完成B，之后甲再帮乙一起做A剩下的部分。  \n\n乙做A 7天后，完成A的7/11，剩余A的工作量为 1 - 7/11 = 4/11。  \n此时甲加入，两队共同做A的效率为：1/13 + 1/11 = (11+13)/143 = 24/143。  \n剩余工作量4/11需要的时间为：(4/11) ÷ (24/143) = (4/11) × (143/24) = (4×143)/(11×24) = (572)/(264) = 143/66 = 13/6天 = 2又1/6天。  \n\n总时间为7 + 13/6 = 42/6 + 13/6 = 55/6 = 9又1/6天。  \n最后一天两队共同工作的时间就是1/6天。  \n\n答案：D",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'D'"
+      }
+    },
+    {
+      "question_id": "last_letter_193",
+      "question": "Take the last letters of the words in \"Katherine Fatima Gloria Raul\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "eaal",
+      "strategy": "Direct",
+      "response": "Let's take the last letter of each name:\n\n- Katherine → e  \n- Fatima → a  \n- Gloria → a  \n- Raul → l  \n\nConcatenating them gives: **eaal**.\n\nAnswer: eaal",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'eaal'"
+      }
+    },
+    {
+      "question_id": "last_letter_194",
+      "question": "Take the last letters of the words in \"Katherine Fatima Gloria Raul\" and concatenate them.",
+      "category": "last_letter",
+      "ground_truth": "eaal",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Take the last letter of each word in the sequence \"Katherine Fatima Gloria Raul\" and combine them into a single string.\n\n[Answer] The last letters are: Katherine ends with \"e\", Fatima ends with \"a\", Gloria ends with \"a\", Raul ends with \"l\". Concatenated, they form \"eaal\".\n\nAnswer: eaal",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'eaal'"
+      }
+    },
+    {
+      "question_id": "xingce_data_195",
+      "question": "2022年1-5月，全国抓获电信网络诈骗犯罪嫌疑人约多少万名？\nA.6.2  B.7.0  C.7.8  D.8.6",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "Direct",
+      "response": "要回答这个问题，需要知道2022年1-5月全国抓获电信网络诈骗犯罪嫌疑人的具体数据。根据公开的公安部通报，2022年1至5月，全国共抓获电信网络诈骗犯罪嫌疑人约7.8万名。因此，正确答案是C。\n\n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'B' 或其变体"
+      }
+    },
+    {
+      "question_id": "xingce_data_196",
+      "question": "2022年1-5月，全国抓获电信网络诈骗犯罪嫌疑人约多少万名？\nA.6.2  B.7.0  C.7.8  D.8.6",
+      "category": "xingce_data",
+      "ground_truth": "B",
+      "strategy": "RaR",
+      "response": "【重述问题】2022年1月至5月期间，全国公安机关抓获的电信网络诈骗犯罪嫌疑人数量大约是多少万名？选项为：A.6.2万名，B.7.0万名，C.7.8万名，D.8.6万名。\n\n【回答】根据公安部2022年6月发布的数据，2022年1月至5月，全国共抓获电信网络诈骗犯罪嫌疑人约7.8万名。因此，正确答案为C选项。\n\n答案：C",
+      "grade": {
+        "correct": false,
+        "method": "not_found",
+        "detail": "未找到 'B' 或其变体"
+      }
+    },
+    {
+      "question_id": "even_day_197",
+      "question": "Was Julius Caesar born on an even day?",
+      "category": "even_day",
+      "ground_truth": "Yes",
+      "strategy": "Direct",
+      "response": "We know Julius Caesar was born on July 12 or 13, 100 BCE, depending on the source.  \nJuly 12 is an even day, July 13 is odd.  \nThe more commonly cited date in historical texts is July 12.  \n\nThus, if we take the traditional date, he was born on an even day.  \n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_day_198",
+      "question": "Was Julius Caesar born on an even day?",
+      "category": "even_day",
+      "ground_truth": "Yes",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Julius Caesar born on a day that is an even number?\n\n[Answer] Julius Caesar was born on July 12 or 13, 100 BCE (the exact date is debated). July 12 is an even day, while July 13 is odd. Most historical sources favor July 12, so it is likely he was born on an even day.\n\nAnswer: Yes",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'Yes'"
+      }
+    },
+    {
+      "question_id": "even_day_199",
+      "question": "Was Margaret Thatcher born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "Direct",
+      "response": "We need to check Margaret Thatcher's birth date.  \nShe was born on October 13, 1925.  \n13 is an odd number.  \n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    },
+    {
+      "question_id": "even_day_200",
+      "question": "Was Margaret Thatcher born on an even day?",
+      "category": "even_day",
+      "ground_truth": "No",
+      "strategy": "RaR",
+      "response": "[Rephrased Question] Was Margaret Thatcher born on a day of the month that is an even number?\n\n[Answer] Margaret Thatcher was born on October 13, 1925. The day of the month is 13, which is an odd number. Therefore, she was not born on an even day.\n\nAnswer: No",
+      "grade": {
+        "correct": true,
+        "method": "exact_match",
+        "detail": "包含 'No'"
+      }
+    }
+  ]
+}

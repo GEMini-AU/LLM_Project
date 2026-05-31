@@ -1,4 +1,7 @@
-"""dataset_combined.json — 随机抽20题, Direct vs RaR"""
+"""dataset_combined.json — Direct vs RaR
+用法: python run_combined.py      # 全量100题
+      python run_combined.py 20   # 随机抽20题
+"""
 import json, time, random, re, os, sys
 from datetime import datetime
 from openai import OpenAI
@@ -8,11 +11,10 @@ from prompts import DIRECT_PROMPT, RAR_PROMPT, DIRECT_PROMPT_EN, RAR_PROMPT_EN
 from auto_grader import grade_answer
 from collections import defaultdict, Counter
 
-client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], base_url=os.environ["OPENAI_BASE_URL"])
+client = OpenAI(api_key=os.environ["OPENAI_API_KEY"], base_url=os.environ["OPENAI_BASE_URL"], timeout=120)
 MODEL = os.environ.get("MODEL_NAME", "deepseek-chat")
 random.seed(42)
 
-# 加载
 with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "dataset_combined.json"), encoding="utf-8") as f:
     data = json.load(f)
 
@@ -24,7 +26,6 @@ for t, n in sorted(types.items()):
     print(f"  {t}: {n}")
 print(f"总调用: {len(sample)*2} 次\n")
 
-# 判断中文: xingce_ 开头
 cn_strategies = {"Direct": DIRECT_PROMPT, "RaR": RAR_PROMPT}
 en_strategies = {"Direct": DIRECT_PROMPT_EN, "RaR": RAR_PROMPT_EN}
 
@@ -36,23 +37,54 @@ for q in sample:
     for sname, sprompt in strategies.items():
         current += 1
         prompt = sprompt.format(question=q["question"])
-        print(f"[{current}/{len(sample)*2}] {q['task_name']} — {sname}")
+        print(f"[{current}/{len(sample)*2}] {q['task_name']} — {sname}", end="", flush=True)
 
-        r = client.chat.completions.create(
-            model=MODEL, messages=[{"role": "user", "content": prompt}],
-            temperature=0.0, max_tokens=1024)
-        resp = r.choices[0].message.content.strip()
+        # 带重试的 API 调用
+        resp = ""
+        for attempt in range(3):
+            try:
+                r = client.chat.completions.create(
+                    model=MODEL, messages=[{"role": "user", "content": prompt}],
+                    temperature=0.0, max_tokens=2048)
+                resp = r.choices[0].message.content.strip()
+                break
+            except Exception as e:
+                print(f"  (attempt {attempt+1} failed: {type(e).__name__}: {e})", end="", flush=True)
+                time.sleep(5)
+        else:
+            print("  *** SKIP ***")
 
         # 判分
         ans = q["answer"]
-        acceptable = [ans, ans.lower(), ans.upper()]
-        if ans.lower() in ("yes", "no"):
-            acceptable += ["Yes", "yes", "YES", "No", "no", "NO"]
-        # 行测ABCD
-        if re.match(r'^[A-D]$', ans):
-            acceptable += [ans, ans.lower(), ans.upper()]
 
-        grade = grade_answer(resp, ans, acceptable, "contains")
+        # RaR 有结构化输出，从最后一行提取 "答案：X" 或 "Answer: X"
+        if sname == "RaR":
+            lines = [l.strip() for l in resp.split("\n") if l.strip()]
+            extract = None
+            if lines:
+                last = lines[-1]
+                m = re.search(r'(?:答案|Answer)[：:\s]*([^\s。.]+)', last, re.IGNORECASE)
+                if m:
+                    extract = m.group(1).strip().rstrip(".。")
+            if extract:
+                grade = grade_answer(extract, ans, [ans, ans.lower(), ans.upper()], "contains")
+            else:
+                acceptable = [ans, ans.lower(), ans.upper()]
+                if ans.lower() in ("yes", "no"):
+                    acceptable += ["Yes", "yes", "YES", "No", "no", "NO"]
+                grade = grade_answer(resp, ans, acceptable, "contains")
+        else:
+            # Direct — 完整回答匹配（ABCD题只用末尾200字避免选项干扰）
+            grading_text = resp
+            if re.match(r'^[A-D]$', ans):
+                # 找末尾独立ABCD字母
+                tail = resp[-200:]
+                letters = re.findall(r'\b([A-D])\b', tail)
+                grading_text = letters[-1] if letters else tail
+            acceptable = [ans, ans.lower(), ans.upper()]
+            if ans.lower() in ("yes", "no"):
+                acceptable += ["Yes", "yes", "YES", "No", "no", "NO"]
+            grade = grade_answer(grading_text, ans, acceptable, "contains")
 
         results.append({
             "question_id": f"{q['task_name']}_{current}",
@@ -64,7 +96,7 @@ for q in sample:
             "grade": grade,
         })
         ok = "+" if grade["correct"] else "-"
-        print(f"  {ok} {grade['detail']}")
+        print(f"  {ok} {grade['detail']}", flush=True)
         time.sleep(0.2)
 
 # 统计
@@ -77,7 +109,6 @@ for r in results:
     cat_acc[r["category"]][r["strategy"]]["c"] += r["grade"]["correct"]
 
 print(f"\n{'='*60}")
-print("准确率总览")
 for s in ["Direct", "RaR"]:
     a = acc[s]
     print(f"  {s}: {a['c']}/{a['t']} = {round(a['c']/a['t']*100, 1)}%")
@@ -89,9 +120,8 @@ for cat in sorted(cat_acc.keys()):
     ra = round(r["c"]/r["t"]*100, 1) if r["t"] > 0 else 0
     print(f"  {cat}: Direct={da}% | RaR={ra}%")
 
-# 保存
 ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-fname = f"combined_{MODEL}_n20_{ts}.json"
+fname = f"combined_{MODEL}_n{n}_{ts}.json"
 out = {
     "metadata": {
         "model": MODEL, "timestamp": ts, "total": len(sample),
@@ -102,10 +132,7 @@ out = {
             for s in ["Direct", "RaR"]
         },
         "accuracy_by_category": {
-            cat: {
-                s: round(cat_acc[cat][s]["c"]/cat_acc[cat][s]["t"]*100, 1)
-                for s in ["Direct", "RaR"]
-            }
+            cat: {s: round(cat_acc[cat][s]["c"]/cat_acc[cat][s]["t"]*100, 1) for s in ["Direct", "RaR"]}
             for cat in cat_acc
         },
     },
